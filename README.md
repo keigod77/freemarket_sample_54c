@@ -19,7 +19,6 @@
 | address | string | null :false |
 | building | string ||
 | phone_number | string ||
-| card | reference | foreign_key: true |
 | email | string | null :false, unique |
 | password | string | null :false |
 | my_good_evaluation | integer ||
@@ -27,7 +26,7 @@
 | my_bad_evaluation | integer ||
 ### Assoiation
 - has_many :items
-- has_one :card
+- has_many :card
 - has_many :comments
 - has_many :goods
 
@@ -48,13 +47,17 @@
 | region | string | null :false |
 | days_to_delivery | string | null :false |
 | price | integer | null :false |
+| seller_id | integer | null :false |
+| buyer_id | integer | null :false |
+
+
 ### Assoiation
 - belongs_to :user
 - belongs_to :bland
 - belongs_to :size
 - has_many :goods
 - has_many :comments
-- has_one :category
+- has_many :category
 
 
 ## goodsテーブル
@@ -79,11 +82,10 @@
 ## cardsテーブル
 | Column | Type | Options |
 | ------ | ---- | ------- |
-| user_id | integer | null :false |
-| card_number | integer | null :false |
-| expiration_month | integer | null :false |
-| expiration_year | integer | null :false |
-| security_code | integer | null :false |
+| user | reference | null :false |
+| customer_id | string | null :false |
+| card_id | string | null :false |
+
 ### Assoiation
 - belongs_to :user
 
@@ -96,7 +98,7 @@
 ### Assoiation
 - belongs_to :item
 - belongs_to :parent, class_name: :Category
-- belongs_to :childlen, class_name: :Category, foreign_key: :parent_id
+- has_many :childlen, class_name: :Category, foreign_key: :parent_id
 
 
 ## blandsテーブル
