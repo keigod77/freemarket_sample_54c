@@ -11,7 +11,18 @@
   .swiper-button-prev
   .swiper-button-next
 
-.products-container
+.favcategory-container
+  %h2
+    人気のカテゴリー
+  %ul.favcategory-box
+    %li.item
+      =link_to "レディース", root_path
+    %li.item
+      =link_to "メンズ", root_path
+    %li.item
+      =link_to "家電・スマホ・カメラ", root_path
+    %li.item
+      =link_to "おもちゃ・ホビー・グッズ", root_path
 //SwiperSlideScript
 :javascript
   var mySwiper = new Swiper ('.swiper-container', {

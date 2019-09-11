@@ -30,3 +30,9 @@
     display:block;
   }
 }
+
+@mixin boxDesignBorderRadius($color){
+  border: thin 3px $color;
+  border-radius: 16px;
+  background-color: $color;
+}
