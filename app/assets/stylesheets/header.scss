@@ -4,22 +4,23 @@ header{
   border-bottom: solid 1px rgb(233, 233, 233);
   .header-wrap{
     height: 100px;
+    width: 1020px;
     padding-top: 10px;
-    margin: 0 210px;
+    margin: 0 auto;
     box-sizing: border-box;
     
     .header-upper{
       height: 43%;
-      @include clearfix();
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
 
       &__logo{
-        width: 13%;
-        float: left;
+        width: 133px;
       }
 
       &__search-field{
         position: relative;
-        float: right;
 
         input[type=text]{
           height: 32px;
@@ -31,7 +32,6 @@ header{
           box-sizing: border-box;
           font-size: 15px;
         }
-
         label{
           display: none;
         }
@@ -69,13 +69,17 @@ header{
         }
 
         &__category-search{
+          display: block;
           margin-right: 20px;
           @include linkHover();
+          @include spreadClickRange(); 
         }
         
 
         &__brand-search{
+          display: block;
           @include linkHover();
+          @include spreadClickRange();
         }
       }
 

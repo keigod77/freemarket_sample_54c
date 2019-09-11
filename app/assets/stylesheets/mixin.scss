@@ -24,3 +24,9 @@
     }
   }
 }
+
+@mixin spreadClickRange(){
+  & a{
+    display:block;
+  }
+}
