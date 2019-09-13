@@ -15,14 +15,135 @@
   %h2
     人気のカテゴリー
   %ul.favcategory-box
-    %li.item
+    %li.favcategory-box__item
       =link_to "レディース", root_path
-    %li.item
+    %li.favcategory-box__item
       =link_to "メンズ", root_path
-    %li.item
+    %li.favcategory-box__item
       =link_to "家電・スマホ・カメラ", root_path
-    %li.item
+    %li.favcategory-box__item
       =link_to "おもちゃ・ホビー・グッズ", root_path
+
+.products-container
+  .new-products-box
+    .category-box
+      .category-box-upper
+        %h3.category-box-upper__heading
+          新着アイテム
+        =link_to "もっと見る >", root_path
+        
+      .category-box-lower
+        %ul
+          %li.category-item
+            %figure.product
+              .product__image-box
+                =image_tag "/assets/bannartop.png",alt:"テスト画像"
+              .product__price
+                %span
+                  ¥2,000
+              %figcaption
+                %span
+                  テスト
+          %li.category-item
+            %figure.product
+              .product__image-box
+                =image_tag "/assets/bannartop.png",alt:"テスト画像"
+              .product__price
+                %span
+                  ¥2,000
+              %figcaption
+                %span
+                  テスト
+          %li.category-item
+            %figure.product
+              .product__image-box
+                =image_tag "/assets/bannartop.png",alt:"テスト画像"
+              .product__price
+                %span
+                  ¥2,000
+              %figcaption
+                %span
+                  テスト
+          %li.category-item
+            %figure.product
+              .product__image-box
+                =image_tag "/assets/bannartop.png",alt:"テスト画像"
+              .product__price
+                %span
+                  ¥2,000
+              %figcaption
+                %span
+                  テスト
+          %li.category-item
+            %figure.product
+              .product__image-box
+                =image_tag "/assets/bannartop.png",alt:"テスト画像"
+              .product__price
+                %span
+                  ¥2,000
+              %figcaption
+                %span
+                  テスト
+            %figure.product
+              .product__image-box
+                =image_tag "/assets/bannartop.png",alt:"テスト画像"
+              .product__price
+                %span
+                  ¥2,000
+              %figcaption
+                %span
+                  テスト
+          %li.category-item
+            %figure.product
+              .product__image-box
+                =image_tag "/assets/bannartop.png",alt:"テスト画像"
+              .product__price
+                %span
+                  ¥2,000
+              %figcaption
+                %span
+                  テスト
+          %li.category-item
+            %figure.product
+              .product__image-box
+                =image_tag "/assets/bannartop.png",alt:"テスト画像"
+              .product__price
+                %span
+                  ¥2,000
+              %figcaption
+                %span
+                  テスト
+          %li.category-item
+            %figure.product
+              .product__image-box
+                =image_tag "/assets/bannartop.png",alt:"テスト画像"
+              .product__price
+                %span
+                  ¥2,000
+              %figcaption
+                %span
+                  テスト
+          %li.category-item
+            %figure.product
+              .product__image-box
+                =image_tag "/assets/bannartop.png",alt:"テスト画像"
+              .product__price
+                %span
+                  ¥2,000
+              %figcaption
+                %span
+                  テスト
+          %li.category-item
+            %figure.product
+              .product__image-box
+                =image_tag "/assets/bannartop.png",alt:"テスト画像"
+              .product__price
+                %span
+                  ¥2,000
+              %figcaption
+                %span
+                  テスト
+
 //SwiperSlideScript
 :javascript
   var mySwiper = new Swiper ('.swiper-container', {

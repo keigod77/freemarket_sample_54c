@@ -20,7 +20,7 @@
     list-style-type: none;
     justify-content: center;
 
-    li{
+    &__item{
       display: block;
       margin-right: 16px;
       font-size: 0.9rem;
@@ -28,6 +28,106 @@
       padding: 5px 15px;
       @include aTextDecoNone(black);
       @include boxDesignBorderRadius(rgb(238, 238, 238));
+    }
+  }
+}
+
+.products-container{
+  background-color: rgb(238, 238, 238);
+
+  .new-products-box{
+    width: 1020px;
+    margin: 0 auto;
+    padding: 42px 0 100px 0;
+    
+    .category-box{
+
+      .category-box-upper{
+        display: flex;
+        justify-content: space-between;
+        @include aTextDecoNone(rgb(0, 132, 255));
+        margin-bottom: 16px;
+        a{
+          padding: 5px;
+          font-weight: bold;
+          font-size: 0.9rem;
+        }
+        h3{
+          font-size: 1.5rem;
+          letter-spacing: 1px;
+          margin: 0;
+        }
+      }
+
+      .category-box-lower{
+        height: 524px;
+        width: 100%;
+        
+        ul{
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-between;
+          margin: 0;
+          padding: 0;
+
+          .category-item{
+            list-style-type: none;
+            background-color: white;
+            height: 252px;
+            width: 188px;
+            margin: 0 10px 20px 0;
+            
+            .product{
+              margin: 0;
+              position: relative;
+              cursor: pointer;
+              &__image-box{
+                height: 188px;
+                width: 188px;
+                
+                img{
+                  height: 100%;
+                  width: 100%;
+                  object-fit: cover;
+                }
+              }
+
+              &__price{
+                position:absolute;
+                top: 150px;
+                height: 28px;
+                
+
+                span{
+                  padding: 6px 12px;
+                  text-align: center;
+                  box-sizing: border-box;
+                  color: white;
+                  background-color:rgba(0,0,0,.4);
+                  border-radius: 0 14px 14px 0;
+                  display: inline-block;
+                }
+              }
+              figcaption{
+                height: 64px;
+                padding: 10px 12px 20px 12px;
+                box-sizing: border-box;
+
+                span{
+                  display: inline-block;
+                  font-size: 0.9rem;
+                  line-height: 1.2;
+                  height: 34px;
+                  width: 100%;
+                  box-sizing: border-box;
+                  overflow: hidden;
+                  text-overflow: ellipsis;
+                }
+              }
+            }
+          }
+        }
+      }
     }
   }
 }
