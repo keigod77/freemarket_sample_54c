@@ -14,33 +14,47 @@
 | postal_code | string | null :false |
 | last_name_kana | string | null :false |
 | birthday | integer | null :false |
+| address | references | null :false, foreign_key: true, dependent: :destroy|
+| phone_number | string ||
+| email | string | null :false, unique |
+| password | string | null :false |
+| evaluation | references |foreign_key: true, dependent: :destroy|
+### Assoiation
+- has_many :items
+- has_many :cards
+- has_many :comments
+- has_many :goods
+- has_many :adresses
+- has_many :evaluations
+
+## addressesテーブル
+| Column | Type | Options |
+| ------ | ---- | ------- |
 | prefectures | string | null :false |
 | city | string | null :false |
 | address | string | null :false |
 | building | string ||
-| phone_number | string ||
-| email | string | null :false, unique |
-| password | string | null :false |
-| my_good_evaluation | integer ||
-| my_normal_evaluation | integer ||
-| my_bad_evaluation | integer ||
 ### Assoiation
-- has_many :items
-- has_many :card
-- has_many :comments
-- has_many :goods
+- belong_to :user
+
+## evaluationsテーブル
+| good_evaluation | integer ||
+| normal_evaluation | integer ||
+| bad_evaluation | integer ||
+### Assosiation
+- belongs_to :user
+
 
 
 ## itemsテーブル
 | Column | Type | Options |
 | ------ | ---- | ------- |
-| user | reference | null :false |
-| image | string | null :false |
+| user | references | null :false |
 | name | string | null :false |
 | description | text | null :false |
-| category | reference | null :false |
-| bland | reference | null :false |
-| size | reference | foreign_key: true |
+| category | references | null :false |
+| brand | references | null :false |
+| size | references | foreign_key: true |
 | state | string | null :false |
 | shipping_charge | string | null :false |
 | delivery_method | string | null :false |
@@ -49,26 +63,32 @@
 | price | integer | null :false |
 | seller_id | integer | null :false |
 | buyer_id | integer | null :false |
-
-
 ### Assoiation
 - belongs_to :user
-- belongs_to :bland
+- belongs_to :brand
 - belongs_to :size
 - has_many :goods
 - has_many :comments
 - has_many :category
+- has_many :images
 
+## imagesテーブル
+| Column | Type | Options |
+| ------ | ---- | ------- |
+| image | text | null :false |
+| item | references | null :false, foreign_key: true |
+### Assoiation
+- belongs_to :item
 
 ## goodsテーブル
 | Column | Type | Options |
 | ------ | ---- | ------- |
 | like | integer ||
-| user | reference | foreign_key: true |
-| item | reference | foreign_key: true |
+| user | references | foreign_key: true |
+| item | references | foreign_key: true |
 ### Assoiation
-- belongs_to :items
-- belongs_to :users
+- belongs_to :item
+- belongs_to :user
 
 
 ## sizesテーブル
@@ -82,10 +102,9 @@
 ## cardsテーブル
 | Column | Type | Options |
 | ------ | ---- | ------- |
-| user | reference | null :false |
+| user | references | null :false |
 | customer_id | string | null :false |
 | card_id | string | null :false |
-
 ### Assoiation
 - belongs_to :user
 
@@ -101,7 +120,7 @@
 - has_many :childlen, class_name: :Category, foreign_key: :parent_id
 
 
-## blandsテーブル
+## brandsテーブル
 | Column | Type | Options |
 | ------ | ---- | ------- |
 | name | string | null: false|
