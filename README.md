@@ -11,7 +11,6 @@
 | last_name | string | null :false |
 | first_name_kana | string | null :false |
 | last_name_kana | string | null :false |
-| postal_code | string | null :false |
 | last_name_kana | string | null :false |
 | birthday | integer | null :false |
 | address | references | null :false, foreign_key: true, dependent: :destroy|
@@ -24,7 +23,7 @@
 - has_many :cards
 - has_many :comments
 - has_many :goods
-- has_many :adresses
+- has_many :adresseses
 - has_many :evaluations
 
 ## addressesテーブル
@@ -34,6 +33,7 @@
 | city | string | null :false |
 | address | string | null :false |
 | building | string ||
+| postal_code | string | null :false |
 ### Assoiation
 - belong_to :user
 
@@ -65,11 +65,11 @@
 | buyer_id | integer | null :false |
 ### Assoiation
 - belongs_to :user
+- belongs_to :category
 - belongs_to :brand
 - belongs_to :size
 - has_many :goods
 - has_many :comments
-- has_many :category
 - has_many :images
 
 ## imagesテーブル
@@ -115,7 +115,7 @@
 | name | string | null: false|
 | parent_id | integer ||
 ### Assoiation
-- belongs_to :item
+- has_many :items
 - belongs_to :parent, class_name: :Category
 - has_many :childlen, class_name: :Category, foreign_key: :parent_id
 
