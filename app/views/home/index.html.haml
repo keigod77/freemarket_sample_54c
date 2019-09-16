@@ -1,0 +1,157 @@
+//SwiperSlide
+.swiper-container.slider
+  .swiper-wrapper
+    .swiper-slide
+      =image_tag "/assets/bannartop.png",alt:"バナー1"
+    .swiper-slide
+      =image_tag "/assets/bannartop2.png",alt:"バナー2"
+    .swiper-slide
+      =image_tag "/assets/topbannermain892151cc75b1f6a1285bf7943c9b933c.png", alt:"バナー背景"
+  .swiper-pagination
+  .swiper-button-prev
+  .swiper-button-next
+
+.popular-category-container
+  %h2
+    人気のカテゴリー
+  %ul.popular-category-box
+    %li.popular-category-box__item
+      =link_to "レディース", root_path
+    %li.popular-category-box__item
+      =link_to "メンズ", root_path
+    %li.popular-category-box__item
+      =link_to "家電・スマホ・カメラ", root_path
+    %li.popular-category-box__item
+      =link_to "おもちゃ・ホビー・グッズ", root_path
+
+.products-container
+  .new-products-box
+    .category-box
+      .category-box-upper
+        %h3.category-box-upper__heading
+          新着アイテム
+        =link_to "もっと見る >", root_path
+        
+      .category-box-lower
+        %ul
+          %li.category-item
+            %figure.product
+              .product__image-box
+                =image_tag "/assets/bannartop.png",alt:"テスト画像"
+              .product__price
+                %span
+                  ¥2,000
+              %figcaption
+                %span
+                  テスト
+          %li.category-item
+            %figure.product
+              .product__image-box
+                =image_tag "/assets/bannartop.png",alt:"テスト画像"
+              .product__price
+                %span
+                  ¥2,000
+              %figcaption
+                %span
+                  テスト
+          %li.category-item
+            %figure.product
+              .product__image-box
+                =image_tag "/assets/bannartop.png",alt:"テスト画像"
+              .product__price
+                %span
+                  ¥2,000
+              %figcaption
+                %span
+                  テスト
+          %li.category-item
+            %figure.product
+              .product__image-box
+                =image_tag "/assets/bannartop.png",alt:"テスト画像"
+              .product__price
+                %span
+                  ¥2,000
+              %figcaption
+                %span
+                  テスト
+          %li.category-item
+            %figure.product
+              .product__image-box
+                =image_tag "/assets/bannartop.png",alt:"テスト画像"
+              .product__price
+                %span
+                  ¥2,000
+              %figcaption
+                %span
+                  テスト
+            %figure.product
+              .product__image-box
+                =image_tag "/assets/bannartop.png",alt:"テスト画像"
+              .product__price
+                %span
+                  ¥2,000
+              %figcaption
+                %span
+                  テスト
+          %li.category-item
+            %figure.product
+              .product__image-box
+                =image_tag "/assets/bannartop.png",alt:"テスト画像"
+              .product__price
+                %span
+                  ¥2,000
+              %figcaption
+                %span
+                  テスト
+          %li.category-item
+            %figure.product
+              .product__image-box
+                =image_tag "/assets/bannartop.png",alt:"テスト画像"
+              .product__price
+                %span
+                  ¥2,000
+              %figcaption
+                %span
+                  テスト
+          %li.category-item
+            %figure.product
+              .product__image-box
+                =image_tag "/assets/bannartop.png",alt:"テスト画像"
+              .product__price
+                %span
+                  ¥2,000
+              %figcaption
+                %span
+                  テスト
+          %li.category-item
+            %figure.product
+              .product__image-box
+                =image_tag "/assets/bannartop.png",alt:"テスト画像"
+              .product__price
+                %span
+                  ¥2,000
+              %figcaption
+                %span
+                  テスト
+          %li.category-item
+            %figure.product
+              .product__image-box
+                =image_tag "/assets/bannartop.png",alt:"テスト画像"
+              .product__price
+                %span
+                  ¥2,000
+              %figcaption
+                %span
+                  テスト
+
+//SwiperSlideScript
+:javascript
+  var mySwiper = new Swiper ('.swiper-container', {
+  effect: "slide",
+  loop: true,
+  pagination: '.swiper-pagination',
+  nextButton: '.swiper-button-next',
+  prevButton: '.swiper-button-prev',
+  autoplay:5000,
+  })
+

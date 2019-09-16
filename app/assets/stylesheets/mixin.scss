@@ -1,0 +1,38 @@
+@mixin clearfix(){
+  &:after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+}
+
+@mixin aTextDecoNone($color){
+  a{
+    text-decoration:none;
+  }
+
+  a:visited{
+    color: $color;
+  }  
+}
+
+@mixin linkHover(){
+  &:hover{
+    cursor: pointer;
+    a{
+    color: rgb(0, 157, 209);
+    }
+  }
+}
+
+@mixin spreadClickRange(){
+  & a{
+    display:block;
+  }
+}
+
+@mixin boxDesignBorderRadius($color){
+  border: thin 3px $color;
+  border-radius: 16px;
+  background-color: $color;
+}

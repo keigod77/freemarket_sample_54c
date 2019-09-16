@@ -1,0 +1,40 @@
+!!!
+%html
+  %head
+    %meta{content: "text/html; charset=UTF-8", http:{equiv: "Content-Type"}}/
+    %title FreemarketSample54c
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = stylesheet_link_tag 'https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.1/css/swiper.min.css'
+    = javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.1/js/swiper.min.js'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  %body
+    %header
+      .header-wrap
+        .header-upper
+          .header-upper__logo
+            = embedded_svg("logo-acdd90ac4f472d5a6f7a330d33ab1225.svg")      
+          .header-upper__search-field
+            =form_with url: root_path,html: {class: 'formclass'} do |f|
+              =f.label :search
+              =f.text_field :search
+              %i.fa.fa-search
+        .header-lower
+          .header-lower-left
+            .header-lower-left__category-search
+              =link_to root_path do
+                %i.fa.fa-list-ul
+                %span カテゴリーから探す
+            .header-lower-left__brand-search
+              =link_to root_path do
+                %i.fa.fa-tag
+                %span ブランドから探す
+          .header-lower-right
+            .header-lower-right__signup
+              =link_to root_path do
+                %span 新規会員登録
+            .header-lower-right__login
+              =link_to root_path do
+                %span ログイン
+    = yield
