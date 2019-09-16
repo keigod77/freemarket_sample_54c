@@ -1,24 +1,139 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# DB設計
+## usersテーブル
+| Column | Type | Options |
+| ------ | ---- | ------- |
+| icon | text ||
+| self-introduction | text ||
+| nickname | string | null :false |
+| first_name | string | null :false |
+| last_name | string | null :false |
+| first_name_kana | string | null :false |
+| last_name_kana | string | null :false |
+| last_name_kana | string | null :false |
+| birthday | integer | null :false |
+| address | references | null :false, foreign_key: true, dependent: :destroy|
+| phone_number | string ||
+| email | string | null :false, unique |
+| password | string | null :false |
+| evaluation | references |foreign_key: true, dependent: :destroy|
+### Assoiation
+- has_many :items
+- has_many :cards
+- has_many :comments
+- has_many :goods
+- has_many :adresseses
+- has_many :evaluations
 
-Things you may want to cover:
+## addressesテーブル
+| Column | Type | Options |
+| ------ | ---- | ------- |
+| prefectures | string | null :false |
+| city | string | null :false |
+| address | string | null :false |
+| building | string ||
+| postal_code | string | null :false |
+### Assoiation
+- belong_to :user
 
-* Ruby version
+## evaluationsテーブル
+| good_evaluation | integer ||
+| normal_evaluation | integer ||
+| bad_evaluation | integer ||
+### Assosiation
+- belongs_to :user
 
-* System dependencies
 
-* Configuration
 
-* Database creation
+## itemsテーブル
+| Column | Type | Options |
+| ------ | ---- | ------- |
+| user | references | null :false |
+| name | string | null :false |
+| description | text | null :false |
+| category | references | null :false |
+| brand | references | null :false |
+| size | references | foreign_key: true |
+| state | string | null :false |
+| shipping_charge | string | null :false |
+| delivery_method | string | null :false |
+| region | string | null :false |
+| days_to_delivery | string | null :false |
+| price | integer | null :false |
+| seller_id | integer | null :false |
+| buyer_id | integer | null :false |
+### Assoiation
+- belongs_to :user
+- belongs_to :category
+- belongs_to :brand
+- belongs_to :size
+- has_many :goods
+- has_many :comments
+- has_many :images
 
-* Database initialization
+## imagesテーブル
+| Column | Type | Options |
+| ------ | ---- | ------- |
+| image | text | null :false |
+| item | references | null :false, foreign_key: true |
+### Assoiation
+- belongs_to :item
 
-* How to run the test suite
+## goodsテーブル
+| Column | Type | Options |
+| ------ | ---- | ------- |
+| like | integer ||
+| user | references | foreign_key: true |
+| item | references | foreign_key: true |
+### Assoiation
+- belongs_to :item
+- belongs_to :user
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+## sizesテーブル
+| Column | Type | Options |
+| ------ | ---- | ------- |
+| size | string | null :false |
+### Assoiation
+- has_many :items
 
-* ...
+
+## cardsテーブル
+| Column | Type | Options |
+| ------ | ---- | ------- |
+| user | references | null :false |
+| customer_id | string | null :false |
+| card_id | string | null :false |
+### Assoiation
+- belongs_to :user
+
+
+## categorysテーブル
+| Column | Type | Options |
+| ------ | ---- | ------- |
+| name | string | null: false|
+| parent_id | integer ||
+### Assoiation
+- has_many :items
+- belongs_to :parent, class_name: :Category
+- has_many :childlen, class_name: :Category, foreign_key: :parent_id
+
+
+## brandsテーブル
+| Column | Type | Options |
+| ------ | ---- | ------- |
+| name | string | null: false|
+### Assoiation
+- has_many :items
+
+
+## commentsテーブル
+| Column | Type | Options |
+| ------ | ---- | ------- |
+| comment | text | null: false |
+| user | references | null: false, foreign_key: true |
+| item | references | null: false, foreign_key: true |
+### Assoiation
+- belongs_to :user
+- belongs_to :item
