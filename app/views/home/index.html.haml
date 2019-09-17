@@ -2,11 +2,11 @@
 .swiper-container.slider
   .swiper-wrapper
     .swiper-slide
-      = image_tag asset_path("bannartop.png")
+      = image_tag asset_path("bannartop.png"), alt: "バナー1"
     .swiper-slide
-      =image_tag "/assets/bannartop2.png",alt:"バナー2"
+      =image_tag asset_path("bannartop2.png"), alt:"バナー2"
     .swiper-slide
-      =image_tag "/assets/topbannermain892151cc75b1f6a1285bf7943c9b933c.png", alt:"バナー背景"
+      =image_tag asset_path("topbannermain892151cc75b1f6a1285bf7943c9b933c.png"), alt:"バナー背景"
   .swiper-pagination
   .swiper-button-prev
   .swiper-button-next
@@ -37,7 +37,7 @@
           %li.category-item
             %figure.product
               .product__image-box
-                =image_tag "/assets/bannartop.png",alt:"テスト画像"
+                =image_tag asset_path("bannartop.png"),alt:"テスト画像"
               .product__price
                 %span
                   ¥2,000
@@ -47,7 +47,7 @@
           %li.category-item
             %figure.product
               .product__image-box
-                =image_tag "/assets/bannartop.png",alt:"テスト画像"
+                =image_tag asset_path("bannartop.png"),alt:"テスト画像"
               .product__price
                 %span
                   ¥2,000
@@ -57,7 +57,7 @@
           %li.category-item
             %figure.product
               .product__image-box
-                =image_tag "/assets/bannartop.png",alt:"テスト画像"
+                =image_tag asset_path("bannartop.png"),alt:"テスト画像"
               .product__price
                 %span
                   ¥2,000
@@ -67,7 +67,7 @@
           %li.category-item
             %figure.product
               .product__image-box
-                =image_tag "/assets/bannartop.png",alt:"テスト画像"
+                =image_tag asset_path("bannartop.png"),alt:"テスト画像"
               .product__price
                 %span
                   ¥2,000
@@ -77,7 +77,7 @@
           %li.category-item
             %figure.product
               .product__image-box
-                =image_tag "/assets/bannartop.png",alt:"テスト画像"
+                =image_tag asset_path("bannartop.png"),alt:"テスト画像"
               .product__price
                 %span
                   ¥2,000
@@ -86,17 +86,7 @@
                   テスト
             %figure.product
               .product__image-box
-                =image_tag "/assets/bannartop.png",alt:"テスト画像"
-              .product__price
-                %span
-                  ¥2,000
-              %figcaption
-                %span
-                  テスト
-          %li.category-item
-            %figure.product
-              .product__image-box
-                =image_tag "/assets/bannartop.png",alt:"テスト画像"
+                =image_tag asset_path("bannartop.png"),alt:"テスト画像"
               .product__price
                 %span
                   ¥2,000
@@ -106,7 +96,7 @@
           %li.category-item
             %figure.product
               .product__image-box
-                =image_tag "/assets/bannartop.png",alt:"テスト画像"
+                =image_tag asset_path("bannartop.png"),alt:"テスト画像"
               .product__price
                 %span
                   ¥2,000
@@ -116,7 +106,7 @@
           %li.category-item
             %figure.product
               .product__image-box
-                =image_tag "/assets/bannartop.png",alt:"テスト画像"
+                =image_tag asset_path("bannartop.png"),alt:"テスト画像"
               .product__price
                 %span
                   ¥2,000
@@ -126,7 +116,7 @@
           %li.category-item
             %figure.product
               .product__image-box
-                =image_tag "/assets/bannartop.png",alt:"テスト画像"
+                =image_tag asset_path("bannartop.png"),alt:"テスト画像"
               .product__price
                 %span
                   ¥2,000
@@ -136,7 +126,17 @@
           %li.category-item
             %figure.product
               .product__image-box
-                =image_tag "/assets/bannartop.png",alt:"テスト画像"
+                =image_tag asset_path("bannartop.png"),alt:"テスト画像"
+              .product__price
+                %span
+                  ¥2,000
+              %figcaption
+                %span
+                  テスト
+          %li.category-item
+            %figure.product
+              .product__image-box
+                =image_tag asset_path("bannartop.png"),alt:"テスト画像"
               .product__price
                 %span
                   ¥2,000
