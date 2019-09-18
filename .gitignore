@@ -31,3 +31,4 @@
 /config/master.key
 
 *.png
+config/credentials.yml.enc
