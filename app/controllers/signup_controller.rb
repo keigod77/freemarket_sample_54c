@@ -1,4 +1,5 @@
 class SignupController < ApplicationController
+  before_action :no_layout_action
 
   def registration
   end
@@ -13,5 +14,10 @@ class SignupController < ApplicationController
   end
 
   def complete
+  end
+
+  private
+  def no_layout_action
+    render layout: false
   end
 end
