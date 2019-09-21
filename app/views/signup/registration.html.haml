@@ -28,5 +28,71 @@
 
 
 .single-main
-
+  .new-registration
+    .new-registration__header
+      %h2.new-registration__header--word 会員情報入力
+    .new-registration__body
+      -# 会員情報入力form_for
+      .new-registration-body-upper
+      = form_with model: @user, url: sms_confirmation_signup_index_path, method: :get, class: 'new-registration-field' do |f|
+        .new-registration-field__group
+          = f.label :ニックネーム, class: 'nnew-registration-field__group--name'
+          = f.label :必須, class: 'new-registration-field__group--require'
+          = f.text_field :nickname, class: 'new-registration-field__group--input-default', placeholder: '例)メルカリ太郎'
+        .new-registration-field__group
+          = f.label :メールアドレス, class: 'new-registration-field__group--name'
+          = f.label :必須, class: 'new-registration-field__group--require'
+          = f.text_field :email, class: 'new-registration-field__group--input-default', placeholder: 'PC・携帯どちらでも可'
+        .new-registration-field__group
+          = f.label :パスワード, class: 'new-registration-field__group--name'
+          = f.label :必須, class: 'new-registration-field__group--require'
+          = f.text_field :password, class: 'new-registration-field__group--input-default', placeholder: '7文字以上'
+        .new-registration-field__group
+          = f.label :パスワード（確認）, class: 'new-registration-field__group--name'
+          = f.label :必須, class: 'new-registration-field__group--require'
+          = f.text_field :password_confirmation, class: 'new-registration-field__group--input-default', placeholder: '7文字以上'
+        .new-registration-field__group
+          %h3.new-registration-field__group--sub-title 本人確認
+          %p.new-registration-field__group--left-text
+            安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
+        .new-registration-field__group
+          %div
+            = f.label :お名前（全角）, class: 'new-registration-field__group--name'
+            = f.label :必須, class: 'new-registration-field__group--require'
+          = f.text_field :family_name_knaji, class: 'new-registration-field__group--input-default-half', placeholder: '山田'
+          = f.text_field :first_name_kanji, class: 'new-registration-field__group--input-default-half', placeholder: '彩'
+        .new-registration-field__group
+          %div
+            = f.label :お名前カナ（全角）, class: 'new-registration-field__group--name'
+            = f.label :必須, class: 'new-registration-field__group--require'
+          = f.text_field :family_name_knaji, class: 'new-registration-field__group--input-default-half', placeholder: 'ヤマダ'
+          = f.text_field :first_name_kanji, class: 'new-registration-field__group--input-default-half', placeholder: 'アヤ'
+        .new-registration-field__group
+          = f.label :生年月日, class: 'new-registration-field__group--name'
+          = f.label :必須, class: 'new-registration-field__group--require'
+          %br
+          .select-wrap
+            %i.select-wrap__icon.fas.fa-chevron-down
+            = f.select :year, [*1900..2019].reverse, class: 'select-default'
+            %span 年
+            %i.select-wrap__icon.fas.fa-chevron-down
+            = f.select :month, [*1..12], class: 'select-default'
+            %span 月
+            %i.select-wrap__icon.fas.fa-chevron-down
+            = f.select :day, [*1..31], class: 'select-default'
+            %span 日
+        %p.new-registration-field__info-text
+        ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
+      -# reCAPTCHA+次へ進むbottun
+      .new-registration-body-bottom
+        .form-recaptcha
+        .button-explanation
+          「次へ進む」のボタンを押すことにより、
+          = link_to '利用規約', "#"
+          に同意したものとみなします
+        = button_to '次へ進む', sms_confirmation_signup_index_path, method: :get
+        .about-person-registration.text-right
+          %p
+            = link_to '本人情報登録について', "#"
+            %i.icon-arrow-right.fas.fa-chevron-left
 -# = render 'signup/shared/footer'
