@@ -1,3 +1,5 @@
+@import 'mixin.scss';
+
 .contents-container{
   width: 100vw;
   box-sizing: border-box;
@@ -9,5 +11,6 @@
     margin: 0 auto 0;
     padding-bottom: 40px;
     background-color: #eeeeee;
+    @include clearfix();
   }
 }
