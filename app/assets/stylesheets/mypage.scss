@@ -1,3 +1,13 @@
-// Place all the styles related to the mypage controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.contents-container{
+  width: 100vw;
+  box-sizing: border-box;
+  background-color: #eeeeee;
+  padding-top: 40px;
+
+  .mypage-container{
+    width: 1020px;
+    margin: 0 auto 0;
+    padding-bottom: 40px;
+    background-color: #eeeeee;
+  }
+}
