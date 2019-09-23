@@ -12,5 +12,62 @@
     padding-bottom: 40px;
     background-color: #eeeeee;
     @include clearfix();
+
+    .contents{
+      width: 700px;
+      float: right;
+
+      .user-info-container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 200px;
+        width: 100%;
+        background-image: url('/assets/user-bg.jpg');
+
+        .user-info-contents{
+          width: 100%;
+          cursor: pointer;
+          @include TextDecoNone(#333);
+
+          &__user-icon{
+            display: block;
+            height: 60px;
+            width: 60px;
+            margin: 0 auto;
+            border-radius: 50%;
+          }
+
+          &__user-name{
+            margin: 8px 0 0;
+            padding: 0;
+            font-size: 0.9rem;
+            text-align: center;
+            
+          }
+        }
+
+        .user-info-contents:hover{
+          opacity: 0.7;
+
+          h2{
+            text-decoration: underline;
+          }
+        }
+
+        .user-count-box{
+          width: 100%;
+          font-size: 0.9rem;
+          margin: 8px 0 0;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          &__eval{
+            margin-right: 10px;
+          }
+        }
+      }
+    }
   }
 }

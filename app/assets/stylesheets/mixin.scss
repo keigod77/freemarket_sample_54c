@@ -16,6 +16,16 @@
   }  
 }
 
+@mixin TextDecoNone($color){
+  &{
+    text-decoration: none;
+  }
+  &:visited{
+    color: $color;
+  }
+}
+
+
 @mixin linkHover(){
   &:hover{
     cursor: pointer;
