@@ -26,7 +26,36 @@
           完了
           .progress-status
 
-
-.single-main
-
--# = render 'signup/shared/footer'
+  .single-main
+    .new-registration
+      .new-registration-container
+        .new-registration-container__header
+          %h2.new-registration-container__header--word 住所入力
+        .new-registration-container__body
+          -# 入力form_for
+          .new-registration-body-upper
+            = form_with model: @user, url: credit_card_signup_index_path, local: true, method: :get, class: 'new-registration-field' do |f|
+              .new-registration-field__group
+                = f.label :郵便番号, class: 'new-registration-field__group--name'
+                = f.label :必須, class: 'new-registration-field__group--require'
+                = f.text_field :postal_code, class: 'new-registration-field__group--input-default', placeholder: '例) 123-4567'
+              .new-registration-field__group
+                = f.label :都道府県, class: 'new-registration-field__group--name'
+                = f.label :必須, class: 'new-registration-field__group--require'
+                .select-wrap
+                  %i.select-wrap__icon.fas.fa-chevron-down
+                  = f.select :prefectures, Address.prefectures.keys, {prompt: '選択してください'}, class: 'select-wrap__default'
+              .new-registration-field__group
+                = f.label :市区町村, class: 'new-registration-field__group--name'
+                = f.label :必須, class: 'new-registration-field__group--require'
+                = f.text_field :city, class: 'new-registration-field__group--input-default', placeholder: '例) 横浜市緑区'
+              .new-registration-field__group
+                = f.label :番地, class: 'new-registration-field__group--name'
+                = f.label :必須, class: 'new-registration-field__group--require'
+                = f.text_field :address, class: 'new-registration-field__group--input-default', placeholder: '例) 青山1-1-1'
+              .new-registration-field__group
+                = f.label :建物名, class: 'new-registration-field__group--name'
+                = f.label :任意, class: 'new-registration-field__group--optional'
+                = f.text_field :building, class: 'new-registration-field__group--input-default', placeholder: '例) 柳ビル103'
+              = f.submit '次へ進む', class: 'btn-default-red'
+= render 'signup/shared/signup-footer'

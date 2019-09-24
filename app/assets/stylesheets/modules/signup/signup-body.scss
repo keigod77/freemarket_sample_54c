@@ -59,6 +59,15 @@
       font-size: 12px;
       vertical-align: top;
     }
+    &--optional{
+      background-color: #ccc;
+      margin: 0 0 0 8px;
+      padding: 2px 4px;
+      border-radius: 2px;
+      color: white;
+      font-size: 12px;
+      vertical-align: top;
+    }
     &--input-default{
       width: 100%;
       margin: 8px 0 0;
@@ -100,7 +109,7 @@
   display: inline-block;
   position: relative;
   margin: 8px 0 0;
-  width: 76px;
+  width: 100%;
   &__default{
     padding: 0 10px;
     height: 48px;
@@ -123,8 +132,13 @@
     font-size: 18px;
   }
 }
-.birthday-select-wrap span{
-  margin: 0 2px;
+.birthday-select-wrap{
+  span{
+    margin: 0 2px
+  }
+  &__one-third{
+    width: 76px;
+  }
 }
 
 .new-registration-body-bottom{

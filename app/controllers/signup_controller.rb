@@ -1,5 +1,6 @@
 class SignupController < ApplicationController
   before_action :no_layout_action
+  before_action :prefectures , only: :address
 
   def registration
     @user = User.new
@@ -34,9 +35,5 @@ class SignupController < ApplicationController
       :last_name_kana, 
       :first_name_kana, 
     )
-  end
-  
-  def return_day
-    
   end
 end

@@ -12,7 +12,7 @@
 | first_name_kana | string | null :false |
 | last_name_kana | string | null :false |
 | birthday | integer | null :false |
-| address | references | null :false, foreign_key: true, dependent: :destroy|
+| addresses | references | null :false, foreign_key: true, dependent: :destroy|
 | phone_number | string | unique |
 | email | string | null :false, unique |
 | password | string | null :false |

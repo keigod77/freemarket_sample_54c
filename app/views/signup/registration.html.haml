@@ -36,7 +36,7 @@
         .new-registration-container__body
           -# 会員情報入力form_for
           .new-registration-body-upper
-            = form_with model: @user, url: sms_confirmation_signup_index_path, method: :get, class: 'new-registration-field' do |f|
+            = form_with model: @user, url: sms_confirmation_signup_index_path,local: true, method: :get, class: 'new-registration-field' do |f|
               .new-registration-field__group
                 = f.label :ニックネーム, class: 'new-registration-field__group--name'
                 = f.label :必須, class: 'new-registration-field__group--require'
@@ -74,15 +74,15 @@
                 = f.label :必須, class: 'new-registration-field__group--require'
                 %br
                 .birthday-select-wrap
-                  .select-wrap
+                  .select-wrap.birthday-select-wrap__one-third
                     %i.select-wrap__icon.fas.fa-chevron-down
                     = f.select :year, [*1900..2019].reverse, { include_blank: '--' }, class: 'select-wrap__default'
                   %span 年
-                  .select-wrap
+                  .select-wrap.birthday-select-wrap__one-third
                     %i.select-wrap__icon.fas.fa-chevron-down
                     = f.select :month, [*1..12], { include_blank: '--' }, class: 'select-wrap__default'
                   %span 月
-                  .select-wrap
+                  .select-wrap.birthday-select-wrap__one-third
                     %i.select-wrap__icon.fas.fa-chevron-down
                     = f.select :day, [*1..31], { include_blank: '--' }, class: 'select-wrap__default'
                   %span 日
@@ -97,7 +97,8 @@
                 「次へ進む」のボタンを押すことにより、
                 = link_to '利用規約', "#"
                 に同意したものとみなします
-            = button_to '次へ進む', sms_confirmation_signup_index_path, {method: :get, class: "btn-default-red"}
+          = form_with model: @user, url: sms_confirmation_signup_index_path, local: true, method: :get, class: 'new-registration-field' do |f|
+            = f.submit '次へ進む', class: 'btn-default-red'
             .reason-person-registration
               %p
                 = link_to '本人情報登録について', "#"
