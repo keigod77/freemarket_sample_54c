@@ -27,6 +27,22 @@
           .progress-status.active
 
 
-.single-main
+  .single-main
+    .new-registration
+      .new-registration-container
+        .new-registration-container__header
+          %h2.new-registration-container__header--word 会員登録完了
+        .new-registration-container__body
+          -# 入力form_for
+          .new-registration-body-upper
+            = form_with model: @user, url: '/', local: true, method: :get, class: 'new-registration-field' do |f|
+              .new-registration-field__group
+                %p.new-registration-field__group--complete-text
+                  ありがとうございます。
+                  %br会員登録が完了しました。
+              = form_with url: '/', local: true, class: 'new-registration-field' do |f|
+                = f.submit 'メルカリをはじめる',class: "btn-default-red"
 
--# = render 'signup/shared/footer'
+              画像はる
+
+= render 'signup/shared/signup-footer'
