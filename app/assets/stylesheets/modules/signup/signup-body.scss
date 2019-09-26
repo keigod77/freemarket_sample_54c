@@ -181,3 +181,50 @@
     color: #0099e8;
   }
 }
+
+.cards-icon{
+  width: 343px;
+  &__part{
+    &:first-child{
+      margin-left: 0px;
+    }
+    width: 40px;
+    height: 30px;
+    margin-left: 4px;
+    margin-top: 4px;
+  }
+}
+
+.card-select{
+  position: relative;
+
+  appearance: none;
+  &__part{
+    width: 35%;
+    height: 48px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    margin: 8px 8px 0 0;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding: 0 15px;
+    background: 0;
+  }
+  &__icon{
+    position: absolute;
+    top: 24px;
+    left: 25%;
+    color: #888;
+    font-size: 18px;
+  }
+}
+.back-of-the-number{
+  margin: 4px 0 0;
+  text-align: right;
+  color: #0099e8;
+  p a{
+    text-decoration: none;
+    font-size: 14px;
+    color: #0099e8;
+  }
+}
