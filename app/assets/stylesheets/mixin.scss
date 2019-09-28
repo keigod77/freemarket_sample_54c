@@ -9,6 +9,7 @@
 @mixin aTextDecoNone($color){
   a{
     text-decoration:none;
+    color: $color;  
   }
 
   a:visited{
@@ -45,4 +46,31 @@
   border: thin 3px $color;
   border-radius: 16px;
   background-color: $color;
+}
+
+@mixin toggleTabDesign(){
+  height: 72px;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  font-size: 0.9rem;
+  text-align: center;
+
+  li{
+    background-color: #eeeeee;
+    width: 50%;
+    list-style: none;
+    line-height: 72px;
+    cursor: pointer;
+    @include spreadClickRange();
+    @include aTextDecoNone(black);           
+    a:hover{
+      color: rgb(121, 121, 121);
+    }
+  }
+
+  .active{
+    background-color: white;
+    border-top: solid 2px red;
+  }
 }

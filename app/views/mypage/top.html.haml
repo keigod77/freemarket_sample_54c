@@ -19,25 +19,40 @@
               %span
                 0
       
-      .notification-todo-container
+      .notification-todo-container.js-tabparent
         %ul.notification-todo-tabs
-          %li.active
+          %li.js-toggle.active
             %h3
-              =link_to 'お知らせ', '#notification-content'
-          %li
+              =link_to 'お知らせ', '#notification'
+          %li.js-toggle
             %h3
-              =link_to 'やることリスト', '#todo-content'
+              =link_to 'やることリスト', '#todo'
         .notification-todo-content
-          #notification-content.active
-            = link_to '#', class:'notification-content__items' do
+          #notification.notification-todo-content__notification-list.active
+            = link_to '#', class:'list-item' do
               %span
-                お知らせテスト
 
-          #todo-content
-            = link_to '#', class:'notification-content__items' do
+          #todo.notification-todo-content__todo-list
+            = link_to '#', class:'list-item' do
               %span
-                やることのテスト
+        .notification-todo-list
+          = link_to '#' do
+            %span
+              一覧をみる
 
-        = link_to '#', class:'notification-todo-list' do
-          %span
-            一覧をみる
+      .transaction-container
+        .transaction.js-tabparent
+          .transaction__head
+            %h2
+              購入した商品
+          %ul.transaction__tabs
+            %li.js-toggle.active
+              %h3
+                =link_to '取引中', '#trading'
+            %li.js-toggle
+              %h3
+                =link_to '取引した商品', '#traded'
+
+          .transaction__content
+            #trading
+            #traded
