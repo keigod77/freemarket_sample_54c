@@ -41,9 +41,9 @@
                 = f.label :必須, class: 'new-registration-field__group--require'
                 = f.text_field :card_id, class: 'new-registration-field__group--input-default', placeholder: '半角数字のみ'
               .cards-icon
-                = image_tag "https://free-designer.net/design_img/0817051006.jpg", class: 'cards-icon__part'
-                = image_tag "https://www.jcb.co.jp/common_new/images/header/header-logo.png", class: 'cards-icon__part'
-                = image_tag "https://i.gzn.jp/img/2016/07/15/mastercard-new-logo/mastercard_logo.png", class: 'cards-icon__part'
+                = image_tag "card_image_visa", class: 'cards-icon__part'
+                = image_tag "card_image_jcb", class: 'cards-icon__part'
+                = image_tag "card_image_mastercard", class: 'cards-icon__part'
               .new-registration-field__group
                 %div
                   = f.label :有効期限, class: 'new-registration-field__group--name'
