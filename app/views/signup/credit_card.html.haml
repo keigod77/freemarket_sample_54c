@@ -39,7 +39,7 @@
               .new-registration-field__group
                 = f.label :カード番号, class: 'new-registration-field__group--name'
                 = f.label :必須, class: 'new-registration-field__group--require'
-                = f.text_field :card_id, class: 'new-registration-field__group--input-default', placeholder: '半角数字のみ'
+                = f.text_field :card_number, class: 'new-registration-field__group--input-default', placeholder: '半角数字のみ'
               .cards-icon
                 = image_tag "card_image_visa", class: 'cards-icon__part'
                 = image_tag "card_image_jcb", class: 'cards-icon__part'
@@ -61,8 +61,8 @@
               .new-registration-field__group
                 = f.label :セキュリティコード, class: 'new-registration-field__group--name'
                 = f.label :必須, class: 'new-registration-field__group--require'
-                = f.text_field :card_id, class: 'new-registration-field__group--input-default', placeholder: 'カードの背面4桁もしくは4桁もしくは3桁の番号'
-
+                = f.text_field :security_code, class: 'new-registration-field__group--input-default', placeholder: 'カードの背面4桁もしくは4桁もしくは3桁の番号'
+                
               .back-of-the-number
                 %p
                   %i.icon-arrow-right.fas.fa-question-circle
