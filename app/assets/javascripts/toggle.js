@@ -1,14 +1,34 @@
+function getContentsLink(clickElement){
+  var contentsLink = $(clickElement).find("a").attr("href");
+  return contentsLink;
+}
+
+function findActiveClass(toggleParent){
+  var activeClass = $(toggleParent).find(".active");
+  return activeClass;
+}
+
+function removeActiveClass(activeClass){
+  $(activeClass).removeClass("active");
+}
+
+function addActiveClass(clickElement,contentsLink){
+  $(clickElement).addClass("active")
+  $(contentsLink).addClass("active")
+}
+
 $(function(){
     $('.js-toggle').on('click',function(e){
       e.preventDefault();
-      var ancestorElement= $(this).parents(".js-tabparent")[0];
-      var contentLink = $(this).find("a").attr("href");
-      //Activeクラスを削除する  
-      var findActiveClass = $(ancestorElement).find(".active");
-      $(findActiveClass).removeClass('active');
+
+      var clickElement = $(this)[0];
+      var toggleParent = $(this).parents(".js-tabparent")[0];
+      var contentsLink = getContentsLink(clickElement);
+
+      //Activeクラスを探して削除する
+      removeActiveClass(findActiveClass(toggleParent))
 
       //Activeクラスを付与する
-      $(this).addClass("active")
-      $(contentLink).addClass("active")
+      addActiveClass(clickElement,contentsLink)
     })
   })
