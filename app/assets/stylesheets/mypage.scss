@@ -1,4 +1,7 @@
 @import 'mixin.scss';
+h3{
+  margin: 0;
+}
 
 .contents-container{
   width: 100vw;
@@ -65,6 +68,52 @@
 
           &__eval{
             margin-right: 10px;
+          }
+        }
+      }
+
+      .notification-todo-container{
+        width: 100%;
+        background-color: white;
+
+        .notification-todo-tabs{
+          height: 72px;
+          display: flex;
+          margin: 0;
+          padding: 0;
+          font-size: 0.9rem;
+          text-align: center;
+
+          li{
+            background-color: #eeeeee;
+            width: 50%;
+            list-style: none;
+            line-height: 72px;
+            cursor: pointer;
+            @include spreadClickRange();
+            @include aTextDecoNone(black);           
+            a:hover{
+              color: rgb(121, 121, 121);
+            }
+          }
+
+          .active{
+            background-color: white;
+            border-top: solid 2px red;
+          }
+        }
+
+        .notification-todo-content{
+          #notification-content{
+            display: none;
+          }
+
+          #todo-content{
+            display: none;
+          }
+
+          .active{
+            display: block;
           }
         }
       }

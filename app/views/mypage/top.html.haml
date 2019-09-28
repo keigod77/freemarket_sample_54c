@@ -19,3 +19,25 @@
               %span
                 0
       
+      .notification-todo-container
+        %ul.notification-todo-tabs
+          %li.active
+            %h3
+              =link_to 'お知らせ', '#notification-content'
+          %li
+            %h3
+              =link_to 'やることリスト', '#todo-content'
+        .notification-todo-content
+          #notification-content.active
+            = link_to '#', class:'notification-content__items' do
+              %span
+                お知らせテスト
+
+          #todo-content
+            = link_to '#', class:'notification-content__items' do
+              %span
+                やることのテスト
+
+        = link_to '#', class:'notification-todo-list' do
+          %span
+            一覧をみる
