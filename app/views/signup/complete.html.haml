@@ -1,0 +1,48 @@
+= render 'signup/shared/signup-head'
+.single-container
+  %header.single-header
+    %h1
+      = link_to "/" do
+        = image_tag "mercari_logo.png", class: 'single-header__logo'
+    %nav.progress
+      %ul.progress__bar
+        %li.active
+          会員情報
+          .progress-status.active
+          .progress-status-line.active
+        %li.active
+          電話番号認証
+          .progress-status.active
+          .progress-status-line.active
+        %li.active
+          お届け先住所入力
+          .progress-status.active
+          .progress-status-line.active
+        %li.payment.active
+          支払い方法
+          .progress-status.active
+          .progress-status-line.active
+        %li.complete.active
+          完了
+          .progress-status.active
+
+
+  .single-main
+    .new-registration
+      .new-registration-container
+        .new-registration-container__header
+          %h2.new-registration-container__header--word 会員登録完了
+        .new-registration-container__body
+          -# 入力form_for
+          .new-registration-body-upper
+            = form_with model: @user, url: '/', local: true, method: :get, class: 'new-registration-field' do |f|
+              .new-registration-field__group
+                %p.new-registration-field__group--complete-text
+                  ありがとうございます。
+                  %br会員登録が完了しました。
+              = form_with url: '/', local: true, class: 'new-registration-field' do |f|
+                = f.submit 'メルカリをはじめる',class: "btn-default-red"
+
+          =link_to image_tag('complete-image', class: 'complete-image'), root_path
+
+= render 'signup/shared/signup-footer'
