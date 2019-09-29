@@ -20,15 +20,13 @@ function addActiveClass(clickElement,contentsLink){
 $(function(){
     $('.js-toggle').on('click',function(e){
       e.preventDefault();
-
-      var clickElement = $(this)[0];
       var toggleParent = $(this).parents(".js-tabparent")[0];
-      var contentsLink = getContentsLink(clickElement);
+      var contentsLink = getContentsLink(this);
 
       //Activeクラスを探して削除する
       removeActiveClass(findActiveClass(toggleParent))
 
       //Activeクラスを付与する
-      addActiveClass(clickElement,contentsLink)
+      addActiveClass(this,contentsLink)
     })
   })
