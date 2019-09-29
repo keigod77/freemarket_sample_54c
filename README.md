@@ -11,7 +11,9 @@
 | last_name | string | null :false |
 | first_name_kana | string | null :false |
 | last_name_kana | string | null :false |
-| birthday | integer | null :false |
+| birthday_year | integer | null :false |
+| birthday_month | integer | null :false |
+| birthday_day | integer | null :false |
 | phone_number | string | unique |
 | email | string | null :false, unique |
 | password | string | null :false |

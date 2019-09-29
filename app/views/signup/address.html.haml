@@ -34,7 +34,7 @@
         .new-registration-container__body
           -# 入力form_for
           .new-registration-body-upper
-            = form_with model: @user, url: credit_card_signup_index_path, local: true, method: :get, class: 'new-registration-field' do |f|
+            = form_with model: @address, url: credit_card_signup_index_path, local: true, method: :get, class: 'new-registration-field' do |f|
               .new-registration-field__group
                 = f.label :郵便番号, class: 'new-registration-field__group--name'
                 = f.label :必須, class: 'new-registration-field__group--require'
