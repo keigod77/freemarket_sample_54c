@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: 'home#index'
 
+  get 'mypage', to: 'mypage#top'
+
   resources :signup do
     collection do
       get 'registration' #会員情報入力
@@ -12,4 +14,5 @@ Rails.application.routes.draw do
       get 'complete' #完了
     end
   end
+
 end
