@@ -4,7 +4,7 @@
     .contents
       .user-info-container
         = link_to '#', class:'user-info-contents' do
-          = image_tag '/assets/member_photo_noimage_thumb.png', alt: 'ユーザーアイコン', class: 'user-info-contents__user-icon'
+          = image_tag asset_path('member_photo_noimage_thumb.png'), alt: 'ユーザーアイコン', class: 'user-info-contents__user-icon'
           %h2.user-info-contents__user-name
             名前
           .user-count-box
