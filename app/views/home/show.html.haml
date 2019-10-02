@@ -1,0 +1,35 @@
+.contents-container
+  %main.product-container
+    .product
+      %h1.product__name
+        テスト
+      .product__info
+        %figure.product__image
+          //SwiperSlide
+          .product__image--large
+            = image_tag asset_path('bannartop.png'), alt: '商品テスト画像'
+          .product__image--small
+            = image_tag asset_path('member.jpg'), alt: '商品テスト画像'
+            = image_tag asset_path('bannartop.png'), alt: '商品テスト画像'
+            = image_tag asset_path('bannartop.png'), alt: '商品テスト画像'
+            = image_tag asset_path('bannartop.png'), alt: '商品テスト画像'
+            = image_tag asset_path('bannartop.png'), alt: '商品テスト画像'
+            = image_tag asset_path('bannartop.png'), alt: '商品テスト画像'
+            = image_tag asset_path('bannartop.png'), alt: '商品テスト画像'
+
+//SwiperSlideScript
+:javascript
+  var slider = new Swiper ('#slider', {
+  nextButton: '.swiper-button-next',
+  prevButton: '.swiper-button-prev'
+  })
+  var thumbs = new Swiper('#thumbs', {
+    centeredSlides: true,
+    spaceBetween: 10,
+    slidesPerView: "auto",
+    touchRatio: 0.2,
+    slideToClickedSlide: true
+  });
+  slider.params.control = thumbs;
+  thumbs.params.control = slider;
+    
