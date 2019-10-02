@@ -14,6 +14,7 @@
     &__info{
       display:flex;
       justify-content: space-between;
+      margin-bottom: 24px;
     }
     
     &__image{
@@ -55,6 +56,23 @@
         width: 60%;
         padding: 8px;
       }
-    } 
+    }
+    
+    &__price-box{
+      margin-bottom: 16px;
+      text-align: center;
+    }
+
+    &__price{
+      font-size: 3.2rem;
+    }
+    
+    &__tax{
+      font-size: 0.6rem;
+    }
+
+    &__fee{
+      font-size: 1rem;
+    }
   }
 }
