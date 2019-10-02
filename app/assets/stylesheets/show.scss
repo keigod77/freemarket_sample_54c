@@ -40,5 +40,21 @@
           }
       }
     }
+    
+    &__detail{
+      width: 300px;
+
+      th{
+        background-color: #fafafa;
+        width: 40%;
+        padding: 16px 8px;
+        font-size: 0.7rem;
+      }
+
+      td{
+        width: 60%;
+        padding: 8px;
+      }
+    } 
   }
 }
