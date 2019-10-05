@@ -60,8 +60,32 @@
           (税込)
         %span.product__fee
           送料込み
-          
-      .product__explanation
+
+      =link_to '購入画面に進む','#',class:'product__buy-btn'
+      %figure.product__explanation
+        %p
+          商品コメントです
+        %p
+          商品テストです
+        %p
+          テスト
+      .product__btns-container
+        .product__btns
+          %button.product__btns--like
+            %i.far.fa-heart
+            %span
+              いいね!
+            %span
+              0
+          %button.product__btns--report
+            %i.far.fa-flag
+            %span
+              不適切な商品の報告
+          .product__btns--safework
+            =link_to '#' do
+              %i.fas.fa-lock
+              %span
+                あんしん・あんぜんへの取り組み
 
 //SwiperSlideScript
 :javascript
