@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   root to: 'home#index'
 
   get 'mypage', to: 'mypage#top'
-  get '/:id', to: 'home#show'
+  resources :home, only: [:show, :index]
+
 
   resources :signup do
     collection do
