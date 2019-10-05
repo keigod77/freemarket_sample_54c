@@ -1,0 +1,173 @@
+@import 'mixin.scss';
+h3{
+  margin: 0;
+}
+
+.contents-container{
+  width: 100vw;
+  box-sizing: border-box;
+  background-color: #eeeeee;
+  padding-top: 40px;
+
+  .mypage-container{
+    width: 1020px;
+    margin: 0 auto 0;
+    padding-bottom: 40px;
+    background-color: #eeeeee;
+    @include clearfix();
+
+    .contents{
+      width: 700px;
+      float: right;
+
+      .user-info-container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 200px;
+        width: 100%;
+        background-image: image-url('user-bg.jpg');
+
+        .user-info-contents{
+          width: 100%;
+          cursor: pointer;
+          @include TextDecoNone(#333);
+
+          &__user-icon{
+            display: block;
+            height: 60px;
+            width: 60px;
+            margin: 0 auto;
+            border-radius: 50%;
+          }
+
+          &__user-name{
+            margin: 8px 0 0;
+            padding: 0;
+            font-size: 0.9rem;
+            text-align: center;
+            
+          }
+        }
+
+        .user-info-contents:hover{
+          opacity: 0.7;
+
+          h2{
+            text-decoration: underline;
+          }
+        }
+
+        .user-count-box{
+          width: 100%;
+          font-size: 0.9rem;
+          margin: 8px 0 0;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          &__eval{
+            margin-right: 10px;
+          }
+        }
+      }
+
+      .notification-todo-container{
+        width: 100%;
+        background-color: white;
+
+        .notification-todo-tabs{
+          @include toggleTabDesign();
+        }
+
+        .notification-todo-content{
+          .active{
+            display:block;
+          }
+          
+          &__notification-list{
+            display: none;
+          }
+
+          &__todo-list{
+            display: none;
+          }
+        }
+
+        .list-item{
+          display: block;
+          box-sizing: border-box;
+          height: 80px;
+          padding: 16px;
+          border-bottom: solid 1px #eee;
+        }
+
+        .notification-todo-list{
+          @include aTextDecoNone(black);
+          box-sizing: border-box;
+          height: 88px;
+          padding: 16px;
+
+          a{
+            display: block;
+            height: 100%;
+            background-color: #eee;
+            text-align: center;
+            line-height: 56px;
+            cursor: pointer;
+            font-size: 0.9rem;
+          }
+
+          a:hover{
+            background-color: rgb(248, 248, 248);
+          }
+        }
+      }
+
+      .transaction-container{
+        margin-top: 40px;
+        
+        .transaction{
+          &__tabs{
+            height: 72px;
+            display: flex;
+            margin: 0;
+            padding: 0;
+            font-size: 0.9rem;
+            text-align: center;
+  
+            li{
+              background-color: #eeeeee;
+              width: 50%;
+              list-style: none;
+              line-height: 72px;
+              cursor: pointer;
+              @include spreadClickRange();
+              @include aTextDecoNone(black);           
+              a:hover{
+                color: rgb(121, 121, 121);
+              }
+            }
+  
+            .active{
+              background-color: white;
+              border-top: solid 2px red;
+            }
+          }
+          &__head{
+            background-color: rgb(252, 252, 252);
+            box-sizing: border-box;
+            height: 72px;
+            padding: 0 16px;
+            font-size: 0.7rem;
+            line-height: 72px;
+          }
+          &__content{
+            height: 236px;
+            background-color: white;
+          }
+        }
+      }
+    }
+  }
+}

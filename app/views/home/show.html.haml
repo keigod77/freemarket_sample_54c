@@ -1,0 +1,194 @@
+.contents-container
+  %main.product-container
+    .product
+      %h1.product__name
+        テスト
+      .product__info
+        %figure.product__image
+          //SwiperSlide
+          .product__image--large
+            = image_tag asset_path('bannartop.png'), alt: '商品テスト画像'
+          .product__image--small
+            = image_tag asset_path('member.jpg'), alt: '商品テスト画像'
+            = image_tag asset_path('bannartop.png'), alt: '商品テスト画像'
+            = image_tag asset_path('bannartop.png'), alt: '商品テスト画像'
+            = image_tag asset_path('bannartop.png'), alt: '商品テスト画像'
+            = image_tag asset_path('bannartop.png'), alt: '商品テスト画像'
+            = image_tag asset_path('bannartop.png'), alt: '商品テスト画像'
+            = image_tag asset_path('bannartop.png'), alt: '商品テスト画像'
+        %table.product__detail
+          %tr
+            %th
+              出品者
+            %td
+              テストおおおおおおおおおおおおおおおおおおお
+          %tr
+            %th
+              カテゴリー
+            %td
+              テストおおおおおおおおおおおおおおおおおおおお
+          %tr
+            %th
+              ブランド
+            %td
+          %tr
+            %th
+              商品の状態
+            %td
+          %tr
+            %th
+              配送料の負担
+            %td
+          %tr
+            %th
+              配送の方法
+            %td
+          %tr
+            %th
+              配送元の地域
+            %td
+          %tr
+            %th
+              発送日の目安
+            %td
+          
+          
+      .product__price-box
+        %span.product__price
+          ¥3,300
+        %span.product__tax
+          (税込)
+        %span.product__fee
+          送料込み
+
+      =link_to '購入画面に進む','#',class:'product__buy-btn'
+      %figure.product__explanation
+        %p
+          商品コメントです
+        %p
+          商品テストです
+        %p
+          テスト
+      .product__btns-container
+        .product__btns
+          %button.product__btns--like
+            %i.far.fa-heart
+            %span
+              いいね!
+            %span
+              0
+          %button.product__btns--report
+            %i.far.fa-flag
+            %span
+              不適切な商品の報告
+          .product__btns--safework
+            =link_to '#' do
+              %i.fas.fa-lock
+              %span
+                あんしん・あんぜんへの取り組み
+    .message-container
+      .message
+        =form_with url: root_path do |f|
+          %p.message__caution
+            相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+          = f.text_area :message
+        %button.message__submit-btn
+          %span
+            コメントする
+    
+    .product-link-container
+      .product-link
+        .product-link__preview
+          =link_to '#' do
+            %i.fas.fa-chevron-left
+            %span
+              テスト
+        .product-link__next
+          =link_to '#' do
+            %span
+              テスト
+            %i.fas.fa-chevron-right
+    .media-box-container
+      .media-box
+        %i.fab.fa-facebook-square.fa-3x.facebook
+        %i.fab.fa-twitter-square.fa-3x.twitter
+        %i.fab.fa-pinterest-square.fa-3x.pinterest
+    
+    .other-user-products-container
+      .other-user-products
+        .other-user-products__head
+          %h2
+            ユーザーさんのその他の商品
+        .other-user-products__items
+          .products-item
+            %figure.products-item__img
+              = image_tag asset_path('member.jpg'), alt: '商品テスト画像'
+            .products-item__body
+              %h3.products-item__head
+                テスト
+              .products-item__inner
+                .product-item__price
+                  %span
+                    ¥3,000
+                .product-item__like
+                  %i.far.fa-heart
+                  %span
+                    0
+
+          .products-item
+            %figure.products-item__img
+              = image_tag asset_path('member.jpg'), alt: '商品テスト画像'
+          .products-item
+            %figure.products-item__img
+              = image_tag asset_path('member.jpg'), alt: '商品テスト画像'
+          .products-item
+            %figure.products-item__img
+              = image_tag asset_path('member.jpg'), alt: '商品テスト画像'
+          .products-item
+            %figure.products-item__img
+              = image_tag asset_path('member.jpg'), alt: '商品テスト画像'
+          .products-item
+            %figure.products-item__img
+              = image_tag asset_path('member.jpg'), alt: '商品テスト画像'
+
+    .other-category-products-container
+      .other-category-products
+        .other-category-products__head
+          %h2
+            カテゴリーのその他の商品
+        .other-category-products__items
+          .products-item
+            %figure.products-item__img
+              = image_tag asset_path('member.jpg'), alt: '商品テスト画像'
+          .products-item
+            %figure.products-item__img
+              = image_tag asset_path('member.jpg'), alt: '商品テスト画像'
+          .products-item
+            %figure.products-item__img
+              = image_tag asset_path('member.jpg'), alt: '商品テスト画像'
+          .products-item
+            %figure.products-item__img
+              = image_tag asset_path('member.jpg'), alt: '商品テスト画像'
+          .products-item
+            %figure.products-item__img
+              = image_tag asset_path('member.jpg'), alt: '商品テスト画像'
+          .products-item
+            %figure.products-item__img
+              = image_tag asset_path('member.jpg'), alt: '商品テスト画像'
+
+//SwiperSlideScript
+:javascript
+  var slider = new Swiper ('#slider', {
+  nextButton: '.swiper-button-next',
+  prevButton: '.swiper-button-prev'
+  })
+  var thumbs = new Swiper('#thumbs', {
+    centeredSlides: true,
+    spaceBetween: 10,
+    slidesPerView: "auto",
+    touchRatio: 0.2,
+    slideToClickedSlide: true
+  });
+  slider.params.control = thumbs;
+  thumbs.params.control = slider;
+    

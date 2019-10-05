@@ -1,0 +1,45 @@
+@import 'mixin.scss';
+.mypage-nav-list-wrap{
+  float: left;
+  .mypage-nav-list{
+    width:280px;
+    margin: 0;
+    padding: 0;
+    font-size: 0.9rem;
+
+    &__item{
+      width:280px;
+      height: 48px;
+      padding: 16px;
+      margin-top: 1px;
+      box-sizing: border-box;
+      position: relative;
+      background-color: white;
+      list-style-type: none;
+      @include aTextDecoNone(#333);
+      cursor: pointer;
+
+      i{
+        height: 16px;
+        width: 16px;
+        position: absolute;
+        right: 16px;
+        color: rgb(211, 211, 211);
+      }
+
+      &:hover{
+        background-color: rgb(248, 248, 248);
+
+        i{
+          color: black;
+          right:10px;
+          transition: 300ms;
+        }
+      }
+    }
+  }
+}
+.mypage-nav-head{
+  margin: 40px 0 8px 0;
+  display: inline-block;
+}
