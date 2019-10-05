@@ -6,7 +6,7 @@ class User < ApplicationRecord
   has_many :addresses
 
   validates :nickname, presence: true, length: { maximum: 20 }
-  validates :email, presence: true, uniqueness: true, inclusion: { in: %w( @ ) }
+  # validates :email, presence: true, uniqueness: true
   validates :password, presence: true, length: { in: 7..128 } #英字と数字両方含むも追加
   validates :password_confirmation, presence: true, confirmation: true
   validates :first_name, presence: true
