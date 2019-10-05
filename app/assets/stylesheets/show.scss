@@ -185,4 +185,35 @@
       }
     }
   }
+  .media-box-container{
+    height: 140px;
+    width: 100%;
+    padding: 46px 0 24px;
+    box-sizing: border-box;
+    margin-top: 10px;
+    background-color: white;
+    
+    .media-box{
+      margin-top: 16px;
+      height: 68px;
+      text-align: center;
+      letter-spacing: 3px;
+      i{
+        cursor: pointer;
+
+        &:hover{
+          opacity: 0.5;
+        }
+      }
+      .twitter{
+       color: #5d9dc9;
+      }
+      .facebook{
+        color: #385185;
+      }
+      .pinterest{
+        color: #AA262A;
+      }
+    }
+  }
 }
