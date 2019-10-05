@@ -133,6 +133,7 @@
         }
       }
     }
+
   }    
   .message-container{
     margin: 5px 0 24px 0;
@@ -171,20 +172,35 @@
   .product-link-container{
     .product-link{
       width: 100%;
+      color: #0099E8;
+      font-size: 0.9rem;
       @include clearfix();
 
       &__preview{
+        @include aTextDecoNone(#0099E8);
         width: 315px;
         float: left;
+
+        :hover{
+          opacity: 0.8;
+          text-decoration-line: underline;
+        }
       }
 
       &__next{
+        @include aTextDecoNone(#0099E8);
         width: 315px;
         text-align: right;
         float: right;
+
+        :hover{
+          opacity: 0.8;
+          text-decoration-line: underline;
+        }
       }
     }
   }
+
   .media-box-container{
     height: 140px;
     width: 100%;
