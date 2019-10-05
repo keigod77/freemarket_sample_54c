@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root to: 'home#index'
 
   get 'mypage', to: 'mypage#top'
+  get 'mypage/profile', to: 'mypage#profile'
   resources :home, only: [:show, :index]
 
 

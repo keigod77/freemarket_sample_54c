@@ -1,0 +1,15 @@
+.contents-container
+  %main.profile-container
+    = render partial: 'layouts/sidebar'
+    .profile
+      %h2.profile__head
+        プロフィール
+      =form_with url: root_path do |f|
+        .profile__change-nickname
+          =image_tag asset_path('member.jpg')
+          =f.text_field :nickname,placeholder: "例)すが@20%引き"
+        .profile__change-introduction 
+          =f.text_area :introduction,placeholder: "例)こんにちは！よろしくお願いしますね!!"
+          %button.profile__change-btn
+            %span
+              変更する
