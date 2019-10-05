@@ -134,4 +134,55 @@
       }
     }
   }    
+  .message-container{
+    margin: 5px 0 24px 0;
+    background-color: white;
+    .message{
+      width: 100%;
+      box-sizing: border-box;
+      padding: 24px;
+
+      &__caution{
+        padding: 8px;
+        background-color: #FFF6DE;
+        font-size: 0.8rem;
+        letter-spacing: 1px;
+        margin-bottom: 10px;
+      }
+
+      textarea{
+        width: 100%;
+        height: 100px;
+        padding: 8px;
+        box-sizing: border-box;
+        margin-bottom: 10px;
+      }
+
+      &__submit-btn{
+        width: 100%;
+        height: 50px;
+        outline: 0;
+        background-color: #AAAAAA;
+        color: white;
+      }
+    }
+  }
+
+  .product-link-container{
+    .product-link{
+      width: 100%;
+      @include clearfix();
+
+      &__preview{
+        width: 315px;
+        float: left;
+      }
+
+      &__next{
+        width: 315px;
+        text-align: right;
+        float: right;
+      }
+    }
+  }
 }
