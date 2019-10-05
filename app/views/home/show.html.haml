@@ -113,6 +113,68 @@
         %i.fab.fa-facebook-square.fa-3x.facebook
         %i.fab.fa-twitter-square.fa-3x.twitter
         %i.fab.fa-pinterest-square.fa-3x.pinterest
+    
+    .other-user-products-container
+      .other-user-products
+        .other-user-products__head
+          %h2
+            ユーザーさんのその他の商品
+        .other-user-products__items
+          .products-item
+            %figure.products-item__img
+              = image_tag asset_path('member.jpg'), alt: '商品テスト画像'
+            .products-item__body
+              %h3.products-item__head
+                テスト
+              .products-item__inner
+                .product-item__price
+                  %span
+                    ¥3,000
+                .product-item__like
+                  %i.far.fa-heart
+                  %span
+                    0
+
+          .products-item
+            %figure.products-item__img
+              = image_tag asset_path('member.jpg'), alt: '商品テスト画像'
+          .products-item
+            %figure.products-item__img
+              = image_tag asset_path('member.jpg'), alt: '商品テスト画像'
+          .products-item
+            %figure.products-item__img
+              = image_tag asset_path('member.jpg'), alt: '商品テスト画像'
+          .products-item
+            %figure.products-item__img
+              = image_tag asset_path('member.jpg'), alt: '商品テスト画像'
+          .products-item
+            %figure.products-item__img
+              = image_tag asset_path('member.jpg'), alt: '商品テスト画像'
+
+    .other-category-products-container
+      .other-category-products
+        .other-category-products__head
+          %h2
+            カテゴリーのその他の商品
+        .other-category-products__items
+          .products-item
+            %figure.products-item__img
+              = image_tag asset_path('member.jpg'), alt: '商品テスト画像'
+          .products-item
+            %figure.products-item__img
+              = image_tag asset_path('member.jpg'), alt: '商品テスト画像'
+          .products-item
+            %figure.products-item__img
+              = image_tag asset_path('member.jpg'), alt: '商品テスト画像'
+          .products-item
+            %figure.products-item__img
+              = image_tag asset_path('member.jpg'), alt: '商品テスト画像'
+          .products-item
+            %figure.products-item__img
+              = image_tag asset_path('member.jpg'), alt: '商品テスト画像'
+          .products-item
+            %figure.products-item__img
+              = image_tag asset_path('member.jpg'), alt: '商品テスト画像'
 
 //SwiperSlideScript
 :javascript

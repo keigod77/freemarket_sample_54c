@@ -206,7 +206,7 @@
     width: 100%;
     padding: 46px 0 24px;
     box-sizing: border-box;
-    margin-top: 10px;
+    margin: 10px 0 30px 0;
     background-color: white;
     
     .media-box{
@@ -230,6 +230,88 @@
       .pinterest{
         color: #AA262A;
       }
+    }
+  }
+
+  .other-user-products-container{
+    .other-user-products{
+      width: 100%;
+
+      &__head{
+        cursor: pointer;
+        color: #0099E8;
+        @include aTextDecoNone(#0099E8);
+        margin: 24px 0 8px;
+        :hover{
+          opacity: 0.8;
+          text-decoration-line: underline;
+        }
+      }
+
+      &__items{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        height: 700px;
+        width: 700px;
+      }
+    }
+  }
+
+  .other-category-products-container{
+    .other-category-products{
+      &__head{
+        cursor: pointer;
+        color: #0099E8;
+        @include aTextDecoNone(#0099E8);
+        margin: 24px 0 8px;
+        :hover{
+          opacity: 0.8;
+          text-decoration-line: underline;
+        }
+      }
+
+      &__items{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        height: 700px;
+        width: 700px;
+      }
+    }
+  }
+
+  .products-item{
+    background-color: white;
+    height: 330px;
+    width: 220px;
+    cursor: pointer;
+
+    &__img{
+      img{
+        object-fit: contain;
+        height: 220px;
+        width: 220px;
+      }
+    }
+
+    &__body{
+      height: 110px;
+      width: 220px;
+      padding: 16px;
+      box-sizing: border-box;
+    }
+
+    &__head{
+      height: 48px;
+      font-weight: normal;
+      margin-bottom: 8px;
+    }
+
+    &__inner{
+      height: 17px;
+      display: flex;
+      justify-content: space-between;
     }
   }
 }
