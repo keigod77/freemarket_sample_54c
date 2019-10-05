@@ -35,8 +35,8 @@
           %h2.new-registration-container__header--word 会員情報入力
         .new-registration-container__body
           -# 会員情報入力form_for
-          .new-registration-body-upper
-            = form_with model: @user, url: sms_confirmation_signup_index_path,local: true, method: :get, class: 'new-registration-field' do |f|
+          = form_with model: @user, url: sms_confirmation_signup_index_path,local: true, class: 'new-registration-field' do |f|
+            .new-registration-body-upper
               .new-registration-field__group
                 = f.label :ニックネーム, class: 'new-registration-field__group--name'
                 = f.label :必須, class: 'new-registration-field__group--require'
@@ -61,14 +61,14 @@
                 %div
                   = f.label :お名前（全角）, class: 'new-registration-field__group--name'
                   = f.label :必須, class: 'new-registration-field__group--require'
-                = f.text_field :family_name_knaji, class: 'new-registration-field__group--input-default-half', placeholder: '山田'
-                = f.text_field :first_name_kanji, class: 'new-registration-field__group--input-default-half', placeholder: '彩'
+                = f.text_field :last_name, class: 'new-registration-field__group--input-default-half', placeholder: '山田'
+                = f.text_field :first_name, class: 'new-registration-field__group--input-default-half', placeholder: '彩'
               .new-registration-field__group
                 %div
                   = f.label :お名前カナ（全角）, class: 'new-registration-field__group--name'
                   = f.label :必須, class: 'new-registration-field__group--require'
-                = f.text_field :family_name_kana, class: 'new-registration-field__group--input-default-half', placeholder: 'ヤマダ'
-                = f.text_field :first_name_kana, class: 'new-registration-field__group--input-default-half', placeholder: 'アヤ'
+                = f.text_field :first_name_kana, class: 'new-registration-field__group--input-default-half', placeholder: 'ヤマダ'
+                = f.text_field :last_name_kana, class: 'new-registration-field__group--input-default-half', placeholder: 'アヤ'
               .new-registration-field__group
                 = f.label :生年月日, class: 'new-registration-field__group--name'
                 = f.label :必須, class: 'new-registration-field__group--require'
@@ -88,19 +88,18 @@
                   %span 日
               %p.new-registration-field__info-text
                 ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
-          -# reCAPTCHA+次へ進むbottun
-          .new-registration-body-bottom
-            .form-recaptcha
-              recaptch
-            .button-explanation
-              %p.button-explanation__text
-                「次へ進む」のボタンを押すことにより、
-                = link_to '利用規約', "#"
-                に同意したものとみなします
-          = form_with model: @user, url: sms_confirmation_signup_index_path, local: true, method: :get, class: 'new-registration-field' do |f|
-            = f.submit '次へ進む', class: 'btn-default-red'
-            .reason-person-registration
-              %p
-                = link_to '本人情報登録について', "#"
-                %i.icon-arrow-right.fas.fa-chevron-right
+            -# reCAPTCHA+次へ進むbottun
+            .new-registration-body-bottom
+              .form-recaptcha
+                recaptch
+              .button-explanation
+                %p.button-explanation__text
+                  「次へ進む」のボタンを押すことにより、
+                  = link_to '利用規約', "#"
+                  に同意したものとみなします            
+              = f.submit '次へ進む', class: 'btn-default-red'
+              .reason-person-registration
+                %p
+                  = link_to '本人情報登録について', "#"
+                  %i.icon-arrow-right.fas.fa-chevron-right
 = render 'signup/shared/signup-footer'

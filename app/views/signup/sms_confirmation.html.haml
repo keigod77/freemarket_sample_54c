@@ -26,7 +26,6 @@
           完了
           .progress-status
 
-
   .single-main
     .new-registration
       .new-registration-container
@@ -34,14 +33,14 @@
           %h2.new-registration-container__header--word 電話番号の確認
         .new-registration-container__body
           -# 入力form_for
-          .new-registration-body-upper
-            = form_with model: @user, url: address_signup_index_path, local: true, method: :get, class: 'new-registration-field' do |f|
+          = form_with model: @user, url: address_signup_index_path, local: true, class: 'new-registration-field' do |f|
+            .new-registration-body-upper
               .new-registration-field__group
                 = f.label :携帯電話の番号, class: 'new-registration-field__group--name'
                 = f.text_field :phone_number, class: 'new-registration-field__group--input-default', placeholder: '携帯電話の番号を入力'
                 %p.new-registration-field__group--single-text
                   本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
-              = form_with model: @user, url: address_signup_index_path, local: true, method: :get, class: 'new-registration-field' do |f|
+              = form_with model: @user, url: address_signup_index_path, local: true, class: 'new-registration-field' do |f|
                 = f.submit 'SMSを送信する',class: "btn-default-red"
                 %p.new-registration-field__group--single-text
                   ※電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。
