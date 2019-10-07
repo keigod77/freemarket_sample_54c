@@ -1,6 +1,5 @@
 class SignupController < ApplicationController
   layout :false
-  # before_action :prefectures , only: :address
 
   def registration
     @user = User.new
