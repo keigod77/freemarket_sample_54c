@@ -1,0 +1,58 @@
+.contents-container
+  %main.mypage-container
+    = render partial: 'layouts/sidebar'
+    .contents
+      .user-info-container
+        = link_to '#', class:'user-info-contents' do
+          = image_tag asset_path('member.jpg'), alt: 'ユーザーアイコン', class: 'user-info-contents__user-icon'
+          %h2.user-info-contents__user-name
+            名前
+          .user-count-box
+            .user-count-box__eval
+              %span
+                評価
+              %span
+                0
+            .user-count-box__exhibit 
+              %span
+                出品数
+              %span
+                0
+      
+      .notification-todo-container.js-tabparent
+        %ul.notification-todo-tabs
+          %li.js-toggle.active
+            %h3
+              =link_to 'お知らせ', '#notification'
+          %li.js-toggle
+            %h3
+              =link_to 'やることリスト', '#todo'
+        .notification-todo-content
+          #notification.notification-todo-content__notification-list.active
+            = link_to '#', class:'list-item' do
+              %span
+
+          #todo.notification-todo-content__todo-list
+            = link_to '#', class:'list-item' do
+              %span
+        .notification-todo-list
+          = link_to '#' do
+            %span
+              一覧をみる
+
+      .transaction-container
+        .transaction.js-tabparent
+          .transaction__head
+            %h2
+              購入した商品
+          %ul.transaction__tabs
+            %li.js-toggle.active
+              %h3
+                =link_to '取引中', '#trading'
+            %li.js-toggle
+              %h3
+                =link_to '取引した商品', '#traded'
+
+          .transaction__content
+            #trading
+            #traded
