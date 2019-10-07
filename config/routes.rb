@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   resources :signup do
     collection do
-      get 'login_methods'
+      get 'login_methods' #ログイン方法選択画面
       get 'registration' #会員情報入力
       post 'sms_confirmation' #電話番号認証
       post 'address' #住所入力
