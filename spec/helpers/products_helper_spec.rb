@@ -1,15 +1,15 @@
 require 'rails_helper'
 
 # Specs in this file have access to a helper object that includes
-# the ProductHelper. For example:
+# the ProductsHelper. For example:
 #
-# describe ProductHelper do
+# describe ProductsHelper do
 #   describe "string concat" do
 #     it "concats two strings with spaces" do
 #       expect(helper.concat_strings("this","that")).to eq("this that")
 #     end
 #   end
 # end
-RSpec.describe ProductHelper, type: :helper do
+RSpec.describe ProductsHelper, type: :helper do
   pending "add some examples to (or delete) #{__FILE__}"
 end
