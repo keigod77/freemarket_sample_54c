@@ -3,8 +3,13 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: 'home#index'
 
-  get 'mypage', to: 'mypage#top'
-  get 'mypage/profile', to: 'mypage#profile'
+  resource :mypage do
+    collection do
+      get :top
+      get :profile
+    end
+  end
+
   resources :home, only: [:show, :index]
 
 
