@@ -10,6 +10,12 @@ Rails.application.routes.draw do
     end
   end
 
+  resource :product do
+    collection do
+      get :sell
+    end
+  end
+
   resources :home, only: [:show, :index]
 
 
