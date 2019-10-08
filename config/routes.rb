@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resource :product do
+  resource :products do
     collection do
       get :sell
     end
