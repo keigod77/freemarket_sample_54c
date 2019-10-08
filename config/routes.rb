@@ -16,9 +16,9 @@ Rails.application.routes.draw do
   resources :signup do
     collection do
       get 'registration' #会員情報入力
-      get 'sms_confirmation' #電話番号認証
-      get 'address' #住所入力
-      get 'credit_card' #支払い方法
+      post 'sms_confirmation' #電話番号認証
+      post 'address' #住所入力
+      post 'credit_card' #支払い方法
       get 'complete' #完了
     end
   end

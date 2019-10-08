@@ -11,8 +11,9 @@
 | last_name | string | null :false |
 | first_name_kana | string | null :false |
 | last_name_kana | string | null :false |
-| birthday | integer | null :false |
-| addresses | references | null :false, foreign_key: true, dependent: :destroy|
+| birthday_year | integer | null :false |
+| birthday_month | integer | null :false |
+| birthday_day | integer | null :false |
 | phone_number | string | unique |
 | email | string | null :false, unique |
 | password | string | null :false |
@@ -33,6 +34,7 @@
 | address | string | null :false |
 | building | string ||
 | postal_code | string | null :false |
+| users | references | foreign_key: true |
 ### Assoiation
 - belong_to :user
 
@@ -103,7 +105,9 @@
 | ------ | ---- | ------- |
 | user | references | null :false |
 | customer_id | string | null :false |
-| card_id | string | null :false |
+| security_code | integer | null :false |
+| expiration_date_month | integer | null :false |
+| expiration_date_year | integer | null :false |
 ### Assoiation
 - belongs_to :user
 

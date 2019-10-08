@@ -93,4 +93,6 @@ gem 'mini_magick'
 
 gem 'fog-aws'
 
+gem 'devise'
+
 gem "jquery-rails"

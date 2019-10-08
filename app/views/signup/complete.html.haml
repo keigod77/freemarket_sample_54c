@@ -35,12 +35,12 @@
         .new-registration-container__body
           -# 入力form_for
           .new-registration-body-upper
-            = form_with model: @user, url: '/', local: true, method: :get, class: 'new-registration-field' do |f|
+            = form_with  url: root_path, local: true, method: :get, class: 'new-registration-field' do |f|
               .new-registration-field__group
                 %p.new-registration-field__group--complete-text
                   ありがとうございます。
                   %br会員登録が完了しました。
-              = form_with url: '/', local: true, class: 'new-registration-field' do |f|
+              = form_with url: root_path, local: true, method: :get, class: 'new-registration-field' do |f|
                 = f.submit 'メルカリをはじめる',class: "btn-default-red"
 
           =link_to image_tag('complete-image', class: 'complete-image'), root_path
