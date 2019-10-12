@@ -103,19 +103,17 @@
                   .l-right
                     %span
                       ¥
-                    = f.text_field :price,placeholder:"例) 300"
+                    = f.text_field :price,placeholder:"例) 300",id:"js-price-form"
                 .price-box__fee
                   %span.l-left
                     販売手数料(10%)
-                  .l-right
-                    %p
-                      ¥333
+                  .l-right#js-commission-price
+                    &#45;
                 .price-box__profit
                   %span.l-left
-                    販売手数料(10%)
-                  .l-right
-                    %p
-                      ¥333
+                    販売利益
+                  .l-right#js-price
+                    &#45;
             .sell__btns
               .notice
                 %p
