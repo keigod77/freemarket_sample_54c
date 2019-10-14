@@ -40,24 +40,65 @@
         }
       }
       &__upload-img-field{
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
         margin-top: 16px;
-        background-color: #eee;
-        border: dashed 1px rgb(207, 207, 207);
-        height: 162px;
-        width: 620px;
-        padding: 40px;
-        box-sizing: border-box;
-        cursor: pointer;
-        position: relative;
-        p{
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translateY(-50%) translateX(-50%);
-          text-align: center;
+        
+        .preview{
+          display: flex;
+          justify-content: space-between;
+          .img-container{
+            display: flex;
+            li{
+              height: 162px;
+              width:  116px;
+              list-style: none;
+              margin-right: 10px;
+            }
+
+            li:nth-child(5n){
+              margin-right: 0;
+            }
+          }
+          .img-container.item-5{
+            margin-bottom: 10px;
+          }
         }
-        input[type=file]{
-          display: block;
+        .upload-field{
+          background-color: #eee;
+          border: dashed 1px rgb(207, 207, 207);
+          height: 162px;
+          padding: 40px;
+          box-sizing: border-box;
+          cursor: pointer;
+          position: relative;
+          p{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translateY(-50%) translateX(-50%);
+            text-align: center;
+          }
+          input[type=file]{
+            display: block;
+          }
+        }
+        .upload-field.item-0{
+          width: 620px;
+        }
+        .upload-field.item-1{
+          width: 494px;
+        }
+        .upload-field.item-2{
+          width: 368px;
+        }
+        .upload-field.item-3{
+          width: 242px;
+        }
+        .upload-field.item-4{
+          width: 116px;
         }
       }
       &__product-info-box{
