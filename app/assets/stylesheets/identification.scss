@@ -35,7 +35,7 @@
         font-weight: bold;
       }
 
-      input[type=text]{
+      input[type=text],select{
         width: 100%;
         height: 48px;
         margin-top: 8px;
@@ -43,11 +43,21 @@
         border: solid 1px rgb(168, 168, 168);
         padding: 0 16px;
         box-sizing: border-box;
+        background-color: white;
       }
     }
     .description{
       text-align: right;
       @include aTextDecoNone(#0099E8);
+    }
+    button{
+      width: 100%;
+      height: 48px;
+      margin-top: 40px;
+      background-color: red;
+      color: white;
+      cursor: pointer;
+      outline: 0;
     }
   }
 }
