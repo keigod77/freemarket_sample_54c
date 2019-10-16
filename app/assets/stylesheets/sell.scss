@@ -234,7 +234,7 @@
 .select-box{
   float: right;
   width: 400px;
-  &__category, &__burden, &__origin-region{
+  &__category, &__burden, &__origin-region,&__method{
     margin-bottom: 40px;
   }
 }

@@ -65,7 +65,7 @@
                       %span
                         必須
                     %br
-                    = f.select :test, ["---","test","test2"],{},{class: "layout-select"}
+                    = f.select :test, Item.states.keys.to_a,{},{class: "layout-select"}
 
               .sell__delivery-info-box.form-required
                 %h3.form-head-sub
@@ -77,7 +77,14 @@
                       %span
                         必須
                     %br
-                    = f.select :test, ["---","test","test2"],{},{class: "layout-select"}
+                    = f.select :test, Item.burdens.keys.to_a,{},{class: "layout-select"}
+                  .select-box__method
+                    %label
+                      配送の方法
+                      %span
+                        必須
+                    %br
+                    = f.select :test, Item.methods.keys.to_a,{},{class: "layout-select"}
 
                   .select-box__origin-region
                     %label
@@ -93,7 +100,7 @@
                       %span
                         必須
                     %br
-                    = f.select :test, ["---","test","test2"],{},{class: "layout-select"}
+                    = f.select :test, Item.daytodeliveries.keys.to_a,{},{class: "layout-select"}
               .sell__price-box
                 %h3.form-head-sub
                   販売価格(300〜9,999,999)
