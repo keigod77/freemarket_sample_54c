@@ -96,3 +96,5 @@ gem 'fog-aws'
 gem 'devise'
 
 gem "jquery-rails"
+
+gem "rubyzip", ">= 1.3.0"
