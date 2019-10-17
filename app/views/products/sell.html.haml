@@ -23,10 +23,10 @@
                     必須
                 %p
                   最大10枚までアップロードできます。
-                %label
-                  .sell__upload-img-field
-                    .preview
-                      %ul.img-container.item-0
+                .sell__upload-img-field
+                  .preview
+                    %ul.img-container.item-0
+                  %label
                     .upload-field.item-0
                       = f.file_field :image,style:"display:none;",id: "js-upload-img"
                       %p

@@ -19,15 +19,31 @@ $(function(){
   })
 
   //画像をアップロードする部分
-
   var preview = `<div class="preview"></div>`
-  var uploadimg = `<li>test</li>`
   $upload = $(".upload-field")
   var itemCount = 0;
   //アイテムの所持数に応じて変化する変数。(itemが2個の時:item-2)
   var itemStatusClass ="item-0";
   $preview = $(".preview");
 
+  var uploadimg = `<li>
+                    <img src="">
+                    <div class=edit-delete-box>
+                      <a>編集</a>
+                      <a class="js-delete-btn">削除</a>
+                    </div>
+                  </li>`
+
+  function readURL(input, $target){
+    if(input.files && input.files[0]){
+      var reader = new FileReader();
+
+      reader.onload = function(e){
+        $target.find("img").last().attr('src',e.target.result);
+      }
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
   $("#js-upload-img").on("change",function(e){
     $target = $preview.last().find("ul");
 
@@ -43,9 +59,10 @@ $(function(){
       itemStatusClass = "item-" + itemCount
       //itemクラスを追加する
       $target.addClass(itemStatusClass);
-      $upload.addClass(itemStatusClass)
+      $upload.addClass(itemStatusClass);
       //li要素を追加
       $target.append(uploadimg)
+      readURL(this, $target);
       //itemが5個の時アイテムコンテナを追加,10個の時ファイルフィールド削除
       if(itemCount == 5){
         if($(".preview").length == 1){
@@ -60,9 +77,8 @@ $(function(){
           $upload.addClass(itemStatusClass)
         }else{
           $(".upload-field").remove()
-        }
+       }
       }
-
     }
   })
 })
