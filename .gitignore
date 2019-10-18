@@ -30,5 +30,6 @@
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 
-*.png
+# *.png
+# 不都合あればコメントアウト外してください
 config/credentials.yml.enc
