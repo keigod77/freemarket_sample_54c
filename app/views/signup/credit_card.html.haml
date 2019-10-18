@@ -3,7 +3,7 @@
   %header.single-header
     %h1
       = link_to "/" do
-        = image_tag "mercari_logo.png", class: 'single-header__logo'
+        = image_tag asset_path("mercari_logo.png"), class: 'single-header__logo'
     %nav.progress
       %ul.progress__bar
         %li.active
@@ -41,9 +41,9 @@
                 = f.label :必須, class: 'new-registration-field__group--require'
                 = f.text_field :card_number, class: 'new-registration-field__group--input-default', placeholder: '半角数字のみ'
               .cards-icon
-                = image_tag "card_image_visa", class: 'cards-icon__part'
-                = image_tag "card_image_jcb", class: 'cards-icon__part'
-                = image_tag "card_image_mastercard", class: 'cards-icon__part'
+                = image_tag asset_path("card_image_visa"), class: 'cards-icon__part'
+                = image_tag asset_path("card_image_jcb"), class: 'cards-icon__part'
+                = image_tag asset_path("card_image_mastercard"), class: 'cards-icon__part'
               .new-registration-field__group
                 %div
                   = f.label :有効期限, class: 'new-registration-field__group--name'
