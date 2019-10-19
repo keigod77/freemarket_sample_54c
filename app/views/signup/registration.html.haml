@@ -4,7 +4,7 @@
     %header.single-header
       %h1
         = link_to "/" do
-          = image_tag "mercari_logo.png", class: 'single-header__logo'#image_tagはasset_pathを使う
+          = image_tag asset_path("mercari_logo.png"), class: 'single-header__logo'
       %nav.progress
         %ul.progress__bar
           %li.active

@@ -1,0 +1,93 @@
+// height は最後にautoにする(消す)
+.login-panel{
+  width: 456px;
+  margin: auto;
+  background-color: #fff;
+  &__new-registration{
+    margin: 0 auto;
+    padding: 40px 64px;
+    text-align: center;
+    p{
+      font-size: 14px;
+    }
+  }
+  &__login-methods{
+    border-top: 1px solid #eee;
+    padding: 32px 64px;
+  }
+  &__form{
+    padding: 24px 64px 32px;
+  }
+}
+
+.login-input-form{
+  &__part{
+    margin-top: 24px;
+    height: 48px;
+    width: 100%;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background: #fff;
+    font-size: 16px;
+    &::placeholder{
+      padding: 10px 16px 8px;
+    }
+  }
+}
+// login-input-formクラスの最初要素だけのmargin-topを0にしたいが出来なかった
+.margin-top-zero{
+  margin-top: 0;
+}
+
+.btn-login{
+  display: block;
+  position: relative;
+  margin: 8px 0 0;
+  font-size: 14px;
+  border: 1px solid #0099e8;
+  background: #0099e8;
+  color: #fff;
+  line-height: 40px;
+  text-decoration: none;
+  text-align: center;
+}
+.btn-sns{
+  display: block;
+  position: relative;
+  font-size: 14px;
+  border: 1px solid #0099e8;
+  background: #0099e8;
+  color: #fff;
+  line-height: 48px;
+  text-decoration: none;
+  text-align: center;
+  &__facebook{
+    background-color: #385185;
+    border: 1px solid transparent;
+  }
+  &__google{
+    margin-top: 16px;
+    background-color: #fff;
+    color: black;
+    border: 1px solid #979797;
+  }
+  &__icon{
+    position: absolute;
+    top: 20%;
+    left: 16px;
+  }
+  &__icon-google{
+    position: absolute;
+    top: 30%;
+    left: 16px;
+    height: 20px;
+  }
+}
+
+.password-forget-tips{
+  display: block;
+  margin: 40px 0 0;
+  color: #0099e8;
+  text-decoration: none;
+  font-size: 14px;
+}

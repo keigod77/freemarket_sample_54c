@@ -3,7 +3,7 @@
   %header.single-header
     %h1
       = link_to "/" do
-        = image_tag "mercari_logo.png", class: 'single-header__logo'
+        = image_tag asset_path("mercari_logo.png"), class: 'single-header__logo'
     %nav.progress
       %ul.progress__bar
         %li.active
@@ -43,6 +43,6 @@
               = form_with url: root_path, local: true, method: :get, class: 'new-registration-field' do |f|
                 = f.submit 'メルカリをはじめる',class: "btn-default-red"
 
-          =link_to image_tag('complete-image', class: 'complete-image'), root_path
+          =link_to image_tag(asset_path('complete-image'), class: 'complete-image'), root_path
 
 = render 'signup/shared/signup-footer'

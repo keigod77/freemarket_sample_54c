@@ -88,3 +88,10 @@
   padding: 4px 6px;
   border-radius: 3px;
 }
+@mixin formArbitary(){
+  background-color: #ccc;
+  color: white;
+  border-radius: 2px;
+  padding: 3px 6px;
+  margin-left: 8px;
+}
