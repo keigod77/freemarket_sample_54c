@@ -1,0 +1,27 @@
+= render 'signup/shared/signup-head'
+.single-container
+  %header.single-header
+    %h1
+      = link_to "/" do
+        = image_tag asset_path("mercari_logo.png"), class: 'single-header__logo'
+
+
+  .single-main
+    .new-registration
+      .new-registration-container
+        .new-registration-container__header
+          %h2.new-registration-container__header--word 新規会員登録
+        .new-registration-container__body
+          .new-registration-field
+            .new-registraion-field__group
+              =link_to(registration_signup_index_path, class: 'btn-login-methods') do
+                %i.far.fa-envelope.btn-login-methods--icon
+                メールアドレスで登録する
+              =link_to('/', class: 'btn-login-methods btn-login-methods--facebook') do
+                %i.fab.fa-facebook-square.btn-login-methods--icon
+                Facebookで登録する
+              =link_to('/', class: 'btn-login-methods btn-login-methods--google') do
+                =image_tag 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_"G"_Logo.svg/512px-Google_"G"_Logo.svg.png', class: 'btn-login-methods--icon-google'
+                Googleで登録する
+                
+= render 'signup/shared/signup-footer'
