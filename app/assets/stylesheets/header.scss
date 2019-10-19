@@ -1,6 +1,6 @@
 @import 'mixin.scss';
 
-header{
+.main-header{
   border-bottom: solid 1px rgb(233, 233, 233);
   .header-wrap{
     height: 100px;
@@ -115,5 +115,21 @@ header{
         }
       }
     }
+  }
+}
+
+//サブヘッダー
+.mercari-logo-wrapper{
+  position: relative;
+  height: 128px;
+
+  .mercari-logo{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform : translate(-50%,-50%);
+    transform : translate(-50%,-50%);
+    height: 49px;
+    width: 188px;
   }
 }

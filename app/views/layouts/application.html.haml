@@ -10,11 +10,11 @@
     = javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.1/js/swiper.min.js'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
-    %header
+    %header.main-header
       .header-wrap
         .header-upper
           .header-upper__logo
-            = embedded_svg("logo-acdd90ac4f472d5a6f7a330d33ab1225.svg")      
+            = embedded_svg("logo-acdd90ac4f472d5a6f7a330d33ab1225.svg")
           .header-upper__search-field
             =form_with url: root_path,html: {class: 'formclass'} do |f|
               =f.label :search

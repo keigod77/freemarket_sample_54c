@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_29_043512) do
+ActiveRecord::Schema.define(version: 2019_10_16_135235) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "prefectures", default: 1, null: false
@@ -22,6 +22,48 @@ ActiveRecord::Schema.define(version: 2019_09_29_043512) do
     t.datetime "updated_at", null: false
     t.bigint "user_id"
     t.index ["user_id"], name: "index_addresses_on_user_id"
+  end
+
+  create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.integer "parent_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "name", null: false
+    t.text "description", null: false
+    t.bigint "category_id", null: false
+    t.bigint "brand_id", null: false
+    t.bigint "size_id"
+    t.string "state", null: false
+    t.string "shipping_charge", null: false
+    t.string "delivery_method", null: false
+    t.string "region", null: false
+    t.string "days_to_delivery", null: false
+    t.integer "price", null: false
+    t.integer "seller_id", null: false
+    t.integer "buyer_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["brand_id"], name: "index_items_on_brand_id"
+    t.index ["category_id"], name: "index_items_on_category_id"
+    t.index ["size_id"], name: "index_items_on_size_id"
+    t.index ["user_id"], name: "index_items_on_user_id"
+  end
+
+  create_table "sizes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "size", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -48,4 +90,5 @@ ActiveRecord::Schema.define(version: 2019_09_29_043512) do
   end
 
   add_foreign_key "addresses", "users"
+  add_foreign_key "items", "sizes"
 end

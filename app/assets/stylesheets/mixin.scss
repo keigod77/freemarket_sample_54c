@@ -75,6 +75,19 @@
   }
 }
 
+@mixin sellBox(){
+  width: 100%;
+  padding: 40px;
+  box-sizing: border-box;
+  border-bottom: solid 1px #eee;
+}
+
+@mixin formRequire(){
+  background-color: red;
+  color: white;
+  padding: 4px 6px;
+  border-radius: 3px;
+}
 @mixin formArbitary(){
   background-color: #ccc;
   color: white;
