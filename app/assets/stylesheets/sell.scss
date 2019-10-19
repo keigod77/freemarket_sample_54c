@@ -1,0 +1,270 @@
+@import 'mixin.scss';
+
+.wrapper{
+  background-color: #eee;
+
+  .sell-wrapper{
+    width: 100%;
+    background-color: #eee;
+
+    .sell-container{
+      background-color: white;
+      width: 700px;
+      margin: 0 auto;
+      
+      .sell{
+        &__head{
+          border-bottom: solid 1px #eee;
+          text-align: center;
+          padding: 32px 16px;
+          box-sizing: border-box;
+        }
+        &__upload-img-box{
+          @include sellBox();
+          p{
+            font-size: 0.8rem;
+          }
+        }
+        &__upload-img-field{
+          width: 100%;
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-around;
+          margin-top: 16px;
+          
+          .preview{
+            display: flex;
+            justify-content: space-between;
+            .img-container{
+              display: flex;
+              li{
+                height: 162px;
+                width:  114px;
+                list-style: none;
+                margin-right: 10px;
+                background-color: #eee;
+                border: solid 1px rgb(221, 221, 221);
+
+                img{
+                  height: 116px;
+                  width: 114px;
+                  object-fit: contain;
+                }
+                
+                .edit-delete-box{
+                  @include aTextDecoNone(#0090E8);
+                  width: 100%;
+                  display: flex;
+                  text-align: center;
+                  line-height: 44px;
+                  a{
+                    display: block;
+                    height: 44px;
+                    width: 50%;
+                    cursor: pointer;
+                    &:hover{
+                      opacity: 0.7;
+                    }
+                  }
+                }
+              }
+
+              li:nth-child(5n){
+                margin-right: 0;
+              }
+            }
+            .img-container.item-5{
+              margin-bottom: 10px;
+            }
+          }
+          .upload-field{
+            background-color: #eee;
+            border: dashed 1px rgb(207, 207, 207);
+            height: 162px;
+            padding: 40px;
+            box-sizing: border-box;
+            cursor: pointer;
+            position: relative;
+            p{
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translateY(-50%) translateX(-50%);
+              text-align: center;
+            }
+            input[type=file]{
+              display: block;
+            }
+          }
+          .upload-field.item-0{
+            width: 620px;
+          }
+          .upload-field.item-1{
+            width: 494px;
+          }
+          .upload-field.item-2{
+            width: 368px;
+          }
+          .upload-field.item-3{
+            width: 242px;
+          }
+          .upload-field.item-4{
+            width: 116px;
+          }
+        }
+        &__product-info-box{
+          @include sellBox();
+          &--name{
+            input[type=text]{
+              box-sizing: border-box;
+              height: 48px;
+              width: 100%;
+              padding: 10px 16px 8px;
+              margin-top: 8px;
+            }
+          }
+          &--description{
+            margin-top: 40px;
+            textarea{
+              box-sizing: border-box;
+              border-color: rgb(207, 207, 207);
+              margin-top: 8px;
+              height: 142px;
+              width: 100%;
+              padding: 10px;
+            }
+          }
+        }
+        &__product-detail-box{
+          @include clearfix();
+          @include sellBox();
+        }
+        &__delivery-info-box{
+          @include clearfix();
+          @include sellBox();
+        }
+        &__price-box{
+          @include sellBox();
+          @include clearfix();
+
+          .price-box{
+            float: right;
+            width: 400px;
+            @include clearfix();
+            &__price{
+              padding-bottom: 24px;
+              border-bottom: solid 1px #eee;
+              .l-left{
+                display: inline;
+                line-height: 50px;
+              }
+      
+              .l-right{
+                float: right;
+              }
+
+              input[type=text]{
+                width: 160px;
+                height: 48px;
+                padding: 10px 16px 8px;
+                box-sizing: border-box;
+                text-align: right;
+              }
+            }
+            
+            &__fee{
+              @include clearfix();
+              height: 63px;
+              padding: 20px 0;
+              box-sizing: border-box;
+              font-size: 0.8rem;
+              border-bottom: solid 1px #eee;
+      
+              .l-right{
+                float: right;
+              }
+            }
+
+            &__profit{
+              @include clearfix();
+              padding: 24px 0;
+              .l-left{
+              }
+              .l-right{
+                float: right;
+                font-size: 2.1rem;
+              }
+            }
+          }
+        }
+        
+        &__btns{
+          padding: 40px;
+          
+          .notice{
+            font-size: 0.9rem;
+            @include aTextDecoNone(#0090E8);
+            margin-bottom: 40px;
+          }
+
+          .btn-exhibit{
+            height: 50px;
+            width: 100%;
+            background-color: red;
+            color: white;
+            outline: 0;
+            cursor: pointer;
+          }
+
+          .btn-back{
+            margin: 0 auto;
+            display: block;
+            height: 50px;
+            width: 45%;
+            background-color: rgb(173, 173, 173);
+            color: white;
+            margin-top: 16px;
+            cursor: pointer;
+            outline: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+//共通部分
+.form-required{
+  label,h3{
+    margin-bottom: 8px;
+
+    span{
+      @include formRequire();
+      font-size: 0.7rem;
+      vertical-align: top;
+    }
+  }
+}
+
+.layout-select{
+  width: 100%;
+  height: 48px;
+  padding: 0 16px;
+  margin-top: 8px;
+  background-color: white;
+  outline: 0;
+}
+
+.select-box{
+  float: right;
+  width: 400px;
+  &__category, &__burden, &__origin-region,&__method{
+    margin-bottom: 40px;
+  }
+}
+
+.form-head-sub{
+  display: inline;
+  font-size: 0.8rem;
+}
