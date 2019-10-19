@@ -44,6 +44,21 @@
       %i.fas.fa-camera.fa-4x
     = yield
 
+    .bar-footer
+      .bar-footer__contents
+        .contents-left
+          %p
+            スマホでかんたんフリマアプリ
+          %p.bigtext
+            今すぐ無料ダウンロード！ 
+          .img-box
+            = image_tag asset_path("mercari_profile.png"),class:"mercari-profile"
+            .banner
+              = embedded_svg("app-store.svg")
+            .banner
+              = embedded_svg("google-play.svg")
+        .contents-right
+          = image_tag asset_path("app-smartphone.png"),class:"smartphone"
     %footer.footer-wrap
       %nav.footer-upper
         .footer-upper__navigationcell
