@@ -11,4 +11,7 @@ class MypagesController < ApplicationController
   
   def identification
   end
+
+  def add_card
+  end
 end
