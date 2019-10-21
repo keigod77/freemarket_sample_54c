@@ -1,0 +1,89 @@
+.bar-footer
+  .bar-footer__contents
+    .contents-left
+      %p
+        スマホでかんたんフリマアプリ
+      %p.bigtext
+        今すぐ無料ダウンロード！ 
+      .img-box
+        = image_tag asset_path("mercari_profile.png"),class:"mercari-profile"
+        .banner
+          = embedded_svg("app-store.svg")
+        .banner
+          = embedded_svg("google-play.svg")
+    .contents-right
+      = image_tag asset_path("app-smartphone.png"),class:"smartphone"
+%footer.footer-wrap
+  %nav.footer-upper
+    .footer-upper__navigationcell
+      %h2
+        メルカリについて
+      %ul
+        %li
+          会社情報(運営会社)
+        %li
+          採用情報
+        %li
+          プレスリリース
+        %li
+          公式ブログ
+        %li
+          メルカリロゴ利用ガイドライン
+      
+      %i.fab.fa-twitter.fa-2x
+      %i.fab.fa-facebook-square.fa-2x
+          
+    .footer-upper__navigationcell
+      %h2
+        ヘルプ&ガイド
+      %ul
+        %li
+          メルカリガイド
+        %li
+          らくらくメルカリ便
+        %li
+          ゆうゆうメルカリ便
+        %li
+          大型メルカリ便
+        %li
+          車体取引ガイド
+        %li
+          メルカリあんしん・あんぜん宣言！
+        %li
+          偽ブランド品撲滅への取り組み
+        %li
+          メルカリボックス
+    .footer-upper__navigationcell
+      %h2
+        プライバシーと利用規約
+        .ul-wrap
+          %ul.leftul
+            %li
+              プライバシーポリシー
+            %li
+              メルカリ利用規約
+            %li
+              あんしんスマホサポート制度に関する利用規約
+            %li
+              コンプライアンスポリシー
+          %ul.rightul
+            %li
+              個人データの安全管理に関わる基本方針
+            %li
+              特定商取引に関する表記
+            %li
+              資金決済法に基づく表示
+            %li
+              法令遵守と犯罪抑止のために
+    .footer-upper__navigationcell
+      %h2
+        国
+        %ul
+          %li
+            日本
+          %li
+            United States
+  .footer-lower
+    = embedded_svg('logo-white-1a0696cf557ee1ed6f3c3444661d21ad.svg')
+    %span
+      © 2019 Mercari

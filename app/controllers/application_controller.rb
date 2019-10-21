@@ -1,7 +1,6 @@
 class ApplicationController < ActionController::Base
   before_action :basic_auth, if: :production?
   protect_from_forgery with: :exception
-  #layout :false, if: :devise_controller?
 
   private
 

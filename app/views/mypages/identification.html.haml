@@ -1,3 +1,5 @@
+= render partial: 'layouts/main-header'
+
 .contents-container
   %main.identification-container
     = render partial: 'layouts/sidebar'
@@ -63,3 +65,5 @@
             登録する
           %p.description
             =link_to '本人情報の登録について','#'
+
+= render partial: 'layouts/main-footer'
