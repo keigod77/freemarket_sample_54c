@@ -1,0 +1,58 @@
+.wrapper
+  =render partial:'layouts/subheader'
+  .buy-container
+    .buy
+      .buy__head
+        %h2
+          購入内容の確認
+      .productinfo-container
+        .productinfo
+          =image_tag asset_path('member.jpg'),alt:"商品画像"
+          .productinfo__product-name
+            %p
+              商品テスト
+          .productinfo__price
+            %p
+              ¥5500
+            %span
+              送料込み
+          .productinfo__point
+            %span
+              ポイントはありません
+          .productinfo__payprice
+            .cell
+              %span
+                支払金額
+            .cell
+              %span
+                ¥5,500
+          .productinfo__buybtn
+            %span
+              購入する
+      .address-container    
+        .address
+          %h3
+            配送先
+          .address__text
+            = @postal
+            %br
+            = @address
+            %br
+            = @fullname
+            
+          .address__changelink
+            =link_to '変更する','#'
+      .pay-method-container
+        .pay-method
+          %h3
+            支払方法
+          .pay-method__text
+            ************1111
+            %br
+            01/01
+            %br
+            =image_tag asset_path("card_image_visa.jpg")
+
+          .pay-method__changelink
+            =link_to '変更する','#'
+  =render partial: 'layouts/subfooter'
