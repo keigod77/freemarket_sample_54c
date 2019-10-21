@@ -1,0 +1,20 @@
+.user-logout-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  width: 100%;
+  background-color: white;
+}
+
+.btn-logout{
+  width: 50%;
+  height: 48px;
+  background-color: red;
+  color: white;
+  cursor: pointer;
+  outline: 0;
+  text-decoration: none;
+  text-align: center;
+  line-height: 48px;
+}

@@ -17,7 +17,11 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :home, only: [:show, :index]
+  resources :home, only: [:show, :index] do
+    collection do
+      get 'logout'
+    end
+  end
 
 
   resources :signup do

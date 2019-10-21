@@ -1,0 +1,13 @@
+= render partial: 'layouts/main-header'
+
+.contents-container
+  %main.mypage-container
+    = render partial: 'layouts/sidebar'
+    .contents
+      .user-logout-container
+        =link_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn-logout"
+
+
+      
+
+= render partial: 'layouts/main-footer'
