@@ -36,4 +36,9 @@ Rails.application.routes.draw do
     end
   end
 
+  resource :transaction do
+    collection do
+      resources :buy,only:[:show]
+    end
+  end
 end
