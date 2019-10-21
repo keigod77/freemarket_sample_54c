@@ -8,6 +8,7 @@ Rails.application.routes.draw do
       get :top
       get :profile
       get :identification
+      get :add_card
     end
   end
 
