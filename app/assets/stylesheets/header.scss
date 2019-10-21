@@ -87,7 +87,51 @@
         font-size: 0.88rem;
         display: flex;
         line-height: 2.5;
+        letter-spacing: 1px;
+        i{
+          color: grey;
+          margin-right: 4px;
+        }
 
+        &__like{
+          @include aTextDecoNone(black);
+          margin-right: 14px;
+          a:hover{
+            color: rgb(0, 157, 209);
+          }
+        }
+
+        &__notification{
+          @include aTextDecoNone(black);
+          margin-right: 14px;
+          a:hover{
+            color: rgb(0, 157, 209);
+          }
+        }
+        &__todolist{
+          @include aTextDecoNone(black);
+          margin-right: 14px;
+          a:hover{
+            color: rgb(0, 157, 209);
+          }
+        }
+
+        &__mypage{
+          @include aTextDecoNone(black);
+          margin-right: 14px;
+          img{
+            height: 32px;
+            width: 32px;
+            border-radius: 50%;
+          }
+          span{
+            display: inline-block;
+            vertical-align: top;
+          }
+          a:hover{
+            color: rgb(0, 157, 209);
+          }
+        }
         &__signup{
           margin-right: 10px;
           @include aTextDecoNone(white);
@@ -95,6 +139,10 @@
             background-color: red;
             padding: 8px 10px;
             border-radius: 3px;
+          }
+          a:hover{
+            color: white;
+            color: rgb(0, 157, 209);
           }
         }
 
