@@ -17,4 +17,8 @@ class User < ApplicationRecord
   validates :birthday_month, presence: true
   validates :birthday_day, presence: true
   validates :phone_number, presence: true
+
+  def getFullname
+    return (last_name + " " + first_name)
+  end
 end
