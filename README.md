@@ -117,10 +117,11 @@
 | ------ | ---- | ------- |
 | name | string | null: false|
 | parent_id | integer ||
+||||
 ### Assoiation
 - has_many :items
 - belongs_to :parent, class_name: :Category
-- has_many :childlen, class_name: :Category, foreign_key: :parent_id
+- has_many :children, class_name: :Category, foreign_key: :parent_id
 
 
 ## brandsテーブル
