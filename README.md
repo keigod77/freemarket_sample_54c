@@ -30,8 +30,9 @@
 ## sns_credentials
 | Column | Type | Options |
 | ------ | ---- | ------- |
-| user_id | references | null :false |
+| uid | string | null :false |
 | provider | string | null :false |
+| user | references | null :false |
 ### Association
 - belongs_to :user
 
