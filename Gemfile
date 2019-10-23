@@ -96,3 +96,7 @@ gem 'fog-aws'
 gem "jquery-rails"
 
 gem "rubyzip", ">= 1.3.0"
+
+gem 'omniauth-rails_csrf_protection'
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
