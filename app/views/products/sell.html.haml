@@ -46,8 +46,8 @@
                   %span
                     必須
                 = f.select :test, Category.categories.keys.to_a,{},{class: "layout-select"}
-                = f.select :test, Category.categories.keys.to_a,{},{class: "layout-select"}
-                = f.select :test, Category.categories.keys.to_a,{},{class: "layout-select"}
+                = f.select :test, Category.childrencategories.keys.to_a,{},{class: "layout-select"}
+                = f.select :test, Category.grandchildcategories.keys.to_a,{},{class: "layout-select"}
 
               .select-box__status
                 %label
