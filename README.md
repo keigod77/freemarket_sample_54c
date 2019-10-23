@@ -25,6 +25,16 @@
 - has_many :goods
 - has_many :adresseses
 - has_many :evaluations
+- has_many :sns_credentials dependent: :destroy
+
+## sns_credentials
+| Column | Type | Options |
+| ------ | ---- | ------- |
+| user_id | references | null :false |
+| provider | string | null :false |
+### Association
+- belongs_to :user
+
 
 ## addressesテーブル
 | Column | Type | Options |
