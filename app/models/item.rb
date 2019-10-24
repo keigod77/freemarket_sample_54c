@@ -4,6 +4,15 @@ class Item < ApplicationRecord
   belongs_to :brand
   belongs_to :size
 
+  validates :name, presence: true
+  validates :description, presence: true
+  validates :category, presence: true
+  validates :shipping_charge, presence: true
+  validates :delivery_method, presence: true
+  validates :region, presence: true
+  validates :days_to_delivery, presence: true
+  validates :price, presence: true
+
   enum state:{
     新品、未使用:1,未使用に近い:2,目立った傷や汚れなし:3,
     やや傷や汚れあり:4,傷や汚れあり:5,全体的に状態が悪い:6
