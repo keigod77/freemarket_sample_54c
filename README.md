@@ -54,7 +54,7 @@
 | name | string | null :false |
 | description | text | null :false |
 | category | references | null :false |
-| brand | references | null :false |
+| brand | references ||
 | size | references | foreign_key: true |
 | state | string | null :false |
 | shipping_charge | string | null :false |
