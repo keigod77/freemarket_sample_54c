@@ -62,8 +62,7 @@
 | region | string | null :false |
 | days_to_delivery | string | null :false |
 | price | integer | null :false |
-| seller_id | integer | null :false |
-| buyer_id | integer | null :false |
+| buyer_id | integer ||
 ### Assoiation
 - belongs_to :user
 - belongs_to :category
