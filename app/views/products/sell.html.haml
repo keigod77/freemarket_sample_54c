@@ -2,7 +2,7 @@
   = render partial: 'layouts/subheader'
   .sell-wrapper
     .sell-container
-      =form_with url: root_path do |f|
+      =form_with url: products_path do |f|
         .sell
           %h2.sell__head
             商品情報を入力
@@ -45,9 +45,9 @@
                   カテゴリー
                   %span
                     必須
-                = f.select :test, Category.categories.keys.to_a,{},{class: "layout-select"}
-                = f.select :test, Category.childrencategories.keys.to_a,{},{class: "layout-select"}
-                = f.select :test, Category.grandchildcategories.keys.to_a,{},{class: "layout-select"}
+                = f.select :parent_category, Category.categories.keys.to_a,{},{class: "layout-select"}
+                = f.select :children_category, Category.childrencategories.keys.to_a,{},{class: "layout-select"}
+                = f.select :grandchildren_category, Category.grandchildcategories.keys.to_a,{},{class: "layout-select"}
 
               .select-box__status
                 %label
@@ -55,7 +55,7 @@
                   %span
                     必須
                 %br
-                = f.select :test, Item.states.keys.to_a,{},{class: "layout-select"}
+                = f.select :state, Item.states.keys.to_a,{},{class: "layout-select"}
 
           .sell__delivery-info-box.form-required
             %h3.form-head-sub
@@ -67,14 +67,14 @@
                   %span
                     必須
                 %br
-                = f.select :test, Item.burdens.keys.to_a,{},{class: "layout-select"}
+                = f.select :shipping_charge, Item.burdens.keys.to_a,{},{class: "layout-select"}
               .select-box__method
                 %label
                   配送の方法
                   %span
                     必須
                 %br
-                = f.select :test, Item.methods.keys.to_a,{},{class: "layout-select"}
+                = f.select :delivery_method, Item.methods.keys.to_a,{},{class: "layout-select"}
 
               .select-box__origin-region
                 %label
@@ -82,7 +82,7 @@
                   %span
                     必須
                 %br
-                = f.select :test, Address.prefectures.keys.to_a,{},{class: "layout-select"}
+                = f.select :region, Address.prefectures.keys.to_a,{},{class: "layout-select"}
 
               .select-box__reach-day
                 %label
@@ -90,7 +90,7 @@
                   %span
                     必須
                 %br
-                = f.select :test, Item.daytodeliveries.keys.to_a,{},{class: "layout-select"}
+                = f.select :days_to_delivery, Item.daytodeliveries.keys.to_a,{},{class: "layout-select"}
           .sell__price-box
             %h3.form-head-sub
               販売価格(300〜9,999,999)
@@ -129,9 +129,8 @@
                 また、出品を持ちまして
                 =link_to '加盟店契約','#'
                 に同意したことになります。
-            %button.btn-exhibit
-              %span
-                出品する
+            = f.button class:"btn-exhibit" do
+              出品する
             %button.btn-back
               %span
                 もどる
