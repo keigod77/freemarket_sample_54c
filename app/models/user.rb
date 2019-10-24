@@ -2,7 +2,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable, :omniauthable
+         :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: %i[facebook google_oauth2]
   has_many :addresses
 
   validates :nickname, presence: true, length: { maximum: 20 }
@@ -46,7 +46,7 @@ class User < ApplicationRecord
           birthday_year: "0",
           birthday_month: "0",
           birthday_day: "0",
-          phone_number: "08000001111"
+          phone_number: "08000001111",
           email: auth.info.email,
           password: Devise.friendly_token[0, 20]
           )
