@@ -17,10 +17,10 @@
               =link_to(registration_signup_index_path, class: 'btn-login-methods') do
                 %i.far.fa-envelope.btn-login-methods--icon
                 メールアドレスで登録する
-              =link_to( user_facebook_omniauth_authorize_path, class: 'btn-login-methods btn-login-methods--facebook') do
+              =link_to( user_facebook_omniauth_authorize_path, class: 'btn-login-methods btn-login-methods--facebook', method: :post) do
                 %i.fab.fa-facebook-square.btn-login-methods--icon
                 Facebookで登録する
-              =link_to( user_google_oauth2_omniauth_authorize_path, class: 'btn-login-methods btn-login-methods--google') do
+              =link_to( user_google_oauth2_omniauth_authorize_path, class: 'btn-login-methods btn-login-methods--google', method: :post) do
                 =image_tag 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_"G"_Logo.svg/512px-Google_"G"_Logo.svg.png', class: 'btn-login-methods--icon-google'
                 Googleで登録する
                 

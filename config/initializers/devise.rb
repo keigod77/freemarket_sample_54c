@@ -6,7 +6,7 @@ Devise.setup do |config|
   config.omniauth :facebook, Rails.application.credentials.facebook[:id],
                              Rails.application.credentials.facebook[:secret]
   
-  config.omniauth :google, Rails.application.credentials.google[:id],
+  config.omniauth :google_oauth2, Rails.application.credentials.google[:id],
                            Rails.application.credentials.google[:secret]
   
   # The secret key used by Devise. Devise uses this key to generate
