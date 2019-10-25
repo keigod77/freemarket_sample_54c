@@ -9,7 +9,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     callback_for(:google)
   end
 
-  def callback_for(provider)
+  def callback_for(provider)#ログインする
     @user = User.find_oauth(request.env["omniauth.auth"])
     if @user.persisted?
       sign_in_and_redirect @user, event: :authentication #this will throw if @user is not activated
