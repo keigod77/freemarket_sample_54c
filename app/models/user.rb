@@ -22,12 +22,12 @@ class User < ApplicationRecord
     return (last_name + " " + first_name)
   end
 
-  def self.find_oauth(auth)#既存or新規のuserを返す
+  def self.find_oauth(auth)#既存or新規作成のuserを返す
     uid = auth.uid
     provider = auth.provider
     snscredential = SnsCredential.where(uid: uid, provider: provider).first
     if snscredential.present?
-      user = User.wehre(id: snscredential.user_id).first
+      user = User.where(id: snscredential.user_id).first
     else
       user = User.where(email: auth.info.email).first
       if user.present?
@@ -37,7 +37,8 @@ class User < ApplicationRecord
           user_id: user.id
         )
       else
-        user = User.create(
+        password = Devise.friendly_token[0, 20]
+        user = User.create!(
           nickname: auth.info.name,
           first_name: auth.info.first_name,
           last_name: auth.info.last_name,
@@ -48,11 +49,25 @@ class User < ApplicationRecord
           birthday_day: "0",
           phone_number: "08000001111",
           email: auth.info.email,
-          password: Devise.friendly_token[0, 20]
+          password: password,
+          password_confirmation: password
           )
+        SnsCredential.create(
+          uid: uid,
+          provider: provider,
+          user_id: user_id
+        )
       end
     end
     return user
+  end
+
+  def self.new_with_session(params, session)
+    super.tap do |user|
+      if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]
+        user.email = data["email"] if user.email.blank?
+      end
+    end
   end
 
 end
