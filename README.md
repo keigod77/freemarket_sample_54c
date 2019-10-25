@@ -32,7 +32,7 @@
 | ------ | ---- | ------- |
 | uid | string | null :false |
 | provider | string | null :false |
-| user | references | null :false |
+| user | references | foreign_key: true |
 ### Association
 - belongs_to :user
 
