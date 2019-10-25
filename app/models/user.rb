@@ -40,8 +40,8 @@ class User < ApplicationRecord
         password = Devise.friendly_token[0, 20]
         user = User.create!(
           nickname: auth.info.name,
-          first_name: auth.info.first_name,
-          last_name: auth.info.last_name,
+          first_name: "hoge",
+          last_name: "hoge",
           first_name_kana: "hoge",
           last_name_kana: "hoge",
           birthday_year: "0",
@@ -55,7 +55,7 @@ class User < ApplicationRecord
         SnsCredential.create(
           uid: uid,
           provider: provider,
-          user_id: user_id
+          user_id: user.id
         )
       end
     end
