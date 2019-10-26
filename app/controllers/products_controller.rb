@@ -20,14 +20,14 @@ class ProductsController < ApplicationController
 
 
     item = Item.create(item_params)
-
-    item.images.create(image: params[:image],
-                       item_id: item.id
-                      )
+    item.images.create(image: params[:image],item_id: item.id)
         
     redirect_to root_path
+
   end
+
   private
+  
   def item_params
     params[:category_id] = Category.find_by(name: params[:category_id]).id
     params.permit(:name,:description, :category_id, :brand, :size, :state, :shipping_charge, :delivery_method, :region, :days_to_delivery, :price).merge(user_id: current_user.id,exhibision_state: 0)
