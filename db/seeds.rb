@@ -53,3 +53,7 @@
 Brand.create!(
   [{name: "シャネル"}, {name: "ナイキ"}, {name: "ルイヴィトン"}, {name: "シュプリーム"}, {name: "アディダス"}]
 )
+
+Size.create!(
+  [{size: "XXS以下"}, {size: "XS(SS)"}, {size: "S"}, {size: "M"}, {size: "L"}, {size: "XL(LL)"}, {size: "2XL(3L)"}, {size: "3XL(4L)"}, {size: "4XL(5L)以上"}, {size: "FREE SIZE"}]
+)
