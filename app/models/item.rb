@@ -1,8 +1,9 @@
 class Item < ApplicationRecord
+  has_many :images
   belongs_to :user
   belongs_to :category
-  belongs_to :brand
-  belongs_to :size
+  belongs_to :brand, optional: true;
+  belongs_to :size, optional: true;
 
   validates :name, presence: true
   validates :description, presence: true
