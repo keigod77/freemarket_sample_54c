@@ -63,6 +63,7 @@
 | days_to_delivery | string | null :false |
 | price | integer | null :false |
 | buyer_id | integer ||
+| exhibision_state | integer | null :false |
 ### Assoiation
 - belongs_to :user
 - belongs_to :category
