@@ -7,8 +7,8 @@ class Item < ApplicationRecord
 
   validates :name, presence: true
   validates :description, presence: true
-  validates :category, presence: true
   validates :shipping_charge, presence: true
+  validates :state, presence: true
   validates :delivery_method, presence: true
   validates :region, presence: true
   validates :days_to_delivery, presence: true
