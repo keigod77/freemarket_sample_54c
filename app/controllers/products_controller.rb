@@ -20,7 +20,7 @@ class ProductsController < ApplicationController
 
 
     item = Item.create(item_params)
-    item.images.create(image: params[:image])
+    item.images.create(image: params[:image],item_id: item.id)
         
     redirect_to root_path
 
