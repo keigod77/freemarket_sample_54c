@@ -29,7 +29,7 @@
                 商品名
                 %span
                   必須
-              =f.text_field :product_name,placeholder:"商品名 (必須40文字まで)"
+              =f.text_field :name,placeholder:"商品名 (必須40文字まで)"
             .sell__product-info-box--description.form-required
               %label
                 商品の説明
@@ -47,7 +47,7 @@
                     必須
                 = f.select :parent_category, Category.categorytests.keys.to_a,{},{class: "layout-select"}
                 = f.select :children_category, Category.childrencategories.keys.to_a,{},{class: "layout-select"}
-                = f.select :grandchildren_category, Category.grandchildcategories.keys.to_a,{},{class: "layout-select"}
+                = f.select :category_id, Category.grandchildcategories.keys.to_a,{},{class: "layout-select"}
 
               .select-box__status
                 %label
