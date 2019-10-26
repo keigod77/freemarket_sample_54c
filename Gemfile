@@ -96,5 +96,3 @@ gem 'fog-aws'
 gem "jquery-rails"
 
 gem "rubyzip", ">= 1.3.0"
-
-gem "acts_as_tree"
