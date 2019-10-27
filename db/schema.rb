@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_25_061702) do
+
+ActiveRecord::Schema.define(version: 2019_10_26_032508) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "prefectures", default: 1, null: false
@@ -35,6 +36,15 @@ ActiveRecord::Schema.define(version: 2019_10_25_061702) do
     t.integer "parent_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["parent_id"], name: "index_categories_on_parent_id"
+  end
+
+  create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.text "image", null: false
+    t.bigint "item_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_images_on_item_id"
   end
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -42,7 +52,7 @@ ActiveRecord::Schema.define(version: 2019_10_25_061702) do
     t.string "name", null: false
     t.text "description", null: false
     t.bigint "category_id", null: false
-    t.bigint "brand_id", null: false
+    t.bigint "brand_id"
     t.bigint "size_id"
     t.string "state", null: false
     t.string "shipping_charge", null: false
@@ -50,10 +60,10 @@ ActiveRecord::Schema.define(version: 2019_10_25_061702) do
     t.string "region", null: false
     t.string "days_to_delivery", null: false
     t.integer "price", null: false
-    t.integer "seller_id", null: false
-    t.integer "buyer_id", null: false
+    t.integer "buyer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "exhibision_state", null: false
     t.index ["brand_id"], name: "index_items_on_brand_id"
     t.index ["category_id"], name: "index_items_on_category_id"
     t.index ["size_id"], name: "index_items_on_size_id"
@@ -99,6 +109,7 @@ ActiveRecord::Schema.define(version: 2019_10_25_061702) do
   end
 
   add_foreign_key "addresses", "users"
+  add_foreign_key "images", "items"
   add_foreign_key "items", "sizes"
   add_foreign_key "sns_credentials", "users"
 end

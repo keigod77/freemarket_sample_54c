@@ -1,8 +1,18 @@
 class Item < ApplicationRecord
+  has_many :images
   belongs_to :user
   belongs_to :category
-  belongs_to :brand
-  belongs_to :size
+  belongs_to :brand, optional: true;
+  belongs_to :size, optional: true;
+
+  validates :name, presence: true
+  validates :description, presence: true
+  validates :shipping_charge, presence: true
+  validates :state, presence: true
+  validates :delivery_method, presence: true
+  validates :region, presence: true
+  validates :days_to_delivery, presence: true
+  validates :price, presence: true
 
   enum state:{
     新品、未使用:1,未使用に近い:2,目立った傷や汚れなし:3,

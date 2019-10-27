@@ -65,7 +65,7 @@
 | name | string | null :false |
 | description | text | null :false |
 | category | references | null :false |
-| brand | references | null :false |
+| brand | references ||
 | size | references | foreign_key: true |
 | state | string | null :false |
 | shipping_charge | string | null :false |
@@ -73,8 +73,8 @@
 | region | string | null :false |
 | days_to_delivery | string | null :false |
 | price | integer | null :false |
-| seller_id | integer | null :false |
-| buyer_id | integer | null :false |
+| buyer_id | integer ||
+| exhibision_state | integer | null :false |
 ### Assoiation
 - belongs_to :user
 - belongs_to :category

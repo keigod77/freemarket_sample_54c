@@ -44,4 +44,6 @@ Rails.application.routes.draw do
       resources :buy,only:[:show]
     end
   end
+
+  resources :images, only:[:create]
 end

@@ -5,4 +5,15 @@ class Category < ApplicationRecord
     家電・スマホ・カメラ:8,スポーツ・レジャー:9,ハンドメイド:10,チケット:11,
     自動車・オートバイ:12,その他:13
   }
+  #テスト用
+  enum categorytest: {
+    テストレディース:1
+  }
+  enum childrencategory: {
+    テストレディース子:1
+  }
+
+  enum grandchildcategory: {
+    テストレディース孫1:1,テストレディース孫2:2
+  }
 end
