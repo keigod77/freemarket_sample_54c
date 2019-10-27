@@ -95,6 +95,6 @@
       %i.fas.fa-chevron-right
 
     %li.mypage-nav-list__item
-      = link_to "ログアウト", '#'
+      = link_to "ログアウト", destroy_user_session_path, method: :delete
       %i.fas.fa-chevron-right
     
