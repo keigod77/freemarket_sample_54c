@@ -4,7 +4,7 @@
   %main.product-container
     .product
       %h1.product__name
-        テスト
+        = @item.name
       .product__info
         %figure.product__image
           //SwiperSlide
@@ -23,36 +23,42 @@
             %th
               出品者
             %td
-              テストおおおおおおおおおおおおおおおおおおお
+              = @user.nickname
           %tr
             %th
               カテゴリー
             %td
-              テストおおおおおおおおおおおおおおおおおおおお
+              = @item.category_id
           %tr
             %th
               ブランド
             %td
+              = @item.brand_id
           %tr
             %th
               商品の状態
             %td
+              = @item.state
           %tr
             %th
               配送料の負担
             %td
+              = @item.shipping_charge
           %tr
             %th
               配送の方法
             %td
+              = @item.delivery_method
           %tr
             %th
               配送元の地域
             %td
+              = @item.region
           %tr
             %th
               発送日の目安
             %td
+              = @item.days_to_delivery
           
           
       .product__price-box
