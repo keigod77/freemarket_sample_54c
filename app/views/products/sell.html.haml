@@ -45,9 +45,8 @@
                   カテゴリー
                   %span
                     必須
-                -# = f.select :parent_category, Category.categorytests.keys.to_a,{},{class: "layout-select"}
-                -# = f.select :children_category, Category.childrencategories.keys.to_a,{},{class: "layout-select"}
-                = f.select :category_id, Category.grandchildcategories.keys.to_a,{},{class: "layout-select"}
+                #js-select-search
+                  = f.select :parent, @parent_name,{},{class: "layout-select",id:"l_category"}
 
               .select-box__status
                 %label
