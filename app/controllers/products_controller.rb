@@ -29,7 +29,7 @@ class ProductsController < ApplicationController
   def item_params
     #item.brandでレコード取得するためbrand_id値調整
     if params[:brand_id].present?
-      params[:brand_id] = (params[:brand_id].to_i + 1).to_s
+      params[:brand_id] = Brand.find_by(name: params[:brand_id]).id
     end
     params.permit(:name,:description, :category_id, :brand_id, :size, :state, :shipping_charge, :delivery_method, :region, :days_to_delivery, :price).merge(user_id: current_user.id,exhibision_state: 0)
   end
