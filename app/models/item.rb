@@ -19,17 +19,25 @@ class Item < ApplicationRecord
     やや傷や汚れあり:4,傷や汚れあり:5,全体的に状態が悪い:6
   }
 
-  enum burden:{
+  enum shipping_charge:{
     送料込み（出品者負担）:1, 着払い（購入者負担）:2
   }
 
-  enum method:{
+  enum delivery_method:{
     未定:1,らくらくメルカリ便:2,ゆうメール:3,
     レターパック:4,普通郵便（定形、定形外）:5,クロネコヤマト:6,
     ゆうパック:7,クリックポスト:8,ゆうパケット:9
   }
 
-  enum daytodelivery:{
+  enum days_to_delivery:{
     １〜２日で発送:1, ２〜３日で発送:2, ４〜７日で発送:3
   }
+
+  def getShippingCharge
+    if self.shipping_charge == '送料込み（出品者負担）'
+      return shipping_charge[0..3]
+    else
+      return shipping_charge[0..2]
+    end
+  end
 end
