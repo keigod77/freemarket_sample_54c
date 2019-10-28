@@ -48,6 +48,14 @@
                 #js-select-search
                   = f.select :parent, @parent_name,{},{class: "layout-select",id:"l_category"}
 
+              .select-box__brand
+                %label
+                  ブランド
+                  %span
+                    任意
+                %br
+                = f.select :brand_id, @brand_name,{},{class: "layout-select"}
+
               .select-box__status
                 %label
                   商品の状態
