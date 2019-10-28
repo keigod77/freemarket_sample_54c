@@ -12,12 +12,12 @@
             = image_tag asset_path(@image.image), alt: '商品テスト画像'
           .product__image--small
             = image_tag asset_path(@image.image), alt: '商品テスト画像'
-            = image_tag asset_path('bannartop.png'), alt: '商品テスト画像'
-            = image_tag asset_path('bannartop.png'), alt: '商品テスト画像'
-            = image_tag asset_path('bannartop.png'), alt: '商品テスト画像'
-            = image_tag asset_path('bannartop.png'), alt: '商品テスト画像'
-            = image_tag asset_path('bannartop.png'), alt: '商品テスト画像'
-            = image_tag asset_path('bannartop.png'), alt: '商品テスト画像'
+            -# = image_tag asset_path('bannartop.png'), alt: '商品テスト画像'
+            -# = image_tag asset_path('bannartop.png'), alt: '商品テスト画像'
+            -# = image_tag asset_path('bannartop.png'), alt: '商品テスト画像'
+            -# = image_tag asset_path('bannartop.png'), alt: '商品テスト画像'
+            -# = image_tag asset_path('bannartop.png'), alt: '商品テスト画像'
+            -# = image_tag asset_path('bannartop.png'), alt: '商品テスト画像'
         %table.product__detail
           %tr
             %th
@@ -27,8 +27,14 @@
           %tr
             %th
               カテゴリー
-            %td
-              = @item.category.name
+            %td.font_blue
+              = @parent.name
+              %br
+              %i.icon-arrow-right.fas.fa-chevron-right
+              = @child.name
+              %br
+              %i.icon-arrow-right.fas.fa-chevron-right
+              = @grandchild.name
           %tr
             %th
               ブランド
