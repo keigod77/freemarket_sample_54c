@@ -17,7 +17,6 @@ class ProductsController < ApplicationController
     #elsif Category.where(name: params[:grandchildren_category]).empty? then
     #  Category.create(name: params[:category], parent_id: Category.find_by(name: params[:children_category]).id)
     #end
-
     item = Item.create(item_params)
     item.images.create(image: params[:image])
         

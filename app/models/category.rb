@@ -1,4 +1,6 @@
 class Category < ApplicationRecord
+  belongs_to :parent, class_name: :Category, optional: true;
+  has_many :children, class_name: :Category, foreign_key: :parent_id
   # enum category: {
   #   レディース:1,メンズ:2,ベビー・キッズ:3,インテリア・住まい・小物:4,
   #   本・音楽・ゲーム:5,おもちゃ・ホビー・グッズ:6,コスメ・香水・美容:7,

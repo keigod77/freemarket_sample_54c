@@ -28,10 +28,10 @@
             %th
               カテゴリー
             %td.font_blue
-              = @parent.name
+              = @grandchild.parent.parent.name
               %br
               %i.icon-arrow-right.fas.fa-chevron-right
-              = @child.name
+              = @grandchild.parent.name
               %br
               %i.icon-arrow-right.fas.fa-chevron-right
               = @grandchild.name

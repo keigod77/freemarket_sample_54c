@@ -53,11 +53,11 @@ ActiveRecord::Schema.define(version: 2019_10_26_032508) do
     t.bigint "category_id", null: false
     t.bigint "brand_id"
     t.bigint "size_id"
-    t.string "state", null: false
-    t.string "shipping_charge", null: false
-    t.string "delivery_method", null: false
+    t.integer "state", null: false
+    t.integer "shipping_charge", null: false
+    t.integer "delivery_method", null: false
     t.string "region", null: false
-    t.string "days_to_delivery", null: false
+    t.integer "days_to_delivery", null: false
     t.integer "price", null: false
     t.integer "buyer_id"
     t.datetime "created_at", null: false
@@ -76,15 +76,6 @@ ActiveRecord::Schema.define(version: 2019_10_26_032508) do
   end
 
   create_table "sns_credentials", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "provider", null: false
-    t.string "uid", null: false
-    t.bigint "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_sns_credentials_on_user_id"
-  end
-
-  create_table "sns_credentials_copy", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "provider", null: false
     t.string "uid", null: false
     t.bigint "user_id"
@@ -120,5 +111,4 @@ ActiveRecord::Schema.define(version: 2019_10_26_032508) do
   add_foreign_key "images", "items"
   add_foreign_key "items", "sizes"
   add_foreign_key "sns_credentials", "users"
-  add_foreign_key "sns_credentials_copy", "users", name: "sns_credentials_copy_ibfk_1"
 end
