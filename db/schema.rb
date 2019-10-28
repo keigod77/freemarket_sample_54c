@@ -10,7 +10,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 2019_10_26_032508) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -37,13 +36,6 @@ ActiveRecord::Schema.define(version: 2019_10_26_032508) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["parent_id"], name: "index_categories_on_parent_id"
-  end
-
-  create_table "categories_copy", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name", null: false
-    t.integer "parent_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -92,6 +84,15 @@ ActiveRecord::Schema.define(version: 2019_10_26_032508) do
     t.index ["user_id"], name: "index_sns_credentials_on_user_id"
   end
 
+  create_table "sns_credentials_copy", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "provider", null: false
+    t.string "uid", null: false
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_sns_credentials_on_user_id"
+  end
+
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "icon"
     t.text "self_introduction"
@@ -119,4 +120,5 @@ ActiveRecord::Schema.define(version: 2019_10_26_032508) do
   add_foreign_key "images", "items"
   add_foreign_key "items", "sizes"
   add_foreign_key "sns_credentials", "users"
+  add_foreign_key "sns_credentials_copy", "users", name: "sns_credentials_copy_ibfk_1"
 end

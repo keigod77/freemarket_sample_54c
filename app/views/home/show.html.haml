@@ -9,9 +9,9 @@
         %figure.product__image
           //SwiperSlide
           .product__image--large
-            = image_tag asset_path('bannartop.png'), alt: '商品テスト画像'
+            = image_tag asset_path(@image.image), alt: '商品テスト画像'
           .product__image--small
-            = image_tag asset_path('member.jpg'), alt: '商品テスト画像'
+            = image_tag asset_path(@image.image), alt: '商品テスト画像'
             = image_tag asset_path('bannartop.png'), alt: '商品テスト画像'
             = image_tag asset_path('bannartop.png'), alt: '商品テスト画像'
             = image_tag asset_path('bannartop.png'), alt: '商品テスト画像'
@@ -28,12 +28,13 @@
             %th
               カテゴリー
             %td
-              = @item.category_id
+              = @item.category.name
           %tr
             %th
               ブランド
             %td
-              = @item.brand_id
+              - if @item.brand != nil
+                = @item.brand.name
           %tr
             %th
               商品の状態
@@ -63,7 +64,8 @@
           
       .product__price-box
         %span.product__price
-          ¥3,300
+          ¥
+          = @item.price
         %span.product__tax
           (税込)
         %span.product__fee
@@ -71,12 +73,7 @@
 
       =link_to '購入画面に進む','#',class:'product__buy-btn'
       %figure.product__explanation
-        %p
-          商品コメントです
-        %p
-          商品テストです
-        %p
-          テスト
+        = simple_format(@item.description)#不空改行は適用されない
       .product__btns-container
         .product__btns
           %button.product__btns--like

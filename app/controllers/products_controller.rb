@@ -18,12 +18,11 @@ class ProductsController < ApplicationController
     #  Category.create(name: params[:category], parent_id: Category.find_by(name: params[:children_category]).id)
     #end
 
-
     item = Item.create(item_params)
     item.images.create(image: params[:image])
         
     redirect_to root_path
-
+  
   end
 
   private
