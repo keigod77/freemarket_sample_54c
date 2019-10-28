@@ -1,15 +1,11 @@
 class ProductsController < ApplicationController
   def sell
-    parent_category = Category.where(parent_id: nil)
-    @parent_name = []
-    for i in parent_category do
-      @parent_name << i.name
-    end
+    @parent_name = Category.getParentCategoriesArray
+    @brand_name = Brand.getBrandNamesArray
   end
 
   def create
-    binding.pry
-    item = Item.create!(item_params)
+    item = Item.create(item_params)
     item.images.create(image: params[:image])
         
     redirect_to root_path
@@ -31,6 +27,10 @@ class ProductsController < ApplicationController
   private
   
   def item_params
-    params.permit(:name,:description, :category_id, :brand, :size, :state, :shipping_charge, :delivery_method, :region, :days_to_delivery, :price).merge(user_id: current_user.id,exhibision_state: 0)
+    #item.brandでレコード取得するためbrand_id値調整
+    if params[:brand_id].present?
+      params[:brand_id] = (params[:brand_id].to_i + 1).to_s
+    end
+    params.permit(:name,:description, :category_id, :brand_id, :size, :state, :shipping_charge, :delivery_method, :region, :days_to_delivery, :price).merge(user_id: current_user.id,exhibision_state: 0)
   end
 end
