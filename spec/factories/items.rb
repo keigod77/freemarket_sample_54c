@@ -1,5 +1,6 @@
 FactoryBot.define do
   factory :item do
+    id {1}
     user_id {1}
     name{"ルイヴィトンの長財布"}
     description{"新品未使用です"}
@@ -10,6 +11,7 @@ FactoryBot.define do
     region{"北海道"}
     days_to_delivery {"1~2日で発送"}
     price {"333"}
+    exhibision_state {"0"}
     association :user, factory: :user
     association :category
   end
