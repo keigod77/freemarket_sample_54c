@@ -10,6 +10,7 @@ FactoryBot.define do
     region{"北海道"}
     days_to_delivery {"1~2日で発送"}
     price {"333"}
+    exhibision_state {0}
     association :user, factory: :user
     association :category
   end
