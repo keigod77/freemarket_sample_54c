@@ -1,17 +1,17 @@
 document.addEventListener(
-  "DOMContentLoaded", e => {
-    if (document.getElementById("token_submit") != nil) {
-      Payjp.setPublickey("pk_test_728dc124874b9816288533f2");
+  "DOMContentLoaded", (e) => {
+    if (document.getElementById("token_submit") != null) {
+      // payjpの初期化
+      Payjp.setPublicKey("pk_test_728dc124874b9816288533f2");
       let btn = document.getElementById("token_submit");
-      btn.addEventListener("click", e => {
+      btn.addEventListener("click", (e) => {
         e.preventDefault();
-        // card情報取得
+        // card情報生成
         let card = {
           number: document.getElementById("card_number").Value,
           cvc: document.getElementById("cvc").Value,
           exp_month: document.getElementById("exp_month").value,
           exp_year: document.getElementById("exp_year").value
-        
         }
         // トークン作成
         Payjp.createToken(card, (status, response) =>{
@@ -26,6 +26,8 @@ document.addEventListener(
             document.inputForm.submit();
             alert("登録が完了しました");
           } else {
+            console.log(card)
+            console.log(status)
             alert("カード情報が正しくありません")
           }
         });

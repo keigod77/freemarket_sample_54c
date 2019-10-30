@@ -45,6 +45,6 @@
                 %p
                   %i.icon-arrow-right.fas.fa-question-circle
                   = link_to 'カード裏面の番号とは？', "#"
-              = form_with model: @user, url: '/signup', local: true, class: 'new-registration-field' do |f|
+              = form_with url: card_path ,method: :post, class: 'new-registration-field', html: {name: "inputForm"} do |f|
                 = f.submit '追加する', class: 'btn-default-red', id: 'token_submit'
 = render 'signup/shared/signup-footer'
