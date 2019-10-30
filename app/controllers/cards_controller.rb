@@ -1,4 +1,4 @@
-class CardController < ApplicationController
+class CardsController < ApplicationController
   require "payjp"
 
   def new#カード登録
@@ -11,7 +11,7 @@ class CardController < ApplicationController
 
     if params['payjp-token'].blank?
       redirect_to action: "new"
-    else#https://pay.jp/docs/api/?ruby
+    else#https://pay.jp/docs/api/?ruby, https://pay.jp/docs/payjs
       customer = Payjp::Customer.create(
         description: 'test',
         email: current_user.email,
@@ -27,7 +27,7 @@ class CardController < ApplicationController
     end
   end
 
-  def show
-
+  def index
+    
   end
 end
