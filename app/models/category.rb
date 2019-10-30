@@ -10,4 +10,9 @@ class Category < ApplicationRecord
     end
     return parent_name
   end
+  
+  enum grandchildcategory: {
+    美容機器: 1000
+    # テストレディース孫1:1,テストレディース孫2:2
+  }
 end

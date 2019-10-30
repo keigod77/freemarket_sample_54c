@@ -74,14 +74,14 @@
                   %span
                     必須
                 %br
-                = f.select :shipping_charge, Item.burdens.keys.to_a,{},{class: "layout-select"}
+                = f.select :shipping_charge, Item.shipping_charges.keys.to_a,{},{class: "layout-select"}
               .select-box__method
                 %label
                   配送の方法
                   %span
                     必須
                 %br
-                = f.select :delivery_method, Item.methods.keys.to_a,{},{class: "layout-select"}
+                = f.select :delivery_method, Item.delivery_methods.keys.to_a,{},{class: "layout-select"}
 
               .select-box__origin-region
                 %label
@@ -97,7 +97,7 @@
                   %span
                     必須
                 %br
-                = f.select :days_to_delivery, Item.daytodeliveries.keys.to_a,{},{class: "layout-select"}
+                = f.select :days_to_delivery, Item.days_to_deliveries.keys.to_a,{},{class: "layout-select"}
           .sell__price-box
             %h3.form-head-sub
               販売価格(300〜9,999,999)
