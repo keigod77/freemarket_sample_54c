@@ -1,13 +1,14 @@
 require 'rails_helper'
 
-describe HomeController, type: :controller do
+RSpec.describe HomeController, type: :controller do
+    
   describe 'GET #index' do
     it 'assigns the requested ladies_items to @ladies_items' do
       ladies_items = create(:item)
       expect(assigns(:ladies_items)).to eq @ladies_items
     end
-
-    it 'assigns the requested mens_items to @mens_items' do
+    
+        it 'assigns the requested mens_items to @mens_items' do
       mens_items = create(:item)
       expect(assigns(:mens_items)).to eq @mens_items
     end
@@ -40,6 +41,22 @@ describe HomeController, type: :controller do
     it 'assigns the requested chanel_items to @chanel_items' do
       chanel_items = create(:item)
       expect(assigns(:chanel_items)).to eq @chanel_items
+    end
+  end
+  
+  
+    
+  describe 'GET #show' do
+    it "assigns the requested item to @item" do
+      item = create(:item)
+      get :show, params: { id: item }
+      expect(assigns(:item)).to eq item
+    end
+
+    it "renders the :show template" do
+      item = create(:item)
+      get :show, params: { id: 1 }
+      expect(response).to render_template :show
     end
   end
 end

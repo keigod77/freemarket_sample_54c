@@ -7,4 +7,9 @@ class Category < ApplicationRecord
     parent_name = parent_category.pluck(:name)
     return parent_name
   end
+  
+  enum grandchildcategory: {
+    美容機器: 1000
+    # テストレディース孫1:1,テストレディース孫2:2
+  }
 end

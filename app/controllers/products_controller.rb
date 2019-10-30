@@ -9,7 +9,7 @@ class ProductsController < ApplicationController
     item.images.create(image: params[:image])
         
     redirect_to root_path
-
+  
   end
 
   def search
