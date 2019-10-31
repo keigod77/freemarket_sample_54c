@@ -42,7 +42,12 @@ Rails.application.routes.draw do
 
   resource :transaction do
     collection do
-      resources :buy,only:[:show]
+      resources :buy,only:[:show] do
+        collection do
+          post 'purchase'
+          get  'done'
+        end
+      end
     end
   end
 

@@ -28,9 +28,7 @@
               %span
                 ¥
                 = @item.price
-          .productinfo__buybtn
-            %span
-              購入する
+          =link_to '購入する', purchase_buy_index_path, class: "productinfo__buybtn", method: :post
       .address-container    
         .address
           %h3

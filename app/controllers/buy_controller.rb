@@ -12,7 +12,19 @@ class BuyController < ApplicationController
     Payjp.api_key = Rails.application.credentials.payjp[:secret_key]
     customer = Payjp::Customer.retrieve(@card.customer_id)
     @card_information = customer.cards.retrieve(@card.card_id)
+    session[:amount]   = @item.price
+    # session[:customer_id] = customer.id
+  end
+
+  def purchase#https://pay.jp/docs/api/?ruby#支払いを作成
+    Payjp.api_key = Rails.application.credentials.payjp[:secret_key]
     binding.pry
+    charge = Payjp::Charge.create(
+      :amount       => session[:amount],
+      :customer     => @current_user.cards[0].customer_id,
+      :currency     => 'jpy',
+    )
+    redirect_to action: "done"
   end
 
 
