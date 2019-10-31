@@ -13,7 +13,7 @@ class BuyController < ApplicationController
     customer = Payjp::Customer.retrieve(@card.customer_id)
     @card_information = customer.cards.retrieve(@card.card_id)
     session[:amount]   = @item.price
-    # session[:customer_id] = customer.id
+    session[:item_id] = @item.id
   end
 
   def purchase#https://pay.jp/docs/api/?ruby#支払いを作成
@@ -23,6 +23,8 @@ class BuyController < ApplicationController
       :customer     => @current_user.cards[0].customer_id,
       :currency     => 'jpy',
     )
+    #購入時exhibision_stateを1にする
+    Item.find(session[:item_id]).update_attribute(:exhibision_state, 1)
     redirect_to root_path , flash: {buy_item: "商品を購入しました"}
   end
 
