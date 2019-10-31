@@ -24,10 +24,6 @@ document.addEventListener(
               $('<input type="hidden" name="payjp-token">').val(response.id)
             ); //トークンを送信できるように隠しタグを生成。ここではpayjp側でのみ登録。localにはこの後のcreateアクションで保存
             document.inputForm.submit();
-            console.log(card);
-            console.log(card.id)
-            console.log(response);
-            console.log(params);
             alert("登録が完了しました");
           } else {
             alert("カード情報が正しくありません")

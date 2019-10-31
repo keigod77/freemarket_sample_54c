@@ -48,5 +48,10 @@ Rails.application.routes.draw do
 
   resources :images, only:[:create]
 
-  resource :card, only: [:new, :create, :show]
+  resource :card, only: [:new, :create, :show] do
+    collection do
+      delete 'delete', to: 'cards#delete'
+    end
+  end
+  
 end
