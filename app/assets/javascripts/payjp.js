@@ -27,7 +27,6 @@ document.addEventListener(
             alert("登録が完了しました");
           } else {
             alert("カード情報が正しくありません")
-            console.log("response")
           }
         });
       });

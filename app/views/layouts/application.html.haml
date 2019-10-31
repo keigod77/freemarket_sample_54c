@@ -12,4 +12,7 @@
     = javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.1/js/swiper.min.js'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
+    -if flash[:buy_item]
+      .flash-buy-item
+        = flash[:buy_item]
     = yield

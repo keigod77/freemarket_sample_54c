@@ -18,13 +18,12 @@ class BuyController < ApplicationController
 
   def purchase#https://pay.jp/docs/api/?ruby#支払いを作成
     Payjp.api_key = Rails.application.credentials.payjp[:secret_key]
-    binding.pry
     charge = Payjp::Charge.create(
       :amount       => session[:amount],
       :customer     => @current_user.cards[0].customer_id,
       :currency     => 'jpy',
     )
-    redirect_to action: "done"
+    redirect_to root_path , flash: {buy_item: "商品を購入しました"}
   end
 
 
