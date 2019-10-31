@@ -8,8 +8,8 @@ document.addEventListener(
         e.preventDefault();
         // card情報生成
         let card = {
-          number: document.getElementById("card_number").Value,
-          cvc: document.getElementById("cvc").Value,
+          number: document.getElementById("card_number").value,
+          cvc: document.getElementById("cvc").value,
           exp_month: document.getElementById("exp_month").value,
           exp_year: document.getElementById("exp_year").value
         }
@@ -22,13 +22,16 @@ document.addEventListener(
             $("#exp_year").removeAttr("name"); 
             $("#card_token").append(
               $('<input type="hidden" name="payjp-token">').val(response.id)
-            ); //トークンを送信できるように隠しタグを生成
+            ); //トークンを送信できるように隠しタグを生成。ここではpayjp側でのみ登録。localにはこの後のcreateアクションで保存
             document.inputForm.submit();
+            console.log(card);
+            console.log(card.id)
+            console.log(response);
+            console.log(params);
             alert("登録が完了しました");
           } else {
-            console.log(card)
-            console.log(status)
             alert("カード情報が正しくありません")
+            console.log("response")
           }
         });
       });

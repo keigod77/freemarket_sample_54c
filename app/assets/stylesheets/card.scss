@@ -26,3 +26,31 @@
     background-color: white;
   }
 }
+
+.card-place-of-payment{
+  height: 20px;
+  width: 26px;
+}
+
+.card-show{
+  height: 117px;
+  width: 572px;
+  &__title{
+    font-size: 1.0rem;
+    text-align: center;
+  }
+  &__list{
+    font-size: 0.8rem;
+    height: 68px;
+    width: 320px;
+    margin: 24px auto 24px;
+  }
+}
+
+.card-information{
+  font-size: 0.8rem;
+}
+
+.settings-payment-num {
+  margin-top: 8px;
+}

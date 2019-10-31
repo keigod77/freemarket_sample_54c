@@ -48,5 +48,5 @@ Rails.application.routes.draw do
 
   resources :images, only:[:create]
 
-  resource :card, only: [:new, :create]
+  resource :card, only: [:new, :create, :show]
 end

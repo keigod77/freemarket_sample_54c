@@ -1,0 +1,36 @@
+= render partial: 'layouts/main-header'
+-binding.pry
+.contents-container
+  %main.mypage-container
+    = render partial: 'layouts/sidebar'
+    .add-card-contents
+      %h2.add-card-contents__header
+        支払い方法
+      .add-card-contents__main
+        %h3.card-show
+          - if current_user.cards
+            .card-show__title クレジットカード一覧
+            .card-show__list
+              .card-information
+                %figure
+                  =image_tag asset_path("card_image_visa.jpg"), class: "card-place-of-payment"
+                  削除する
+                .settings-payment-num 
+                  = "**** **** **** " + @card_information.last4
+                .settings-payment-num
+                  - exp_month = @card_information.exp_month.to_s
+                  - exp_year  = (@card_information.exp_year - 2000).to_s
+                  = exp_month + "/" + exp_year
+                  
+
+          -else
+            =link_to "/", class: "btn-card" do
+              %i.fas.fa-credit-card.btn-card-icon
+              クレジットカードを追加する 
+      .add-card-contents__footer
+        .about-paymant-method
+          %p
+            = link_to '支払い方法について', "#"
+            %i.icon-arrow-right.fas.fa-chevron-right
+
+= render partial: 'layouts/main-footer'

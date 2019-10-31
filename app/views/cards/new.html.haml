@@ -34,7 +34,7 @@
                   %span 月
                 .card-select
                   %i.card-select__icon.fas.fa-chevron-down
-                  = f.select :exp_year, [*19..24],{}, {class: 'card-select__part'}
+                  = f.select :exp_year, [*19..30].map{|year| ["#{year}", year+2000]},{}, {class: 'card-select__part'}
                   %span 年
               .new-registration-field__group
                 = f.label :セキュリティコード, class: 'new-registration-field__group--name'
@@ -45,6 +45,6 @@
                 %p
                   %i.icon-arrow-right.fas.fa-question-circle
                   = link_to 'カード裏面の番号とは？', "#"
-              = form_with url: card_path ,method: :post, class: 'new-registration-field', html: {name: "inputForm"} do |f|
+                #card_token
                 = f.submit '追加する', class: 'btn-default-red', id: 'token_submit'
 = render 'signup/shared/signup-footer'
