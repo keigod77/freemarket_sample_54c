@@ -49,12 +49,13 @@
           %h3
             支払方法
           .pay-method__text
-            ************1111
+            = "**** **** **** " + @card_information.last4
             %br
-            01/01
+            - exp_month = @card_information.exp_month.to_s
+            - exp_year  = (@card_information.exp_year - 2000).to_s
+            = exp_month + "/" + exp_year
             %br
             =image_tag asset_path("card_image_visa.jpg")
-
           .pay-method__changelink
             =link_to '変更する','#'
   =render partial: 'layouts/subfooter'
