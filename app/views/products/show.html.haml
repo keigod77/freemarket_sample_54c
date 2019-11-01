@@ -86,7 +86,7 @@
         %p
           or
         =link_to '出品を再開する','#',class: "btn"
-        =link_to 'この商品を削除する','#',class: "btn btn-grey"
+        =link_to 'この商品を削除する',product_path,method: :delete,class: "btn btn-grey"
     .message-container
       .message
         =form_with url: root_path do |f|
