@@ -33,6 +33,16 @@ class ProductsController < ApplicationController
     @grandchild = Category.find(@item.category_id)
   end
 
+  def destroy
+    item = Item.find(params[:id])
+    image = Image.where(item_id: params[:id])
+    if current_user.id == item.user_id
+      image.delete_all
+      item.delete
+    end
+    redirect_to root_path
+  end
+
 
   private
   
