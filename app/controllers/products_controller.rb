@@ -1,29 +1,11 @@
 class ProductsController < ApplicationController
   def sell
-    parent_category = Category.where(parent_id: nil)
-    @parent_name = []
-    for i in parent_category do
-      @parent_name << i.name
-    end
+    @parent_name = Category.getParentCategoriesArray
+    @brand_name = Brand.getBrandNamesArray
   end
 
   def create
-    item = Item.create!(item_params)
-    #rake db:seedでカテゴリーを初期値を設定するのでコメントアウトする
-    #カテゴリーがDB上に存在しない場合新規に作成する
-    #if Category.where(name: params[:parent_category]).empty? then
-    #  Category.create(name: params[:parent_category])
-    #  Category.create(name: params[:children_category], parent_id: Category.find_by(name: params[:parent_category]).id)
-    #  Category.create(name: params[:grandchildren_category], parent_id: Category.find_by(name: params[:children_category]).id)
-
-    #elsif Category.where(name: params[:children_category]).empty? then
-    #  Category.create(name: params[:children_category], parent_id: Category.find_by(name: params[:parent_category]).id)
-    #  Category.create(name: params[:category], parent_id: Category.find_by(name: params[:children_category]).id)
-
-    #elsif Category.where(name: params[:grandchildren_category]).empty? then
-    #  Category.create(name: params[:category], parent_id: Category.find_by(name: params[:children_category]).id)
-    #end
-
+    item = Item.create(item_params)
     item.images.create(image: params[:image])
         
     redirect_to root_path
@@ -45,6 +27,10 @@ class ProductsController < ApplicationController
   private
   
   def item_params
-    params.permit(:name,:description, :category_id, :brand, :size, :state, :shipping_charge, :delivery_method, :region, :days_to_delivery, :price).merge(user_id: current_user.id,exhibision_state: 0)
+    #item.brandでレコード取得するためbrand_id値調整
+    if params[:brand_id].present?
+      params[:brand_id] = Brand.find_by(name: params[:brand_id]).id
+    end
+    params.permit(:name,:description, :category_id, :brand_id, :size, :state, :shipping_charge, :delivery_method, :region, :days_to_delivery, :price).merge(user_id: current_user.id,exhibision_state: 0)
   end
 end

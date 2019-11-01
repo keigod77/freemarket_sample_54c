@@ -24,126 +24,192 @@
       =link_to "家電・スマホ・カメラ", root_path
     %li.popular-category-box__item
       =link_to "おもちゃ・ホビー・グッズ", root_path
+.products-container
+  .new-products-box
+    .category-box
+      .category-box-upper
+        %h3.category-box-upper__heading
+          レディース新着アイテム
+        =link_to "もっと見る >", root_path
+        
+      .category-box-lower
+        %ul
+          - @ladies_items.each do |item|
+            %li.category-item
+              %figure.product
+                .product__image-box
+                  =image_tag item.images[0].image.to_s,alt:"商品画像"
+                .product__price
+                  %span
+                    ¥
+                    =item.price
+                %figcaption
+                  %span
+                    =item.name
+
+    .category-box
+      .category-box-upper
+        %h3.category-box-upper__heading
+          メンズ新着アイテム
+        =link_to "もっと見る >", root_path
+        
+      .category-box-lower
+        %ul
+          - @mens_items.each do |item|
+            %li.category-item
+              %figure.product
+                .product__image-box
+                  =image_tag item.images[0].image.to_s,alt:"商品画像"
+                .product__price
+                  %span
+                    ¥
+                    =item.price
+                %figcaption
+                  %span
+                    =item.name
+
+    .category-box
+      .category-box-upper
+        %h3.category-box-upper__heading
+          おもちゃ・ホビー・グッズ新着アイテム
+        =link_to "もっと見る >", root_path
+        
+      .category-box-lower
+        %ul
+          - @toy_items.each do |item|
+            %li.category-item
+              %figure.product
+                .product__image-box
+                  =image_tag item.images[0].image.to_s,alt:"商品画像"
+                .product__price
+                  %span
+                    ¥
+                    =item.price
+                %figcaption
+                  %span
+                    =item.name
+
+    .category-box
+      .category-box-upper
+        %h3.category-box-upper__heading
+          家電・スマホ・カメラ新着アイテム
+        =link_to "もっと見る >", root_path
+        
+      .category-box-lower
+        %ul
+          - @machine_items.each do |item|
+            %li.category-item
+              %figure.product
+                .product__image-box
+                  =image_tag item.images[0].image.to_s,alt:"商品画像"
+                .product__price
+                  %span
+                    ¥
+                    =item.price
+                %figcaption
+                  %span
+                    =item.name
+
+
+
+.popular-category-container
+  %h2
+    人気のブランド
+  %ul.popular-category-box
+    %li.popular-category-box__item
+      =link_to "シャネル", root_path
+    %li.popular-category-box__item
+      =link_to "ルイヴィトン", root_path
+    %li.popular-category-box__item
+      =link_to "シュプリーム", root_path
+    %li.popular-category-box__item
+      =link_to "ナイキ", root_path
 
 .products-container
   .new-products-box
     .category-box
       .category-box-upper
         %h3.category-box-upper__heading
-          新着アイテム
+          シャネル新着アイテム
         =link_to "もっと見る >", root_path
         
       .category-box-lower
         %ul
-          %li.category-item
-            %figure.product
-              .product__image-box
-                =image_tag asset_path("bannartop.png"),alt:"テスト画像"
-              .product__price
-                %span
-                  ¥2,000
-              %figcaption
-                %span
-                  テスト
-          %li.category-item
-            %figure.product
-              .product__image-box
-                =image_tag asset_path("bannartop.png"),alt:"テスト画像"
-              .product__price
-                %span
-                  ¥2,000
-              %figcaption
-                %span
-                  テスト
-          %li.category-item
-            %figure.product
-              .product__image-box
-                =image_tag asset_path("bannartop.png"),alt:"テスト画像"
-              .product__price
-                %span
-                  ¥2,000
-              %figcaption
-                %span
-                  テスト
-          %li.category-item
-            %figure.product
-              .product__image-box
-                =image_tag asset_path("bannartop.png"),alt:"テスト画像"
-              .product__price
-                %span
-                  ¥2,000
-              %figcaption
-                %span
-                  テスト
-          %li.category-item
-            %figure.product
-              .product__image-box
-                =image_tag asset_path("bannartop.png"),alt:"テスト画像"
-              .product__price
-                %span
-                  ¥2,000
-              %figcaption
-                %span
-                  テスト
-            %figure.product
-              .product__image-box
-                =image_tag asset_path("bannartop.png"),alt:"テスト画像"
-              .product__price
-                %span
-                  ¥2,000
-              %figcaption
-                %span
-                  テスト
-          %li.category-item
-            %figure.product
-              .product__image-box
-                =image_tag asset_path("bannartop.png"),alt:"テスト画像"
-              .product__price
-                %span
-                  ¥2,000
-              %figcaption
-                %span
-                  テスト
-          %li.category-item
-            %figure.product
-              .product__image-box
-                =image_tag asset_path("bannartop.png"),alt:"テスト画像"
-              .product__price
-                %span
-                  ¥2,000
-              %figcaption
-                %span
-                  テスト
-          %li.category-item
-            %figure.product
-              .product__image-box
-                =image_tag asset_path("bannartop.png"),alt:"テスト画像"
-              .product__price
-                %span
-                  ¥2,000
-              %figcaption
-                %span
-                  テスト
-          %li.category-item
-            %figure.product
-              .product__image-box
-                =image_tag asset_path("bannartop.png"),alt:"テスト画像"
-              .product__price
-                %span
-                  ¥2,000
-              %figcaption
-                %span
-                  テスト
-          %li.category-item
-            %figure.product
-              .product__image-box
-                =image_tag asset_path("bannartop.png"),alt:"テスト画像"
-              .product__price
-                %span
-                  ¥2,000
-              %figcaption
-                %span
-                  テスト
+          - @chanel_items.each do |item|
+            %li.category-item
+              %figure.product
+                .product__image-box
+                  =image_tag item.images[0].image.to_s,alt:"商品画像"
+                .product__price
+                  %span
+                    ¥
+                    =item.price
+                %figcaption
+                  %span
+                    =item.name
+
+    .category-box
+      .category-box-upper
+        %h3.category-box-upper__heading
+          ルイヴィトン新着アイテム
+        =link_to "もっと見る >", root_path
+        
+      .category-box-lower
+        %ul
+          - @louisvuitton_items.each do |item|
+            %li.category-item
+              %figure.product
+                .product__image-box
+                  =image_tag item.images[0].image.to_s,alt:"商品画像"
+                .product__price
+                  %span
+                    ¥
+                    =item.price
+                %figcaption
+                  %span
+                    =item.name
+
+    .category-box
+      .category-box-upper
+        %h3.category-box-upper__heading
+          シュプリーム新着アイテム
+        =link_to "もっと見る >", root_path
+        
+      .category-box-lower
+        %ul
+          - @supreme_items.each do |item|
+            %li.category-item
+              %figure.product
+                .product__image-box
+                  =image_tag item.images[0].image.to_s,alt:"商品画像"
+                .product__price
+                  %span
+                    ¥
+                    =item.price
+                %figcaption
+                  %span
+                    =item.name
+
+    .category-box
+      .category-box-upper
+        %h3.category-box-upper__heading
+          ナイキ新着アイテム
+        =link_to "もっと見る >", root_path
+        
+      .category-box-lower
+        %ul
+          - @nike_items.each do |item|
+            %li.category-item
+              %figure.product
+                .product__image-box
+                  =image_tag item.images[0].image.to_s,alt:"商品画像"
+                .product__price
+                  %span
+                    ¥
+                    =item.price
+                %figcaption
+                  %span
+                    =item.name
 = render partial: 'layouts/exhibit-btn'
 = render partial: 'layouts/main-footer'
 

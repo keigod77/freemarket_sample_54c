@@ -259,8 +259,16 @@
 .select-box{
   float: right;
   width: 400px;
-  &__category, &__burden, &__origin-region,&__method{
+  &__category, &__burden, &__origin-region,&__method,&__brand{
     margin-bottom: 40px;
+  }
+
+  &__brand{
+    label{
+      span{
+        @include formArbitary();
+      }
+    }
   }
 }
 
