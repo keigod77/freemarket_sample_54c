@@ -32,4 +32,12 @@ class Item < ApplicationRecord
   enum days_to_delivery:{
     １〜２日で発送:1, ２〜３日で発送:2, ４〜７日で発送:3
   }
+
+  def getShippingCharge
+    if self.shipping_charge == '送料込み（出品者負担）'
+      return shipping_charge[0..3]
+    else
+      return shipping_charge[0..2]
+    end
+  end
 end

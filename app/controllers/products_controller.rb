@@ -8,6 +8,7 @@ class ProductsController < ApplicationController
   end
 
   def create
+    item = Item.create!(item_params)
     #rake db:seedでカテゴリーを初期値を設定するのでコメントアウトする
     #カテゴリーがDB上に存在しない場合新規に作成する
     #if Category.where(name: params[:parent_category]).empty? then
@@ -22,7 +23,7 @@ class ProductsController < ApplicationController
     #elsif Category.where(name: params[:grandchildren_category]).empty? then
     #  Category.create(name: params[:category], parent_id: Category.find_by(name: params[:children_category]).id)
     #end
-    item = Item.create(item_params)
+
     item.images.create(image: params[:image])
         
     redirect_to root_path

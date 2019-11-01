@@ -116,9 +116,7 @@
 | ------ | ---- | ------- |
 | user | references | null :false |
 | customer_id | string | null :false |
-| security_code | integer | null :false |
-| expiration_date_month | integer | null :false |
-| expiration_date_year | integer | null :false |
+| card_id | string | null :false |
 ### Assoiation
 - belongs_to :user
 

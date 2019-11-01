@@ -7,15 +7,16 @@
           購入内容の確認
       .productinfo-container
         .productinfo
-          =image_tag asset_path('member.jpg'),alt:"商品画像"
+          =image_tag asset_path(@item.images[0].image),alt:"商品画像"
           .productinfo__product-name
             %p
-              商品テスト
+              = @item.name
           .productinfo__price
             %p
-              ¥5500
+              ¥
+              = @item.price
             %span
-              送料込み
+              = @shipping
           .productinfo__point
             %span
               ポイントはありません
@@ -25,10 +26,9 @@
                 支払金額
             .cell
               %span
-                ¥5,500
-          .productinfo__buybtn
-            %span
-              購入する
+                ¥
+                = @item.price
+          =link_to '購入する', purchase_buy_index_path, class: "productinfo__buybtn", method: :post
       .address-container    
         .address
           %h3
@@ -47,12 +47,13 @@
           %h3
             支払方法
           .pay-method__text
-            ************1111
+            = "**** **** **** " + @card_information.last4
             %br
-            01/01
+            - exp_month = @card_information.exp_month.to_s
+            - exp_year  = (@card_information.exp_year - 2000).to_s
+            = exp_month + "/" + exp_year
             %br
             =image_tag asset_path("card_image_visa.jpg")
-
           .pay-method__changelink
             =link_to '変更する','#'
   =render partial: 'layouts/subfooter'

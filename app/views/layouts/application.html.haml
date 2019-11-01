@@ -3,6 +3,8 @@
   %head
     %meta{content: "text/html; charset=UTF-8", http:{equiv: "Content-Type"}}/
     %title FreemarketSample54c
+    %script{src: "https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"}
+    %script{src: "https://js.pay.jp/", type: "text/javascript"}
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
@@ -10,4 +12,7 @@
     = javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.1/js/swiper.min.js'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
+    -if flash[:buy_item]
+      .flash-buy-item
+        = flash[:buy_item]
     = yield

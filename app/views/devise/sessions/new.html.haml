@@ -18,7 +18,7 @@
             =link_to user_google_oauth2_omniauth_authorize_path, class: 'btn-sns btn-sns__google', method: :post do
               =image_tag 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_"G"_Logo.svg/512px-Google_"G"_Logo.svg.png', class: 'btn-sns__icon-google'
               Googleでログイン
-          =form_with url: root_path, local: true, class: 'login-panel__form' do |f|
+          =form_with model: @user, url: user_session_path, local: true, class: 'login-panel__form' do |f|
             .login-input-form
               = f.text_field :email, class: 'login-input-form__part margin-top-zero', placeholder: 'メールアドレス'
             .login-input-form
