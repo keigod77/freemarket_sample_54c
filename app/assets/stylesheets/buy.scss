@@ -47,6 +47,9 @@
             font-size: 1.5rem;
             margin-right: 8px;
           }
+          span{
+            font-size: 0.7rem;
+          }
         }
 
         &__point{
@@ -88,6 +91,7 @@
           text-align: center;
           font-size: 0.8rem;
           letter-spacing: 1px;
+          text-decoration: none;
         }
       }
     }
@@ -146,4 +150,10 @@
       }
     }
   }
+}
+
+.flash-buy-item{
+  background-color: blue;
+  color: white;
+  text-align: center;
 }
