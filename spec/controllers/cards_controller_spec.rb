@@ -1,4 +1,7 @@
 require 'rails_helper'
+
+#RSpec.describe CardsController, type: :controller do
+#
 #チームメンバー側の管轄で、今回は自動生成されたcard_controller_specは使わないのでコメントアウトしてます
 #コメントアウトしないとエラーが出るのでコメントアウトしてます
 #RSpec.describe CardsController, type: :controller do
@@ -16,5 +19,4 @@ require 'rails_helper'
 #      expect(response).to have_http_status(:success)
 #    end
 #  end
-#
 #end
