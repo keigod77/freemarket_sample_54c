@@ -1,4 +1,5 @@
 class SignupController < ApplicationController
+  require "payjp" 
   layout :false
 
   def registration
@@ -39,7 +40,7 @@ class SignupController < ApplicationController
   end
 
   def create
-    @user = User.create(
+    @user = User.create!(
       nickname: session[:nickname],
       email: session[:email],
       password: session[:password],
@@ -62,11 +63,24 @@ class SignupController < ApplicationController
       address: session[:address],
       building: session[:building],
     )
-    if @address.save
-      redirect_to complete_signup_index_path
-    else
-      User.find(session[:id]).destroy
-      render '/signup/registration'
+    #card情報登録
+    binding.pry
+    Payjp.api_key = Rails.application.credentials.payjp[:secret_key]
+    if params['payjp-token'].blank?
+    else#https://pay.jp/docs/api/?ruby, https://pay.jp/docs/payjs
+      customer = Payjp::Customer.create(
+        description: 'test',
+        email: session[:email],
+        card: params['payjp-token'],
+        metadata: {user_id: session[:id]}
+      )
+      @card = Card.new(user_id: session[:id], customer_id: customer.id, card_id: customer.default_card)
+      if @address.save && @card.save
+        redirect_to complete_signup_index_path
+      else
+        User.find(session[:id]).destroy
+        render '/signup/registration'
+      end
     end
   end
 
