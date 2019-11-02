@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
   before_action :set_item, only: [:show, :destroy]
+  before_action :set_user, only: [:show]
 
   def sell
     @parent_name = Category.getParentCategoriesArray
@@ -26,7 +27,6 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @user = User.find(@item.user_id)
     # 複数枚画像を取得する際はwhereに変更する
     @image = @item.images.first
     #child, parentは@grandchild.parentで取得可能
@@ -55,5 +55,9 @@ class ProductsController < ApplicationController
 
   def set_item
     @item = Item.find(params[:id])
+  end
+
+  def set_user
+    @user = User.find(@item.user_id)
   end
 end

@@ -1,5 +1,6 @@
 require 'rails_helper'
-
+#チームメンバー側の管轄で、今回は自動生成されたcard_controller_specは使わないのでコメントアウトしてます
+#コメントアウトしないとエラーが出るのでコメントアウトしてます
 #RSpec.describe CardsController, type: :controller do
 #
 #  describe "GET #new" do
