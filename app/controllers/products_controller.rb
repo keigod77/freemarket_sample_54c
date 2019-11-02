@@ -1,4 +1,6 @@
 class ProductsController < ApplicationController
+  before_action :set_item, only: [:show, :destroy]
+
   def sell
     @parent_name = Category.getParentCategoriesArray
     @brand_name = Brand.getBrandNamesArray
@@ -24,17 +26,15 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])
     @user = User.find(@item.user_id)
     # 複数枚画像を取得する際はwhereに変更する
-    @image = Image.find_by(item_id: @item.id)
+    @image = @item.images.first
     #child, parentは@grandchild.parentで取得可能
     @grandchild = Category.find(@item.category_id)
   end
 
   def destroy
-    item = Item.find(params[:id])
-    image = Image.where(item_id: params[:id])
+    image = @item.images
     if current_user.id == item.user_id
       image.delete_all
       item.delete
@@ -51,5 +51,9 @@ class ProductsController < ApplicationController
       params[:brand_id] = Brand.find_by(name: params[:brand_id]).id
     end
     params.permit(:name,:description, :category_id, :brand_id, :size, :state, :shipping_charge, :delivery_method, :region, :days_to_delivery, :price).merge(user_id: current_user.id,exhibision_state: 0)
+  end
+
+  def set_item
+    @item = Item.find(params[:id])
   end
 end
