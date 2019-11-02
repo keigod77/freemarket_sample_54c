@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe CardController, type: :controller do
+RSpec.describe CardsController, type: :controller do
 
   # describe "GET #new" do
   #   it "returns http success" do
