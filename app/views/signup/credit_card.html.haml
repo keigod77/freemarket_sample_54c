@@ -34,7 +34,7 @@
           %h2.new-registration-container__header--word 会員情報入力
         .new-registration-container__body
           -# 会員情報入力form_for
-          = form_with model: @user, url: '/signup',local: true, class: 'new-registration-field' do |f|
+          = form_with  url: signup_index_path, method: :post, class: 'new-registration-field', html: {name: "inputForm"} do |f|
             .new-registration-body-upper
               .new-registration-field__group
                 = f.label :カード番号, class: 'new-registration-field__group--name'
@@ -52,21 +52,21 @@
                 -# クレジットカードモデルプロパティ名とタグ情報enumで記述
                 .card-select
                   %i.card-select__icon.fas.fa-chevron-down
-                  = f.select :credit_card_month, [*01..12],{}, {class: 'card-select__part'}
+                  = f.select :exp_month, [*01..12],{}, {class: 'card-select__part'}
                   %span 月
                 .card-select
                   %i.card-select__icon.fas.fa-chevron-down
-                  = f.select :credit_card_year, [*19..24],{}, {class: 'card-select__part'}
+                  = f.select :exp_year, [*19..30].map{|year| ["#{year}", year+2000]},{}, {class: 'card-select__part'}
                   %span 年
               .new-registration-field__group
                 = f.label :セキュリティコード, class: 'new-registration-field__group--name'
                 = f.label :必須, class: 'new-registration-field__group--require'
-                = f.text_field :security_code, class: 'new-registration-field__group--input-default', placeholder: 'カードの背面4桁もしくは4桁もしくは3桁の番号'
+                = f.text_field :cvc, class: 'new-registration-field__group--input-default', placeholder: 'カードの背面4桁もしくは4桁もしくは3桁の番号'
 
               .back-of-the-number
                 %p
                   %i.icon-arrow-right.fas.fa-question-circle
                   = link_to 'カード裏面の番号とは？', "#"
-              = form_with model: @user, url: '/signup', local: true, class: 'new-registration-field' do |f|
-                = f.submit '次へ進む', class: 'btn-default-red'
+                #card_token
+                = f.submit '次へ進む', class: 'btn-default-red', id: 'token_submit'
 = render 'signup/shared/signup-footer'
