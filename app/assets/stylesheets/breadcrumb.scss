@@ -1,0 +1,14 @@
+.breadcrumbs{
+  height: 48px;
+  line-height: 48px;
+  font-size: 14px;
+  padding-left: 14%;
+  box-shadow: 0 3px 3px gray ;
+  a {
+    text-decoration: none;
+    color: black;
+  }
+  .current{
+    font-weight: bold;
+  }
+}
