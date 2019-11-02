@@ -1,0 +1,100 @@
+=render 'layouts/main-header'
+
+.useritem-container
+  %main.product-container
+    .product.fl-right
+      %h1.product__name
+        = @item.name
+      .product__info
+        %figure.product__image
+          //SwiperSlide
+          .product__image--large
+            = image_tag asset_path(@image.image), alt: '商品テスト画像'
+          .product__image--small
+            = image_tag asset_path(@image.image), alt: '商品テスト画像'
+            -# = image_tag asset_path('bannartop.png'), alt: '商品テスト画像'
+            -# = image_tag asset_path('bannartop.png'), alt: '商品テスト画像'
+            -# = image_tag asset_path('bannartop.png'), alt: '商品テスト画像'
+            -# = image_tag asset_path('bannartop.png'), alt: '商品テスト画像'
+            -# = image_tag asset_path('bannartop.png'), alt: '商品テスト画像'
+            -# = image_tag asset_path('bannartop.png'), alt: '商品テスト画像'
+        %table.product__detail
+          %tr
+            %th
+              出品者
+            %td
+              = @user.nickname
+          %tr
+            %th
+              カテゴリー
+            %td.font_blue
+              = @grandchild.parent.parent.name
+              %br
+              %i.icon-arrow-right.fas.fa-chevron-right
+              = @grandchild.parent.name
+              %br
+              %i.icon-arrow-right.fas.fa-chevron-right
+              = @grandchild.name
+          %tr
+            %th
+              ブランド
+            %td
+              - if @item.brand != nil
+                = @item.brand.name
+          %tr
+            %th
+              商品の状態
+            %td
+              = @item.state
+          %tr
+            %th
+              配送料の負担
+            %td
+              = @item.shipping_charge
+          %tr
+            %th
+              配送の方法
+            %td
+              = @item.delivery_method
+          %tr
+            %th
+              配送元の地域
+            %td
+              = @item.region
+          %tr
+            %th
+              発送日の目安
+            %td
+              = @item.days_to_delivery
+          
+          
+      .product__price-box
+        %span.product__price
+          ¥
+          = @item.price
+        %span.product__tax
+          (税込)
+        %span.product__fee
+          送料込み
+          
+      %figure.product__explanation
+        = simple_format(@item.description)#不空改行は適用されない
+
+    .product-changestatus-btns-container
+      .product-changestatus-btns
+        =link_to '商品の編集','#',class: "btn"
+        %p
+          or
+        =link_to '出品を再開する','#',class: "btn"
+        =link_to 'この商品を削除する',product_path,method: :delete,class: "btn btn-grey"
+    .message-container
+      .message
+        =form_with url: root_path do |f|
+          %p.message__caution
+            相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+          = f.text_area :message
+        %button.message__submit-btn
+          %span
+            コメントする
+
+=render 'layouts/main-footer'
