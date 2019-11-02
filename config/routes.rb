@@ -15,7 +15,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :products, only: [:show,:destroy] do
+  resources :products, only: [:show,:destroy,:create] do
     collection do
       get :sell
       get :search

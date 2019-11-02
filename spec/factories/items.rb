@@ -6,10 +6,10 @@ FactoryBot.define do
     description{"新品未使用です"}
     category_id {3}
     state {1}
-    shipping_charge{"送料込み(出品者負担)"}
-    delivery_method{"未定"}
+    shipping_charge{1}
+    delivery_method{1}
     region{"北海道"}
-    days_to_delivery {"1~2日で発送"}
+    days_to_delivery {1}
     price {"333"}
     exhibision_state {0}
     

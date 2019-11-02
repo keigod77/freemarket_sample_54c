@@ -61,11 +61,11 @@ ActiveRecord::Schema.define(version: 2019_10_29_233455) do
     t.bigint "category_id", null: false
     t.bigint "brand_id"
     t.bigint "size_id"
-    t.string "state", null: false
-    t.string "shipping_charge", null: false
-    t.string "delivery_method", null: false
+    t.integer "state", null: false
+    t.integer "shipping_charge", null: false
+    t.integer "delivery_method", null: false
     t.string "region", null: false
-    t.string "days_to_delivery", null: false
+    t.integer "days_to_delivery", null: false
     t.integer "price", null: false
     t.integer "buyer_id"
     t.datetime "created_at", null: false
