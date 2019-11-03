@@ -64,12 +64,10 @@ class SignupController < ApplicationController
       building: session[:building],
     )
     #card情報登録
-    binding.pry
     Payjp.api_key = Rails.application.credentials.payjp[:secret_key]
     if params['payjp-token'].blank?
     else#https://pay.jp/docs/api/?ruby, https://pay.jp/docs/payjs
       customer = Payjp::Customer.create(
-        description: 'test',
         email: session[:email],
         card: params['payjp-token'],
         metadata: {user_id: session[:id]}
