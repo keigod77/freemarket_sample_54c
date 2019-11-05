@@ -2,6 +2,7 @@ class BuyController < ApplicationController
   require 'payjp'
   before_action :set_card, if: :user_signed_in?
   before_action :authenticate_user!
+  before_action :whose_item
 
   def show
     @item = Item.find(params[:id])
@@ -35,6 +36,11 @@ class BuyController < ApplicationController
   private
   def set_card
     @card = Card.where(user_id: current_user.id).first if Card.where(user_id: current_user.id).present?
+  end
+  
+  def whose_item#本人の出品商品ならbuyControllerは動かないようにする
+    item = Item.find(params[:id])
+    redirect_to root_path if item.user_id == current_user.id
   end
 
 end
