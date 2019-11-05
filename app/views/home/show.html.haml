@@ -76,7 +76,12 @@
           (税込)
         %span.product__fee
           送料込み
-      =link_to '購入画面に進む',buy_path(@item),class:'product__buy-btn'
+      -# -binding.pry
+      -if @item.exhibision_state == 0
+        =link_to '購入画面に進む',buy_path(@item),class:'product__buy-btn'
+      -else
+        .product__buy-btn.sold-out
+          売り切れました
       %figure.product__explanation
         = simple_format(@item.description)#不空改行は適用されない
       .product__btns-container
