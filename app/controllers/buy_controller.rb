@@ -1,19 +1,22 @@
 class BuyController < ApplicationController
   require 'payjp'
-  before_action :set_card
+  before_action :set_card, if: :user_signed_in?
+  before_action :authenticate_user!
 
   def show
-    @postal = current_user.addresses[0].getPostalCode
-    @address = current_user.addresses[0].getAddress
-    @fullname = current_user.getFullname
     @item = Item.find(params[:id])
-    @shipping = @item.getShippingCharge
-
-    Payjp.api_key = Rails.application.credentials.payjp[:secret_key]
-    customer = Payjp::Customer.retrieve(@card.customer_id)
-    @card_information = customer.cards.retrieve(@card.card_id)
-    session[:amount]   = @item.price
-    session[:item_id] = @item.id
+    if current_user
+      @postal = current_user.addresses[0].getPostalCode
+      @address = current_user.addresses[0].getAddress
+      @fullname = current_user.getFullname
+      @shipping = @item.getShippingCharge
+    
+      Payjp.api_key = Rails.application.credentials.payjp[:secret_key]
+      customer = Payjp::Customer.retrieve(@card.customer_id)
+      @card_information = customer.cards.retrieve(@card.card_id)
+      session[:amount]   = @item.price
+      session[:item_id] = @item.id
+    end
   end
 
   def purchase#https://pay.jp/docs/api/?ruby#支払いを作成

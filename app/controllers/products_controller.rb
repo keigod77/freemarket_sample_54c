@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
   before_action :set_item, only: [:show, :destroy]
   before_action :set_user, only: [:show]
+  before_action :authenticate_user!, only: [:sell]
 
   def sell
     @parent_name = Category.getParentCategoriesArray
