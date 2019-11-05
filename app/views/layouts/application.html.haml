@@ -13,6 +13,9 @@
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
     -if flash[:buy_item]
-      .flash-buy-item
+      .flash-base
         = flash[:buy_item]
+    -if flash[:no_image]
+      .flash-base
+        = flash[:no_image]
     = yield
