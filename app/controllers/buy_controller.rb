@@ -2,7 +2,7 @@ class BuyController < ApplicationController
   require 'payjp'
   before_action :set_card, if: :user_signed_in?
   before_action :authenticate_user!
-  before_action :whose_item
+  before_action :redirect_root
 
   def show
     @item = Item.find(params[:id])
@@ -29,6 +29,9 @@ class BuyController < ApplicationController
     )
     #購入時exhibision_stateを1にする
     Item.find(session[:item_id]).update_attribute(:exhibision_state, 1)
+    #購入時buyer_idにcurrent_user.idを追加
+    Item.find(session[:item_id]).update_attribute(:buyer_id, current_user.id)
+    binding.pry
     redirect_to root_path , flash: {buy_item: "商品を購入しました"}
   end
 
@@ -38,9 +41,11 @@ class BuyController < ApplicationController
     @card = Card.where(user_id: current_user.id).first if Card.where(user_id: current_user.id).present?
   end
   
-  def whose_item#本人の出品商品ならbuyControllerは動かないようにする
-    item = Item.find(params[:id])
-    redirect_to root_path if item.user_id == current_user.id
+  def redirect_root#出品商品のuser_idとcurrent_user.idが同じの際、rootへ行く。ルーティングはは商品詳細ページに変えてもいい
+    item = Item.find(session["item_id"])
+    if item.user_id==current_user.id
+      redirect_to root_path
+    end
   end
 
 end
