@@ -16,6 +16,9 @@ Rails.application.routes.draw do
   end
 
   resources :products, only: [:show,:destroy,:create] do
+    member do
+      get :edit
+    end
     collection do
       get :sell
       get :search
