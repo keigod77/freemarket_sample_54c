@@ -7,6 +7,9 @@ class ProductsController < ApplicationController
     @brand_name = Brand.getBrandNamesArray
   end
 
+  def edit
+  end
+  
   def create
     item = Item.create(item_params)
     item.images.create(image: params[:image])
