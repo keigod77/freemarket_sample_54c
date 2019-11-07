@@ -1,9 +1,12 @@
 class CardsController < ApplicationController
   require "payjp"
-  before_action :set_card
+  before_action :set_card, except: :new
 
   def new#カード登録
-    redirect_to add_card_mypage_path if @card.present?
+    if user_signed_in?
+      @card = Card.where(user_id: current_user.id).first if Card.where(user_id: current_user.id).present?
+      redirect_to add_card_mypage_path if @card.present?
+    end
   end
 
   def create#payjpとcardのデータ作成

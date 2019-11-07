@@ -38,7 +38,7 @@
             %li.category-item
               %figure.product
                 .product__image-box
-                  =image_tag item.images[0].image.to_s,alt:"商品画像"
+                  =link_to image_tag(item.images[0].image.to_s, alt: "商品画像"), home_path(item)
                 .product__price
                   %span
                     ¥
@@ -59,7 +59,7 @@
             %li.category-item
               %figure.product
                 .product__image-box
-                  =image_tag item.images[0].image.to_s,alt:"商品画像"
+                  =link_to image_tag(item.images[0].image.to_s, alt: "商品画像"), home_path(item)
                 .product__price
                   %span
                     ¥
@@ -80,7 +80,7 @@
             %li.category-item
               %figure.product
                 .product__image-box
-                  =image_tag item.images[0].image.to_s,alt:"商品画像"
+                  =link_to image_tag(item.images[0].image.to_s, alt: "商品画像"), home_path(item)
                 .product__price
                   %span
                     ¥
@@ -101,7 +101,7 @@
             %li.category-item
               %figure.product
                 .product__image-box
-                  =image_tag item.images[0].image.to_s,alt:"商品画像"
+                  =link_to image_tag(item.images[0].image.to_s, alt: "商品画像"), home_path(item)
                 .product__price
                   %span
                     ¥
@@ -139,7 +139,7 @@
             %li.category-item
               %figure.product
                 .product__image-box
-                  =image_tag item.images[0].image.to_s,alt:"商品画像"
+                  =link_to image_tag(item.images[0].image.to_s, alt: "商品画像"), home_path(item)
                 .product__price
                   %span
                     ¥
@@ -160,7 +160,7 @@
             %li.category-item
               %figure.product
                 .product__image-box
-                  =image_tag item.images[0].image.to_s,alt:"商品画像"
+                  =link_to image_tag(item.images[0].image.to_s, alt: "商品画像"), home_path(item)
                 .product__price
                   %span
                     ¥
@@ -181,7 +181,7 @@
             %li.category-item
               %figure.product
                 .product__image-box
-                  =image_tag item.images[0].image.to_s,alt:"商品画像"
+                  =link_to image_tag(item.images[0].image.to_s, alt: "商品画像"), home_path(item)
                 .product__price
                   %span
                     ¥
@@ -202,7 +202,7 @@
             %li.category-item
               %figure.product
                 .product__image-box
-                  =image_tag item.images[0].image.to_s,alt:"商品画像"
+                  =link_to image_tag(item.images[0].image.to_s, alt: "商品画像"), home_path(item)
                 .product__price
                   %span
                     ¥

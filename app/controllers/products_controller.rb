@@ -1,6 +1,8 @@
 class ProductsController < ApplicationController
   before_action :set_item, only: [:show, :destroy]
   before_action :set_user, only: [:show]
+  before_action :authenticate_user!, only: [:sell]
+  before_action :no_image_is_back, only: :create
 
   def sell
     @parent_name = Category.getParentCategoriesArray
@@ -8,6 +10,7 @@ class ProductsController < ApplicationController
   end
 
   def create
+    binding.pry
     item = Item.create(item_params)
     item.images.create(image: params[:image])
         
@@ -59,5 +62,9 @@ class ProductsController < ApplicationController
 
   def set_user
     @user = User.find(@item.user_id)
+  end
+
+  def no_image_is_back
+    redirect_to sell_products_path, flash: {no_image: "画像は必須です"} unless params[:image]
   end
 end
