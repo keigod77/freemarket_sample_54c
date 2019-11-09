@@ -2,7 +2,7 @@ class BuyController < ApplicationController
   require 'payjp'
   before_action :set_card, if: :user_signed_in?
   before_action :authenticate_user!
-  before_action :redirect_root
+  before_action :redirect_root, except: :purchase
 
   def show
     @item = Item.find(params[:id])
