@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-  before_action :authenticate_user!, only: :logout
+  before_action :authenticate_user!, only: [:show, :logout]
 
   def index
     #レディース
