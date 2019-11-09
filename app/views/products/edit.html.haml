@@ -1,0 +1,146 @@
+.wrapper
+  = render partial: 'layouts/subheader'
+  .sell-wrapper
+    .sell-container
+      =form_with model: @item,url: product_path,method: :PATCH do |f|
+        .sell
+          %h2.sell__head
+            商品情報を入力
+          .sell__upload-img-box.form-required
+            %h3
+              出品画像
+              %span
+                必須
+            %p
+              最大10枚までアップロードできます。
+            .sell__upload-img-field
+              .preview
+                %ul.img-container.item-0
+              %label
+                .upload-field.item-0
+                  = f.file_field :image,style:"display:none;",id: "js-upload-img"
+                  %p
+                    ドラックアンドドロップ
+                    %br
+                      またはクリックしてファイルをアップロード
+          .sell__product-info-box
+            .sell__product-info-box--name.form-required
+              %label
+                商品名
+                %span
+                  必須
+              =f.text_field :name,placeholder:"商品名 (必須40文字まで)"
+            .sell__product-info-box--description.form-required
+              %label
+                商品の説明
+                %span
+                  必須
+              =f.text_area :description,placeholder:"商品の説明 (必須1000文字以内)"
+          .sell__product-detail-box
+            %h3.form-head-sub
+              商品の詳細
+            .select-box.form-required
+              .select-box__category
+                %label
+                  カテゴリー
+                  %span
+                    必須
+                #js-select-search
+                  = f.select :parent, options_for_select(@parent_name,@item.category.parent.parent.name),{},{class: "layout-select",id:"l_category"}
+                  = f.select :mcategory, options_for_select(@children_name,@item.category.parent.name),{},{class: "layout-select",id:"m_category"}
+                  = f.select :category_id, options_for_select(@grandchildren_name,@item.category.name),{},{class: "layout-select",id:"s_category"}
+
+              .select-box__brand
+                %label
+                  ブランド
+                  %span
+                    任意
+                %br
+                = f.select :brand_id, options_for_select(@brand_name,@item.brand.name),{},{class: "layout-select"}
+
+              .select-box__status
+                %label
+                  商品の状態
+                  %span
+                    必須
+                %br
+                = f.select :state, Item.states.keys.to_a,{},{class: "layout-select"}
+
+          .sell__delivery-info-box.form-required
+            %h3.form-head-sub
+              配送について
+            .select-box
+              .select-box__burden
+                %label
+                  配送料の負担
+                  %span
+                    必須
+                %br
+                = f.select :shipping_charge, Item.shipping_charges.keys.to_a,{},{class: "layout-select"}
+              .select-box__method
+                %label
+                  配送の方法
+                  %span
+                    必須
+                %br
+                = f.select :delivery_method, Item.delivery_methods.keys.to_a,{},{class: "layout-select"}
+
+              .select-box__origin-region
+                %label
+                  発送元の地域
+                  %span
+                    必須
+                %br
+                = f.select :region, Address.prefectures.keys.to_a,{},{class: "layout-select"}
+
+              .select-box__reach-day
+                %label
+                  発送までの日数
+                  %span
+                    必須
+                %br
+                = f.select :days_to_delivery, Item.days_to_deliveries.keys.to_a,{},{class: "layout-select"}
+          .sell__price-box
+            %h3.form-head-sub
+              販売価格(300〜9,999,999)
+            .price-box
+              .price-box__price.form-required
+                %label.l-left
+                  価格
+                  %span
+                    必須
+                .l-right
+                  %span
+                    ¥
+                  = f.text_field :price,placeholder:"例) 300",id:"js-price-form"
+              .price-box__fee
+                %span.l-left
+                  販売手数料(10%)
+                .l-right#js-commission-price
+                  &#45;
+              .price-box__profit
+                %span.l-left
+                  販売利益
+                .l-right#js-price
+                  &#45;
+          .sell__btns
+            .notice
+              %p
+                =link_to '禁止されている商品','#'
+                ,
+                =link_to '行為','#'
+                を必ずご確認ください。
+              %p
+                また、ブランド品でシリアルナンバー等がある場合はご記載ください。
+                =link_to '偽ブランド品の販売','#'
+                は犯罪であり処罰される可能性があります。
+              %p
+                また、出品を持ちまして
+                =link_to '加盟店契約','#'
+                に同意したことになります。
+            = f.button class:"btn-exhibit" do
+              変更する
+            %button.btn-back
+              %span
+                もどる
+  =render partial: 'layouts/subfooter'
