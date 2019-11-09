@@ -55,9 +55,9 @@ class ProductsController < ApplicationController
 
   def destroy
     image = @item.images
-    if current_user.id == item.user_id
+    if current_user.id == @item.user_id
       image.delete_all
-      item.delete
+      @item.delete
     end
     redirect_to root_path
   end
