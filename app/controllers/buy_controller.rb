@@ -31,7 +31,6 @@ class BuyController < ApplicationController
     Item.find(session[:item_id]).update_attribute(:exhibision_state, 1)
     #購入時buyer_idにcurrent_user.idを追加
     Item.find(session[:item_id]).update_attribute(:buyer_id, current_user.id)
-    binding.pry
     redirect_to root_path , flash: {buy_item: "商品を購入しました"}
   end
 
