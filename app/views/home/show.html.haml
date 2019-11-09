@@ -76,7 +76,6 @@
           (税込)
         %span.product__fee
           送料込み
-      -# -binding.pry
       -if @item.exhibision_state == 0
         =link_to '購入画面に進む',buy_path(@item),class:'product__buy-btn'
       -else
