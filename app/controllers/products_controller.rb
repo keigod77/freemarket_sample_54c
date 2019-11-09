@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :set_item, only: [:show, :destroy]
+  before_action :set_item, only: [:show, :edit, :update, :destroy]
   before_action :set_user, only: [:show]
 
   def sell
@@ -8,13 +8,27 @@ class ProductsController < ApplicationController
   end
 
   def edit
+    @parent_name = Category.getParentCategoriesArray
+    @children_name = Category.getChildrenCategoriesArray(@item.category.parent.parent_id)
+    @grandchildren_name = Category.getGrandchildrenCategoriesArray(@item.category.parent_id)
+    @brand_name = Brand.getBrandNamesArray
   end
-  
+
   def create
     item = Item.create(item_params)
     item.images.create(image: params[:image])
         
     redirect_to root_path
+  end
+  
+  def update
+    if current_user.id == @item.user_id
+      @item.update(update_item_params)
+      if params[:item][:image].present?
+        @item.images.delete_all
+        @item.images.create(image: params[:item][:image])
+      end
+    end
   end
 
   def search
@@ -54,6 +68,13 @@ class ProductsController < ApplicationController
       params[:brand_id] = Brand.find_by(name: params[:brand_id]).id
     end
     params.permit(:name,:description, :category_id, :brand_id, :size, :state, :shipping_charge, :delivery_method, :region, :days_to_delivery, :price).merge(user_id: current_user.id,exhibision_state: 0)
+  end
+
+  def update_item_params
+    if params[:item][:brand_id].present?
+      params[:item][:brand_id] = Brand.find_by(name: params[:item][:brand_id]).id
+    end
+    params.require(:item).permit(:name,:description, :category_id, :brand_id, :size, :state, :shipping_charge, :delivery_method, :region, :days_to_delivery, :price).merge(user_id: current_user.id,exhibision_state: 0)
   end
 
   def set_item
