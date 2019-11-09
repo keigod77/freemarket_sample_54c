@@ -3,6 +3,7 @@ class BuyController < ApplicationController
   before_action :set_card, if: :user_signed_in?
   before_action :authenticate_user!
   before_action :redirect_root, except: :purchase
+  before_action :already_purchased, only: :show
 
   def show
     @item = Item.find(params[:id])
@@ -21,17 +22,21 @@ class BuyController < ApplicationController
   end
 
   def purchase#https://pay.jp/docs/api/?ruby#支払いを作成
-    Payjp.api_key = Rails.application.credentials.payjp[:secret_key]
-    charge = Payjp::Charge.create(
-      :amount       => session[:amount],
-      :customer     => @current_user.cards[0].customer_id,
-      :currency     => 'jpy',
-    )
-    #購入時exhibision_stateを1にする
-    Item.find(session[:item_id]).update_attribute(:exhibision_state, 1)
-    #購入時buyer_idにcurrent_user.idを追加
-    Item.find(session[:item_id]).update_attribute(:buyer_id, current_user.id)
-    redirect_to root_path , flash: {buy_item: "商品を購入しました"}
+    if Item.find(session[:item_id]).exhibision_state == 0
+      Payjp.api_key = Rails.application.credentials.payjp[:secret_key]
+      charge = Payjp::Charge.create(
+        :amount       => session[:amount],
+        :customer     => @current_user.cards[0].customer_id,
+        :currency     => 'jpy',
+      )
+      #購入時exhibision_stateを1にする
+      Item.find(session[:item_id]).update_attribute(:exhibision_state, 1)
+      #購入時buyer_idにcurrent_user.idを追加
+      Item.find(session[:item_id]).update_attribute(:buyer_id, current_user.id)
+      redirect_to root_path , flash: {buy_item: "商品を購入しました"}
+    else
+      redirect_to root_path
+    end
   end
 
 
@@ -41,11 +46,15 @@ class BuyController < ApplicationController
   end
   
   def redirect_root#出品商品のuser_idとcurrent_user.idが同じの際、rootへ行く。ルーティングはは商品詳細ページに変えてもいい
-    # binding.pry
     item = Item.find(params[:id])
     if item.user_id==current_user.id
       redirect_to root_path
     end
+  end
+
+  def already_purchased
+    item = Item.find(params[:id])
+    redirect_to root_path if item.exhibision_state == 1
   end
 
 end
