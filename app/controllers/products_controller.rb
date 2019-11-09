@@ -30,6 +30,7 @@ class ProductsController < ApplicationController
         @item.images.delete_all
         @item.images.create(image: params[:item][:image])
       end
+      redirect_to root_path
     end
   end
 
