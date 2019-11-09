@@ -17,7 +17,6 @@ class ProductsController < ApplicationController
   end
 
   def create
-    binding.pry
     item = Item.create(item_params)
     item.images.create(image: params[:image])
         
