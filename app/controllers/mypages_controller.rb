@@ -22,6 +22,5 @@ class MypagesController < ApplicationController
       customer = Payjp::Customer.retrieve(@card.customer_id)
       @card_information = customer.cards.retrieve(@card.card_id)
     end
-
   end
 end
