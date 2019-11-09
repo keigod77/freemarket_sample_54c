@@ -23,6 +23,9 @@ class HomeController < ApplicationController
   
   def show
     @item = Item.find(params[:id])
+    if current_user.id == @item.user_id
+      redirect_to controller: 'products', action: 'show', id: @item.id
+    end
     @user = User.find(@item.user_id)
     # 複数枚画像を取得する際はwhereに変更する
     @image = Image.find_by(item_id: @item.id)
