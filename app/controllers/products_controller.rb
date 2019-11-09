@@ -10,10 +10,14 @@ class ProductsController < ApplicationController
   end
 
   def edit
-    @parent_name = Category.getParentCategoriesArray
-    @children_name = Category.getChildrenCategoriesArray(@item.category.parent.parent_id)
-    @grandchildren_name = Category.getGrandchildrenCategoriesArray(@item.category.parent_id)
-    @brand_name = Brand.getBrandNamesArray
+    if current_user.id == @item.user_id
+      @parent_name = Category.getParentCategoriesArray
+      @children_name = Category.getChildrenCategoriesArray(@item.category.parent.parent_id)
+      @grandchildren_name = Category.getGrandchildrenCategoriesArray(@item.category.parent_id)
+      @brand_name = Brand.getBrandNamesArray
+    else
+      redirect_to root_path
+    end
   end
 
   def create
@@ -47,10 +51,14 @@ class ProductsController < ApplicationController
   end
 
   def show
-    # 複数枚画像を取得する際はwhereに変更する
-    @image = @item.images.first
-    #child, parentは@grandchild.parentで取得可能
-    @grandchild = Category.find(@item.category_id)
+    if current_user.id == @item.user_id
+      # 複数枚画像を取得する際はwhereに変更する
+      @image = @item.images.first
+      #child, parentは@grandchild.parentで取得可能
+      @grandchild = Category.find(@item.category_id)
+    else
+      redirect_to root_path
+    end
   end
 
   def destroy
