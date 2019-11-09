@@ -41,7 +41,8 @@ class BuyController < ApplicationController
   end
   
   def redirect_root#出品商品のuser_idとcurrent_user.idが同じの際、rootへ行く。ルーティングはは商品詳細ページに変えてもいい
-    item = Item.find(session["item_id"])
+    # binding.pry
+    item = Item.find(params[:id])
     if item.user_id==current_user.id
       redirect_to root_path
     end
