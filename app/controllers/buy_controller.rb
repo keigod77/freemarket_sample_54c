@@ -2,7 +2,7 @@ class BuyController < ApplicationController
   require 'payjp'
   before_action :set_card, if: :user_signed_in?
   before_action :authenticate_user!
-  before_action :redirect_root
+  before_action :redirect_root, except: :purchase
 
   def show
     @item = Item.find(params[:id])
@@ -41,7 +41,6 @@ class BuyController < ApplicationController
   end
   
   def redirect_root#出品商品のuser_idとcurrent_user.idが同じの際、rootへ行く。ルーティングはは商品詳細ページに変えてもいい
-    # binding.pry
     item = Item.find(params[:id])
     if item.user_id==current_user.id
       redirect_to root_path
