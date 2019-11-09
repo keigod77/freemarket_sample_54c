@@ -2,12 +2,12 @@
   = render partial: 'layouts/subheader'
   .sell-wrapper
     .sell-container
-      =form_with url: products_path do |f|
+      =form_with model: @item,url: products_path do |f|
         .sell
           %h2.sell__head
             商品情報を入力
           .sell__upload-img-box.form-required
-            %h3
+            %h3 
               出品画像
               %span
                 必須
