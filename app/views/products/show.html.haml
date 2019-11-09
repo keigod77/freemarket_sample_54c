@@ -82,7 +82,7 @@
 
     .product-changestatus-btns-container
       .product-changestatus-btns
-        =link_to '商品の編集','#',class: "btn"
+        =link_to '商品の編集',edit_product_path,id: @item.id, class: "btn"
         %p
           or
         =link_to '出品を再開する','#',class: "btn"

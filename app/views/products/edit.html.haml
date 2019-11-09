@@ -2,12 +2,12 @@
   = render partial: 'layouts/subheader'
   .sell-wrapper
     .sell-container
-      =form_with model: @item,url: products_path do |f|
+      =form_with model: @item,url: product_path,method: :PATCH do |f|
         .sell
           %h2.sell__head
             商品情報を入力
           .sell__upload-img-box.form-required
-            %h3 
+            %h3
               出品画像
               %span
                 必須
@@ -46,7 +46,9 @@
                   %span
                     必須
                 #js-select-search
-                  = f.select :parent, @parent_name,{},{class: "layout-select",id:"l_category"}
+                  = f.select :parent, options_for_select(@parent_name,@item.category.parent.parent.name),{},{class: "layout-select",id:"l_category"}
+                  = f.select :mcategory, options_for_select(@children_name,@item.category.parent.name),{},{class: "layout-select",id:"m_category"}
+                  = f.select :category_id, options_for_select(@grandchildren_name,@item.category.name),{},{class: "layout-select",id:"s_category"}
 
               .select-box__brand
                 %label
@@ -54,7 +56,7 @@
                   %span
                     任意
                 %br
-                = f.select :brand_id, @brand_name,{},{class: "layout-select"}
+                = f.select :brand_id, options_for_select(@brand_name,@item.brand.name),{},{class: "layout-select"}
 
               .select-box__status
                 %label
@@ -137,7 +139,7 @@
                 =link_to '加盟店契約','#'
                 に同意したことになります。
             = f.button class:"btn-exhibit" do
-              出品する
+              変更する
             %button.btn-back
               %span
                 もどる

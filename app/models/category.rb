@@ -7,6 +7,18 @@ class Category < ApplicationRecord
     parent_name = parent_category.pluck(:name)
     return parent_name
   end
+
+  def self.getChildrenCategoriesArray(search_id)
+    children_category = Category.where(parent_id: search_id)
+    children_name = children_category.pluck(:name,:id)
+    return children_name
+  end
+
+  def self.getGrandchildrenCategoriesArray(search_id)
+    grandchildren_category = Category.where(parent_id: search_id)
+    grandchildren_name = grandchildren_category.pluck(:name,:id)
+    return grandchildren_name
+  end
   
   enum grandchildcategory: {
     美容機器: 1000
