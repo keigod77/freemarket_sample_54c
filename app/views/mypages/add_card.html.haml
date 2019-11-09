@@ -9,12 +9,27 @@
       %h2.add-card-contents__header
         支払い方法
       .add-card-contents__main
+
         %h3.add-card-contents__main--title
           クレジットカード一覧
-        -# =link_to "クレジットカードを追加する", root_path, class: "btn-card"
-        =link_to new_card_path, class: "btn-card" do
-          %i.fas.fa-credit-card.btn-card-icon
-          クレジットカードを追加する 
+          -if current_user.cards
+            .card-show__list
+              .card-information
+                %figure
+                  -# 画像も条件分岐する@card_information.brand => 'Visa' で取得可能
+                  =image_tag asset_path("card_image_visa.jpg"), class: "card-place-of-payment"
+                  = link_to '削除する', delete_card_path, class: 'card-delete', method: :delete
+                .settings-payment-num 
+                  = "**** **** **** " + @card_information.last4
+                .settings-payment-num
+                  - exp_month = @card_information.exp_month.to_s
+                  - exp_year  = (@card_information.exp_year - 2000).to_s
+                  = exp_month + "/" + exp_year
+          -else
+            -# =link_to "クレジットカードを追加する", root_path, class: "btn-card"
+            =link_to new_card_path, class: "btn-card" do
+              %i.fas.fa-credit-card.btn-card-icon
+              クレジットカードを追加する 
 
       .add-card-contents__footer
         .about-paymant-method
